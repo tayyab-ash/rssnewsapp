@@ -1,0 +1,57 @@
+.section{
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.areacontainer{
+    min-height: 600px;
+}
+
+
+.headingtext{
+    padding-top: 3rem;
+}
+.lighttext{
+    color: #FBB244;
+    background-color: #FEF0DC;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 16px;
+    border-radius: 50px;
+}
+.maintext{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    color: #091059;
+}
+.desctext{
+    color: #7F7F7F;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    line-height: 1.4rem;
+    font-weight: 500;
+}
+
+.contactbtn{
+    font-family: "Open Sans", sans-serif;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 500;
+    background-color: #091059;
+    color: white;
+    margin-right: 14px;
+    outline: none;
+    border: 1px solid #091059;
+    transition: 0.2s;
+}
+
+ .contactbtn:hover{
+    background: white;
+    color: #091059;
+}
+
+.form-control:focus{
+    border-color: #091059;
+    box-shadow: none
+}

@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.sliderwrap{
+    position: relative;
+}
+
+.testimonalnav{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    /* background-color: green; */
+}
+
+.testimonalnav .prev{
+    cursor: pointer;
+    position: absolute;
+    font-size: 20px;
+    left: -50px;
+    color: #7C7C7D;
+    transform: translateY(-50%);
+    
+}
+.testimonalnav .next{
+    cursor: pointer;
+    position: absolute;
+    font-size: 20px;
+    right: -25px;
+    color: #7C7C7D;
+    transform: translateY(-50%);
+}
+
+.pagination{
+    position: absolute;
+    margin-bottom: 30px;
+    bottom: -60px;
+    z-index: 10;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.pagination button{
+    background: none;
+    border: none;
+    display: inline-block;
+    position: relative;
+    width: 0px;
+    margin: 8px;
+}
+.pagination button::before{
+    /* display: block; */
+    width: 7px;
+    height: 7px;
+    /* left: 0; */
+    /* top: 0; */
+    position: absolute;
+    content: "";
+    border-radius: 50%;
+    background-color: #7C7C7D;
+}
+
+
+
+.items{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.item{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(235, 235, 235);
+    border-radius: 5px;
+    transition: 0.3s;
+}
+.item:hover{
+    border: 1px solid #091059;
+}
+
+.testimonalv2{
+    padding: 40px;
+    text-align: left;
+}
+.testimonalv2 p{
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 2rem;
+}
+
+.authorpic{
+    flex: 0 0 40px;
+    margin-right: 20px;
+    /* display: flex; */
+}
+.authorpic img{
+    border-radius: 50%;
+    width: 40px;
+}
+
+.authorname h3{
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0;
+}
+.authorname span{
+    font-family: "Open Sans", sans-serif;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+
+@media screen and (max-width: 992px) {
+    
+  }

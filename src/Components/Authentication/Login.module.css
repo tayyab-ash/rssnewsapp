@@ -1,0 +1,190 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.mypagebody{
+    /* background: linear-gradient(to bottom, #091059, #1465d677); */
+    background-color: #091059;
+}
+
+.loginside{
+    /* background: linear-gradient(to bottom, #091059, #1465d6bb); */
+    min-height: 100vh;
+}
+
+.loginH{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    color: white;
+}
+.loginH2{
+    font-family: "Montserrat", sans-serif;
+    font-size: 40px;
+    color: white;
+}
+
+.img{
+    position: relative;
+    display: inline;
+    z-index: 1;
+}
+.img::after{
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: -10px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    z-index: -1;
+}
+
+.logoimg{
+    border-radius: 5px;
+}
+
+.copyright{
+    color: #e0e0e0;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    line-height: 1.4rem;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+.desctext{
+    color: #e0e0e0;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    line-height: 1.4rem;
+    font-weight: 500;
+}
+
+
+/* FORM */
+
+.loginform{
+    background-color: white;
+}
+.formH{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+    color: #091059;
+}
+
+.labeltxt{
+    color: #7F7F7F;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    line-height: 1.4rem;
+    font-weight: 500;
+    margin-left: 20px;
+}
+.remembermetxt{
+    color: #7F7F7F;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    line-height: 1.4rem;
+    font-weight: 500;
+    /* margin-left: 20px; */
+}
+
+.wrong{
+    color: #f63c3c;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    line-height: 1.4rem;
+    font-weight: 500;
+    margin-left: 20px;
+}
+
+.linktxt{
+    color: #091059;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 4px;
+}
+.linktxt:hover{
+    color: #091059be;
+}
+
+.form-control{
+    padding: 12px 24px ;
+    transition: 0.5s;
+    border-radius: 50px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #602525;
+}
+
+.form-control:focus{
+    border-color: #091059;
+    box-shadow: none
+}
+
+.form-check-input{
+    transition: 0.2s;
+}
+
+.form-check-input:focus{
+    box-shadow: none
+}
+
+
+.loginbtn{
+    font-family: "Open Sans", sans-serif;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 500;
+    background-color: #091059;
+    color: white;
+    margin-right: 14px;
+    outline: none;
+    border: 1px solid #091059;
+    transition: 0.2s;
+}
+
+ .loginbtn:hover{
+    background: white;
+    color: #091059;
+}
+
+.googlebtn{
+    font-family: "Open Sans", sans-serif;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 400;
+    background-color: white;
+    color: #545454;
+    margin-right: 14px;
+    outline: none;
+    border: 1px solid #dee2e6;
+    transition: 0.2s;
+}
+.googlebtn:hover{
+    background-color: #4181ef0e;
+}
+
+.gbutton{
+    position: relative;
+}
+
+.gbutton::before{
+    position: absolute;
+    content: '';
+    background: url(/src/Components/Authentication/images/google.png);
+    background-size: cover;
+    height: 30px;
+    width: 30px;
+    left: 10px;
+    top: 10px;
+}

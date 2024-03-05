@@ -1,0 +1,132 @@
+.herosection{
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    min-height: 600px;
+    position: relative;
+}
+/* .headingtext{
+    width: 41%;
+} */
+
+.lighttext{
+    color: #FBB244;
+    background-color: #FEF0DC;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 16px;
+    border-radius: 50px;
+}
+.maintext{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    color: #091059;
+}
+.desctext{
+    color: #7F7F7F;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    line-height: 1.4rem;
+    font-weight: 500;
+}
+
+.bttns{
+    padding: 12px 30px;
+    font-family: "Open Sans", sans-serif;
+    border-radius: 50px;
+    border: none;
+    font-weight: 500;
+    outline: none;
+}
+
+.headingtext .getstrtbtn{
+    background: #091059;
+    margin-right: 14px;
+    color: white;
+    transition: 0.2s;
+    outline: none;
+    border: 1px solid #091059;
+
+}
+ .getstrtbtn:hover{
+    background: white;
+    color: #091059;
+}
+
+.headingtext .cntctbtn{
+    background-color: white;
+    color: #091059;
+    border: 1px solid #091059;
+    outline: none;
+    transition: 0.2s;
+}
+
+.cntctbtn:hover{
+    background-color: #091059;
+    color: white;
+}
+
+
+
+/* SECTION #2 */
+/* .textsection{
+    width: 41%;
+} */
+.section2{
+    margin-bottom: 6rem;
+}
+
+.featurestxt{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+}
+
+.feature{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.imgsection{
+    position: relative;
+    display: inline;
+}
+.imgsection::before{
+    content: "";
+    position: absolute;
+    top: -24px;
+    left: -18px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #FED8A6;
+}
+
+
+/* SECTION #3 */
+.section3{
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+/* SECTION #4 */
+.section4{
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+/* SECTION #5 */
+.section5{
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+
+
+
+@media screen and (max-width: 992px) {
+    .hero{
+        flex-direction: column;
+    }
+    .header{
+        display: hidden;
+    }
+  }

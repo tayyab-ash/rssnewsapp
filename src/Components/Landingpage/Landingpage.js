@@ -1,10 +1,8 @@
 import React from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Header from "./Header";
 import Carousel from "./Carousel";
 import Testimonals from "./Testimonals";
-import Footer from "./Footer";
 import lpstyles from "./Landingpage.module.css";
 import {Link} from 'react-router-dom'
 
@@ -19,15 +17,10 @@ function Landingpage() {
   AOS.init();
   return (
     <div>
-
-      {/* HEADER */}
-      <div className={`${lpstyles.header}`}>
-      <Header />
-      </div>
       
       {/* HERO SECTION */}
       <div className={`${lpstyles.herosection}`}>
-        <div className={`container`}>
+        <div className={` ${lpstyles.herobg} container`}>
           <div className="row justify-content-between">
             <div className={`${lpstyles.headingtext} col-lg-5`}>
               <span className={`${lpstyles.lighttext}`} data-aos="fade-up">
@@ -166,7 +159,7 @@ function Landingpage() {
       </div>
 
       {/* SECTION #5 - TESTIMONAL */}
-      <div className={`${lpstyles.section5} bg-light`}>
+      <div className={`${lpstyles.section5} bg-ligh`}>
         <div className={`container`}>
           <div className={`row`}>
             <div className={`col-lg-8 mx-auto text-center mb-5`}
@@ -186,11 +179,6 @@ function Landingpage() {
             <Testimonals/>
           </div>
         </div>
-      </div>
-
-      {/* FOOTER */}
-      <div className={`${lpstyles.footer}`}>
-      <Footer/>
       </div>
      
     </div>

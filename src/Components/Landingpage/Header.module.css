@@ -6,6 +6,15 @@
 body{
     font-family: "Open Sans", sans-serif;
 }
+:root{
+    --primaryBlue: #091059;
+    --primaryYellow: #FBB244;
+    --white: white;
+    --black: black;
+    --gray: #7F7F7F;
+    --transparent: rgba(255, 255, 255, 0); 
+}
+
 .new{
     height: 60px;
     margin-top: 2rem;
@@ -15,53 +24,97 @@ body{
 .links{
     list-style: none;
 }
-.links a{
-    text-decoration: none;
+.links li{
     padding: 10px 15px;
+}
+.links li a{
+    text-decoration: none;
     font-size: 14px;
-    color: #4B4A4C;
+    color: var(--black);
+    color: var(--white);
     font-weight: 500;
 }
-.links a:hover{
-    color: black;
-}
+
+/* .links li a:hover{
+    border-bottom: 2px solid var( --primaryBlue);
+} */
 
 .buttons button{
-    background-color: #091059;
-    color: #FBB244;
+    background-color: var( --primaryBlue);
+    background-color: var(--primaryYellow);
+    color: var(--white);
+    /* color: var( --primaryBlue); */
     border: none;
     padding:8px 12px;
     border-radius: 50px;
     transition: 0.2s;
     font-weight: 600;
     font-size: 14px;
-    /* margin-left: 15px; */
+    border: 1px solid var( --primaryBlue);
+    border: 1px solid var(--primaryYellow);
+    margin-left: 15px;
 }
-/* .buttons a{
-    text-decoration: none;
-    color: #FBB244;
-} */
+
 .buttons button:hover{
-    background-color: white;
-    color: #091059;
-    border: 2px solid #dfdfdf;
+    background-color: var(--transparent);
+    color: var( --primaryBlue);
+    color: var(--primaryYellow);
 
 }
 .loginbtn{
     width: 100px;
-    /* margin-right: 15px; */
 }
 .signupbtn{
     width: 100px;
     margin-left: -10px;
 }
 
+.menuico{
+    display: none !important;
+}
+
+.linkhover:hover{
+    color: var(--primaryYellow);
+}
+.dropdown-menu{
+    min-width: 6rem;
+    background-color: rgba(0, 0, 0, 0.400);
+    /* backdrop-filter: blur(10px); */
+    border: none;
+    /* margin-top: 10px !important; */
+    /* left: 10px; */
+    /* inset: 0px; */
+    inset: 6px auto auto -10px !important;
+    /* top: 50px; */
+    transform: translate3D(15px, 28px, 0px);
+    transition: 0.2s;
+}
+.dropdown-item{
+    padding: 6px;
+    width: auto;
+    color: var(--white);
+    font-size: 14px;
+    margin-left: 8px;
+    margin-right: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.dropdown-item:hover{
+    background-color: var(--primaryYellow);
+    color: white;
+}
+
+.active{
+    background-color: var(--primaryYellow);
+    color: white;
+}
+
 @media screen and (max-width: 992px) {
-    .links a{
-        display: none;
+    .links{
+        display: none !important;
     }
-    .buttons button{
-        display: none;
+    .menuico{
+        display: block !important;
     }
   }
 

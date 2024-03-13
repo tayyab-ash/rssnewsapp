@@ -1,26 +1,19 @@
 import React from "react";
 import aboutstyle from "./AboutUs.module.css";
-import about from "./images/Aboutus.jpg";
+import about from "./images/Aboutus.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Testimonals from "./Testimonals";
-import Header from "./Header";
-import Footer from "./Footer";
 import person1 from "./images/profile.jpg";
-import facebook from "./images/facebook.png";
-import instagram from "./images/instagram.png";
-import twitter from "./images/twitter.png";
+// import facebook from "./images/facebook.png";
+// import instagram from "./images/instagram.png";
+// import twitter from "./images/twitter.png";
 import {Link} from 'react-router-dom'
 
 function AboutUs() {
   AOS.init();
   return (
     <div>
-      {/* HEADER */}
-      <div className={``}>
-        <Header />
-      </div>
-
       {/* SECTION #1 - ABOUT US */}
       <div className={`${aboutstyle.section1}`}>
         <div className={`container`}>
@@ -270,11 +263,6 @@ function AboutUs() {
             <Testimonals />
           </div>
         </div>
-      </div>
-
-      {/* FOOTER */}
-      <div className={``}>
-        <Footer />
       </div>
     </div>
   );

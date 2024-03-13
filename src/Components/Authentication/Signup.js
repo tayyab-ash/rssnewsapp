@@ -9,12 +9,12 @@ import "aos/dist/aos.css";
 
 function Signup() {
     AOS.init();
-  useEffect(() => {
-    document.body.classList.add(loginstyle.mypagebody);
-    return () => {
-      document.body.classList.remove(loginstyle.mypagebody);
-    };
-  }, []);
+    useEffect(() => {
+      document.body.style.background = '#091059'
+      return () => {
+        document.body.style.background = ''
+      };
+    }, []);
 
   return (
     <div>

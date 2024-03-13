@@ -5,10 +5,10 @@
 }
 
 
-.mypagebody{
-    /* background: linear-gradient(to bottom, #091059, #1465d677); */
+/* .mypagebody{
     background-color: #091059;
-}
+    background-color: #09105900;
+} */
 
 .loginside{
     /* background: linear-gradient(to bottom, #091059, #1465d6bb); */
@@ -70,6 +70,14 @@
 
 .loginform{
     background-color: white;
+    /* background: 
+  linear-gradient(210deg, #0b0d1f, rgba(255, 255, 255, 0) 35%),
+  linear-gradient( 180deg, #fbb2447a, rgb(0 0 0 / 0%) 16%
+  ),
+  linear-gradient(280deg, #0b0d1f, rgba(255, 255, 255, 0) 40%),
+  linear-gradient(230deg, #4151ff, rgb(0 0 255 / 0%) 30%); */
+
+  /* background-color: #20212e; */
 }
 .formH{
     font-family: "Montserrat", sans-serif;

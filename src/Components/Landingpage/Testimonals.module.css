@@ -70,12 +70,27 @@
     justify-content: center;
     gap: 10px;
 }
+
 .item{
-    background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(235, 235, 235);
-    border-radius: 5px;
+    /* yellow and blue */
+    /* background: linear-gradient(140deg, #fff9e4, white,#e8eaff); */
+    /* only blue */
+    background: linear-gradient(320deg, #e8eaff, white, white);
+    /* only yellow */
+    /* background: linear-gradient(140deg, #fff9e4, white, white);  */
+    /* background: 
+    linear-gradient(230deg, white, rgba(255, 255, 255, 0) 35%),
+    linear-gradient( 200deg, #fbb24474, rgb(0 0 0 / 0%) 40%
+    ), 
+    linear-gradient(280deg, white, rgba(255, 255, 255, 0) 40%),
+    linear-gradient(320deg, white, rgba(255, 255, 255, 0) 40%),
+    linear-gradient(350deg, #2d3bda74, rgb(0 0 255 / 0%) 35%); */
+    
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 10px;
     transition: 0.3s;
 }
+
 .item:hover{
     border: 1px solid #091059;
 }

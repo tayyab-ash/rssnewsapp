@@ -1,21 +1,14 @@
 import React from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Header from "./Header";
-import Footer from "./Footer";
 import ctstyle from "./ContactUs.module.css";
-import contact from "./images/contactUs.jpg";
+import contact from "./images/contactUs.png";
 
 
 function ContactUs() {
     AOS.init();
   return (
     <div>
-      <div className={``}>
-        <Header />
-      </div>
-
-      {/* #SECTION */}
       <div className={`${ctstyle.section}`}>
         <div className="container">
           <div
@@ -83,10 +76,6 @@ function ContactUs() {
             </div>
           </div>
         </div>
-      </div>
-
-      <div className={``}>
-        <Footer />
       </div>
     </div>
   );

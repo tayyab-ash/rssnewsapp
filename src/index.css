@@ -10,10 +10,35 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-color: #071020;
-  background-color: #0F1035;
-  background-color: #070F2B;
-  background-color: #161b31; */
+
+
+  /* background: url(/Untitled-4.png);
+  background-repeat: no-repeat;
+  background-size: contain; */
+  
+  /* background: 
+  linear-gradient(210deg, white, rgba(255, 255, 255, 0) 35%),
+  linear-gradient( 180deg, #fbb2447a, rgb(0 0 0 / 0%) 16%
+  ),
+  linear-gradient(280deg, white, rgba(255, 255, 255, 0) 40%),
+  linear-gradient(230deg, #4151ff, rgb(0 0 255 / 0%) 30%); */
+
+  /* background: 
+  linear-gradient(210deg, black, rgba(255, 255, 255, 0) 35%),
+  linear-gradient( 180deg, #fbb2447a, rgb(0 0 0 / 0%) 16%
+  ),
+  linear-gradient(280deg, black, rgba(255, 255, 255, 0) 40%),
+  linear-gradient(230deg, #4151ff, rgb(0 0 255 / 0%) 30%); */
+
+  background: 
+  linear-gradient(210deg, #0b0d1f, rgba(255, 255, 255, 0) 35%),
+  linear-gradient( 180deg, #fbb2447a, rgb(0 0 0 / 0%) 16%
+  ),
+  linear-gradient(280deg, #0b0d1f, rgba(255, 255, 255, 0) 40%),
+  linear-gradient(230deg, #4151ff, rgb(0 0 255 / 0%) 30%);
+
+  background-color: #0b0d1f;
+  /* background-color: rgb(28, 29, 41); */
 }
 
 code {

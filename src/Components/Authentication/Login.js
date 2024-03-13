@@ -7,12 +7,18 @@ import AOS from "aos";
 import { NavLink, Link } from 'react-router-dom'
 import "aos/dist/aos.css";
 
+import { useContext } from "react";
+import themeContext from "../Context/Theme/ThemeContext";
+
 function Login() {
+  const bg = useContext(themeContext)
     AOS.init();
   useEffect(() => {
-    document.body.classList.add(loginstyle.mypagebody);
+    document.body.style.background = '#091059'
+    // document.body.style.background = '#0b0d1f'
     return () => {
-      document.body.classList.remove(loginstyle.mypagebody);
+      document.body.style.background = '';
+      document.body.style.background = bg.theme
     };
   }, []);
 

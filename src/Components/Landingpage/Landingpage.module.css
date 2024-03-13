@@ -4,13 +4,26 @@
     min-height: 600px;
     position: relative;
 }
-/* .headingtext{
-    width: 41%;
-} */
+
+:root{
+    --primaryBlue: #091059;
+    --lightBlue: #bdc4fbb7;
+    --primaryYellow: #FBB244;
+    --lightYellow: #FEF0DC;
+    --white: white;
+    --black: black;
+    --gray: #7F7F7F;
+    --gray2: #cccccc;
+    --transparent: rgba(255, 255, 255, 0);
+}
+
+
 
 .lighttext{
-    color: #FBB244;
-    background-color: #FEF0DC;
+    color: var(--primaryYellow);
+    /* color: var(--primaryBlue); */
+    background-color: var(--lightYellow);
+    background-color: var(--white);
     font-size: 12px;
     font-weight: bold;
     padding: 4px 16px;
@@ -20,10 +33,11 @@
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
     font-size: 40px;
-    color: #091059;
+    color: var(--primaryBlue);
+    color: var(--primaryYellow);
 }
 .desctext{
-    color: #7F7F7F;
+    color: var(--gray2);
     font-family: "Open Sans", sans-serif;
     font-size: 14px;
     line-height: 1.4rem;
@@ -40,30 +54,35 @@
 }
 
 .headingtext .getstrtbtn{
-    background: #091059;
+    background-color: var(--primaryBlue);
+    border: 1px solid var(--primaryBlue);
     margin-right: 14px;
-    color: white;
+    color: var(--white);
     transition: 0.2s;
     outline: none;
-    border: 1px solid #091059;
-
+    background-color: var(--primaryYellow);
+    border: 1px solid var(--primaryYellow);
 }
  .getstrtbtn:hover{
-    background: white;
-    color: #091059;
+    background-color: var(--transparent);
+    color: var(--primaryBlue);
+    color: var(--primaryYellow);
 }
 
 .headingtext .cntctbtn{
-    background-color: white;
-    color: #091059;
-    border: 1px solid #091059;
+    background-color: var(--transparent);
+    color: var(--primaryBlue);
+    color: var(--primaryYellow);
+    border: 1px solid var(--primaryBlue);
+    border: 1px solid var(--primaryYellow);
     outline: none;
     transition: 0.2s;
 }
 
 .cntctbtn:hover{
-    background-color: #091059;
-    color: white;
+    background-color: var(--primaryBlue);
+    background-color: var(--primaryYellow);
+    color: var(--white);
 }
 
 
@@ -89,6 +108,7 @@
     position: relative;
     display: inline;
 }
+
 .imgsection::before{
     content: "";
     position: absolute;

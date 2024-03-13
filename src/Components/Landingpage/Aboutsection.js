@@ -1,6 +1,6 @@
 import React from 'react'
 import aboutsec from "./Landingpage.module.css"
-import about from "./images/Aboutus.jpg";
+import about from "./images/Aboutus.png";
 import {Link} from 'react-router-dom'
 
 function Aboutsection() {

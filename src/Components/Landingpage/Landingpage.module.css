@@ -1,47 +1,74 @@
 .herosection{
-    padding-top: 6rem;
+    padding-top: 12rem;
     padding-bottom: 6rem;
-    min-height: 600px;
+    /* min-height: 600px; */
     position: relative;
+    /* margin-top: 4rem; */
+    /* padding-top: 2rem; */
 }
 
 :root{
     --primaryBlue: #091059;
-    --lightBlue: #bdc4fbb7;
+    /* --primaryBlue2: #060b41; */
+    --lightBlue: rgba(9, 16, 89, 0.304);
     --primaryYellow: #FBB244;
-    --lightYellow: #FEF0DC;
+    --bodyDark: #171720;
+    --bodyDark2: rgb(27, 27, 35);
+    --lightYellow: rgba(251, 178, 68, 0.4);
     --white: white;
     --black: black;
-    --gray: #7F7F7F;
+    --gray: #6d6d6d;
     --gray2: #cccccc;
     --transparent: rgba(255, 255, 255, 0);
 }
 
 
 
+
 .lighttext{
-    color: var(--primaryYellow);
-    /* color: var(--primaryBlue); */
+    color: var(--white);
+    
     background-color: var(--lightYellow);
-    background-color: var(--white);
+    /* background-color: rgba(9, 16, 89, 0.1); */
+    /* background-color: var(--primaryYellow); */
     font-size: 12px;
     font-weight: bold;
     padding: 4px 16px;
     border-radius: 50px;
 }
-.maintext{
+
+.lighttextDark{
+    background-color: var(--lightYellow);
+}
+.lighttextLight{
+    color: var(--primaryYellow);
+    color: var(--primaryBlue);
+}
+
+
+.headings{
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
     font-size: 40px;
-    color: var(--primaryBlue);
+}
+.headingsDark{
     color: var(--primaryYellow);
 }
+.headingsLight{
+    color: var(--primaryBlue);
+}
+
 .desctext{
-    color: var(--gray2);
     font-family: "Open Sans", sans-serif;
     font-size: 14px;
     line-height: 1.4rem;
     font-weight: 500;
+}
+.descDark{
+    color: var(--gray2);
+}
+.descLight{
+    color: var(--gray);
 }
 
 .bttns{
@@ -54,35 +81,60 @@
 }
 
 .headingtext .getstrtbtn{
-    background-color: var(--primaryBlue);
-    border: 1px solid var(--primaryBlue);
     margin-right: 14px;
     color: var(--white);
     transition: 0.2s;
     outline: none;
-    background-color: var(--primaryYellow);
-    border: 1px solid var(--primaryYellow);
 }
- .getstrtbtn:hover{
+
+.getstrtbtn:hover{
     background-color: var(--transparent);
-    color: var(--primaryBlue);
+}
+
+.btndark{
+    background-color: var(--primaryYellow);
+    color: var(--white);
+    border: 1px solid var(--primaryYellow) !important;
+}
+.btndark:hover{
     color: var(--primaryYellow);
 }
 
+.btnlight{
+    background-color: var(--primaryBlue);
+    color: var(--white);
+    border: 1px solid var(--primaryBlue) !important;
+}
+.btnlight:hover{
+    color: var(--primaryBlue);
+}
+
+
 .headingtext .cntctbtn{
     background-color: var(--transparent);
-    color: var(--primaryBlue);
-    color: var(--primaryYellow);
-    border: 1px solid var(--primaryBlue);
-    border: 1px solid var(--primaryYellow);
     outline: none;
     transition: 0.2s;
 }
 
 .cntctbtn:hover{
-    background-color: var(--primaryBlue);
-    background-color: var(--primaryYellow);
     color: var(--white);
+}
+
+.btn2dark{
+    color: var(--primaryYellow);
+    border: 1px solid var(--primaryYellow) !important;
+}
+.btn2dark:hover{
+    background-color: var(--primaryYellow) ;
+}
+
+.btn2light{
+    background-color: var(--primaryBlue);
+    color: var(--primaryBlue);
+    border: 1px solid var(--primaryBlue) !important;
+}
+.btn2light:hover{
+    background-color: var(--primaryBlue);
 }
 
 
@@ -99,6 +151,13 @@
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
 }
+.featureDark{
+    color: white;
+}
+.featureLight{
+    color: black;
+}
+
 
 .feature{
     padding-left: 50px;
@@ -107,6 +166,11 @@
 .imgsection{
     position: relative;
     display: inline;
+}
+
+.img{
+    filter: invert();
+    opacity: 100 !important;
 }
 
 .imgsection::before{
@@ -120,6 +184,10 @@
     background-color: #FED8A6;
 }
 
+.imgsectionBgDark::before{
+    background-color: var(--primaryYellow);
+}
+
 
 /* SECTION #3 */
 .section3{
@@ -131,12 +199,28 @@
 .section4{
     padding-top: 6rem;
     padding-bottom: 6rem;
+    
+}
+
+.section4Dark{
+    background : 
+    linear-gradient(180deg, #171720, rgba(255, 255, 255, 0) 20%),
+    linear-gradient(320deg, rgba(255, 234, 159, 0.1),#171720 40%);
+}
+.section4Light{
+    background : 
+    linear-gradient(180deg, #ffffff, rgba(255, 255, 255, 0) 20%),
+    linear-gradient(320deg, rgba(65, 81, 255, 0.15), #ffffff 40%);
 }
 
 /* SECTION #5 */
 .section5{
     padding-top: 6rem;
     padding-bottom: 6rem;
+}
+
+.bgdark{
+    background-color: var(--bodyDark2);
 }
 
 

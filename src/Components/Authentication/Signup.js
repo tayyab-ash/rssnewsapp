@@ -1,20 +1,29 @@
 import React from "react";
 import loginstyle from "./Login.module.css";
-import loginimg from "./images/login.jpg";
+// import loginimg from "./images/login.jpg";
 import logo from "../Landingpage/images/Black and White Monogram Business Logo.png";
 import { useEffect } from "react";
-import { NavLink, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useContext } from "react";
+import themeContext from "../Context/Theme/ThemeContext";
 
 function Signup() {
     AOS.init();
+    const mode = useContext(themeContext)
     useEffect(() => {
-      document.body.style.background = '#091059'
+      if(mode.theme === "dark"){
+        document.body.style.background = '#171720'
+      }
+      else{
+        document.body.style.background = '#060b41'
+      }
       return () => {
-        document.body.style.background = ''
+        document.body.style.background = '';
+        // document.body.style.background = bg.theme
       };
-    }, []);
+    }, [mode.theme]);
 
   return (
     <div>
@@ -67,7 +76,7 @@ function Signup() {
           >
             <div className="col-lg-7 col-md-8 col-sm-8 col-8 pt-5">
               <div className="text-center">
-                <h2 className={`${loginstyle.formH} mb-5`}>
+                <h2 className={`${loginstyle.formH} ${mode.theme === "dark"? loginstyle.formHdark:""} mb-5`}>
                   Let's get started
                 </h2>
               </div>
@@ -187,11 +196,11 @@ function Signup() {
                   class={`${`${loginstyle.remembermetxt}`} form-check-label`}
                   for="dropdownCheck"
                 >
-                  I have accepted the  <a className={`${loginstyle.linktxt}`} href="/">Terms & Conditions</a>
+                  I have accepted the  <a className={`${loginstyle.linktxt} ${mode.theme === "dark"? loginstyle.linktxtDark:""}`} href="/">Terms & Conditions</a>
                 </label>
               </div>
               <div className="mt-3">
-                <button className={`${loginstyle.loginbtn} w-100`}>
+                <button className={`${loginstyle.loginbtn} ${mode.theme === "dark"? loginstyle.btnDark:""} w-100`}>
                   Signup
                 </button>
               </div>
@@ -209,7 +218,7 @@ function Signup() {
                 </button>
               </div>
               <div className={`text-center mt-2`}>
-                <span className={`${loginstyle.labeltxt}`}>Already have an account?<Link className={`${loginstyle.linktxt}`} to="/login">login here</Link></span> 
+                <span className={`${loginstyle.labeltxt}`}>Already have an account?<Link className={`${loginstyle.linktxt} ${mode.theme === "dark"? loginstyle.linktxtDark:""}`} to="/login">login here</Link></span> 
               </div>
             </div>
           </form>

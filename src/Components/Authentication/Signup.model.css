@@ -4,6 +4,21 @@
     box-sizing: border-box;
 }
 
+:root{
+    --primaryBlue: #091059;
+    /* --primaryBlue2: #060b41; */ 
+    --lightBlue: rgba(9, 16, 89, 0.304);
+    --primaryYellow: #FBB244;
+    --bodyDark: #171720;
+    --bodyDark2: rgb(27, 27, 35);
+    --lightYellow: rgba(251, 178, 68, 0.2);
+    --white: white;
+    --black: black;
+    --gray: #6d6d6d;
+    --gray2: #cccccc;
+    --transparent: rgba(255, 255, 255, 0);
+}
+
 
 .mypagebody{
     background: linear-gradient(to bottom, #091059, #1465d6bb);
@@ -75,6 +90,10 @@
     font-weight: 600;
     font-size: 30px;
     color: #091059;
+}
+
+.formHdark{
+    color: var(--bodyDark) !important;
 }
 
 .labeltxt{
@@ -149,8 +168,9 @@
 }
 
  .loginbtn:hover{
-    background: white;
-    color: #091059;
+    background-color: rgba(9, 16, 89, 0.9);
+    /* background: white;
+    color: #091059; */
 }
 
 .googlebtn{

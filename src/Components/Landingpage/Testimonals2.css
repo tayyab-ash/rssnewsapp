@@ -1,5 +1,3 @@
-@import "react-alice-carousel/lib/alice-carousel.css";
-/* @import "react-alice-carousel/lib/scss/alice-carousel.scss"; */
 *{
     margin: 0;
     padding: 0;
@@ -80,9 +78,7 @@
     background-color: #7C7C7D;
 }
 
-.alice-carousel{
-    gap: 10px;
-}
+
 
 .items{
     width: 100%;
@@ -94,9 +90,8 @@
 .item{
     background: linear-gradient(320deg, rgb(232, 234, 255, 0.7), white, white);
     border: 1px solid rgb(220, 220, 220);
-    border-radius: 6px;
+    border-radius: 10px;
     transition: 0.3s;
-    margin: 6px;
 }
 .item:hover{
     border: 1px solid #091059;
@@ -114,8 +109,7 @@
 
 
 .testimonalv2{
-    padding: 44px;
-    /* margin: 40px; */
+    padding: 40px;
     text-align: left;
 }
 .testimonalv2 p{
@@ -126,7 +120,7 @@
 }
 
 .paraDark p{
-    color: rgb(255, 255, 255, 0.7) !important;
+    color: rgb(255, 255, 255, 0.5) !important;
 }
 
 .authorpic{
@@ -144,7 +138,7 @@
     font-size: 1rem;
     font-weight: 400;
     margin: 0;
-    color: rgba(0, 0, 0, 0.8);
+    color: white;
 }
 
 .authnameDark h3{
@@ -162,6 +156,6 @@
 }
 
 
-/* @media screen and (max-width: 992px) {
+@media screen and (max-width: 992px) {
     
-  } */
+  }

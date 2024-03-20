@@ -1,5 +1,5 @@
 .section{
-    padding-top: 4rem;
+    padding-top: 12rem;
     padding-bottom: 4rem;
 }
 
@@ -7,30 +7,59 @@
     min-height: 600px;
 }
 
-
-.headingtext{
-    padding-top: 3rem;
+:root{
+    --primaryBlue: #091059;
+    --lightBlue: rgba(9, 16, 89, 0.304);
+    --bodyDark: #070816;
+    --bodyDark2: rgb(10, 11, 25);
+    --primaryYellow: #FBB244;
+    --lightYellow: rgba(251, 178, 68, 0.2);
+    --white: white;
+    --black: black;
+    --gray: #6d6d6d;
+    --gray2: #cccccc;
+    --transparent: rgba(255, 255, 255, 0);
 }
+
 .lighttext{
-    color: #FBB244;
-    background-color: #FEF0DC;
+    color: var(--white);
+    background-color: var(--lightYellow);
     font-size: 12px;
     font-weight: bold;
     padding: 4px 16px;
     border-radius: 50px;
 }
-.maintext{
+
+.lighttextDark{
+    background-color: var(--lightYellow);
+}
+.lighttextLight{
+    color: var(--primaryYellow);
+}
+
+.headings{
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
     font-size: 40px;
-    color: #091059;
 }
+.headingsDark{
+    color: var(--primaryYellow);
+}
+.headingsLight{
+    color: var(--primaryBlue);
+}
+
 .desctext{
-    color: #7F7F7F;
     font-family: "Open Sans", sans-serif;
     font-size: 14px;
     line-height: 1.4rem;
     font-weight: 500;
+}
+.descDark{
+    color: var(--gray2);
+}
+.descLight{
+    color: var(--gray);
 }
 
 .contactbtn{
@@ -46,12 +75,34 @@
     transition: 0.2s;
 }
 
- .contactbtn:hover{
-    background: white;
-    color: #091059;
+.contactbtn:hover{
+    background-color: var(--transparent);
+}
+.btndark{
+    background-color: var(--primaryYellow);
+    color: var(--white);
+    border: 1px solid var(--primaryYellow) !important;
+}
+.btndark:hover{
+    color: var(--primaryYellow);
 }
 
-.form-control:focus{
+.btnlight{
+    background-color: var(--primaryBlue);
+    color: var(--white);
+    border: 1px solid var(--primaryBlue) !important;
+}
+.btnlight:hover{
+    color: var(--primaryBlue);
+}
+
+.inputLight:focus{
     border-color: #091059;
     box-shadow: none
+}
+
+.inputDark:focus{
+    border-color: var(--primaryYellow);
+    box-shadow: none;
+    border-width: 1.5px;
 }

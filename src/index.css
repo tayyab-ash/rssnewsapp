@@ -23,6 +23,7 @@ body {
   linear-gradient(280deg, white, rgba(255, 255, 255, 0) 40%),
   linear-gradient(230deg, #4151ff, rgb(0 0 255 / 0%) 30%); */
 
+  
   /* background: 
   linear-gradient(210deg, black, rgba(255, 255, 255, 0) 35%),
   linear-gradient( 180deg, #fbb2447a, rgb(0 0 0 / 0%) 16%
@@ -31,13 +32,21 @@ body {
   linear-gradient(230deg, #4151ff, rgb(0 0 255 / 0%) 30%); */
 
   background: 
-  linear-gradient(210deg, #0b0d1f, rgba(255, 255, 255, 0) 35%),
-  linear-gradient( 180deg, #fbb2447a, rgb(0 0 0 / 0%) 16%
+  linear-gradient(210deg, #171720, rgba(255, 255, 255, 0) 35%),
+  linear-gradient( 170deg, rgba(251, 178, 68, 0.470),  rgb(0 0 0 / 0%) 16%
   ),
-  linear-gradient(280deg, #0b0d1f, rgba(255, 255, 255, 0) 40%),
-  linear-gradient(230deg, #4151ff, rgb(0 0 255 / 0%) 30%);
+  linear-gradient(280deg, #171720, rgba(255, 255, 255, 0) 40%),
+  linear-gradient(230deg, rgb(30, 38, 126) , rgb(0 0 255 / 0%) 25%);
 
+  /* 
+  #1e267e
+  #fbb2447a
+  */
   background-color: #0b0d1f;
+  background-color: #070816;
+  background-color: #171720;
+  /* background-color: #1B1B1B; */
+  /* background-color: rgb(24, 27, 30); */
   /* background-color: rgb(28, 29, 41); */
 }
 

@@ -4,6 +4,21 @@
     box-sizing: border-box;
 }
 
+:root{
+    --primaryBlue: #091059;
+    /* --primaryBlue2: #060b41; */ 
+    --lightBlue: rgba(9, 16, 89, 0.304);
+    --primaryYellow: #FBB244;
+    --bodyDark: #171720;
+    --bodyDark2: rgb(27, 27, 35);
+    --lightYellow: rgba(251, 178, 68, 0.2);
+    --white: white;
+    --black: black;
+    --gray: #6d6d6d;
+    --gray2: #cccccc;
+    --transparent: rgba(255, 255, 255, 0);
+}
+
 
 /* .mypagebody{
     background-color: #091059;
@@ -21,6 +36,7 @@
     font-size: 40px;
     color: white;
 }
+
 .loginH2{
     font-family: "Montserrat", sans-serif;
     font-size: 40px;
@@ -70,20 +86,16 @@
 
 .loginform{
     background-color: white;
-    /* background: 
-  linear-gradient(210deg, #0b0d1f, rgba(255, 255, 255, 0) 35%),
-  linear-gradient( 180deg, #fbb2447a, rgb(0 0 0 / 0%) 16%
-  ),
-  linear-gradient(280deg, #0b0d1f, rgba(255, 255, 255, 0) 40%),
-  linear-gradient(230deg, #4151ff, rgb(0 0 255 / 0%) 30%); */
-
-  /* background-color: #20212e; */
 }
 .formH{
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 30px;
     color: #091059;
+}
+
+.formHdark{
+    color: var(--bodyDark) !important;
 }
 
 .labeltxt{
@@ -120,6 +132,14 @@
     font-weight: 500;
     margin-left: 4px;
 }
+
+.linktxtDark{
+    color: var(--bodyDark) !important;
+}
+.linktxtDark:hover{
+    color: rgb(23, 23, 32, 0.8) !important;
+}
+
 .linktxt:hover{
     color: #091059be;
 }
@@ -157,13 +177,22 @@
     color: white;
     margin-right: 14px;
     outline: none;
-    border: 1px solid #091059;
+    /* border: 1px solid #091059; */
+    border: none;
     transition: 0.2s;
 }
 
+.btnDark{
+    background-color: var(--bodyDark) !important;
+}
+.btnDark:hover{
+    background-color: rgb(23, 23, 32, 0.9) !important;
+}
+
  .loginbtn:hover{
-    background: white;
-    color: #091059;
+    background-color: rgba(9, 16, 89, 0.9);
+    /* background: white;
+    color: #091059; */
 }
 
 .googlebtn{

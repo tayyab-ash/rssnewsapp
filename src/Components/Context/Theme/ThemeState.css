@@ -1,0 +1,6 @@
+.light{
+    background: linear-gradient(210deg, white, rgba(255, 255, 255, 0) 35%),
+      linear-gradient(180deg, rgba(251, 178, 68, 0.478), rgb(0, 0, 0, 0%) 16%),
+      linear-gradient(280deg, white, rgba(255, 255, 255, 0) 40%),
+      linear-gradient(210deg, rgb(65, 81, 255), rgb(0, 0, 255, 0%) 25%);
+}

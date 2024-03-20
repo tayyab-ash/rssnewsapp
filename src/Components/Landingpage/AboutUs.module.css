@@ -1,31 +1,66 @@
-.section1,
+.section1{
+    padding-top: 12rem;
+    padding-bottom: 6rem; 
+}
 .section2,
 .section3{
     padding-top: 6rem;
     padding-bottom: 6rem;   
 }
-
+:root{
+    --primaryBlue: #091059;
+    --lightBlue: rgba(9, 16, 89, 0.304);
+    --bodyDark: #171720;
+    --bodyDark2: rgb(10, 11, 25);
+    --primaryYellow: #FBB244;
+    --lightYellow: rgba(251, 178, 68, 0.2);
+    --white: white;
+    --black: black;
+    --gray: #6d6d6d;
+    --gray2: #cccccc;
+    --transparent: rgba(255, 255, 255, 0);
+}
 /* GENERAL CSS */
 .lighttext{
-    color: #FBB244;
-    background-color: #FEF0DC;
+    color: var(--white);
+    background-color: var(--lightYellow);
     font-size: 12px;
     font-weight: bold;
     padding: 4px 16px;
     border-radius: 50px;
 }
-.maintext{
+
+.lighttextDark{
+    background-color: var(--lightYellow);
+}
+.lighttextLight{
+    color: var(--primaryYellow);
+}
+
+
+.headings{
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
     font-size: 40px;
-    color: #091059;
 }
+.headingsDark{
+    color: var(--primaryYellow);
+}
+.headingsLight{
+    color: var(--primaryBlue);
+}
+
 .desctext{
-    color: #7F7F7F;
     font-family: "Open Sans", sans-serif;
     font-size: 14px;
     line-height: 1.4rem;
     font-weight: 500;
+}
+.descDark{
+    color: var(--gray2);
+}
+.descLight{
+    color: var(--gray);
 }
 
 .bttns{
@@ -38,20 +73,40 @@
 }
 
 .headingtext .contactbtn{
-    background: #091059;
-    color: white;
+    color: var(--white);
     transition: 0.2s;
     outline: none;
-    border: 1px solid #091059;
 }
 
 .contactbtn:hover{
-    background: rgba(255, 255, 255, 0);
-    color: #091059;
+    background-color: var(--transparent);
+}
+.btndark{
+    background-color: var(--primaryYellow);
+    color: var(--white);
+    border: 1px solid var(--primaryYellow) !important;
+}
+.btndark:hover{
+    color: var(--primaryYellow);
+}
+
+.btnlight{
+    background-color: var(--primaryBlue);
+    color: var(--white);
+    border: 1px solid var(--primaryBlue) !important;
+}
+.btnlight:hover{
+    color: var(--primaryBlue);
 }
 
 
 /* SECTION #2 */
+
+.cardn{
+    background-color: var(--transparent) !important;
+    border: 1px solid var(--gray);
+    color: white;
+}
 
 .cardtitle{
     font-family: "Montserrat", sans-serif;
@@ -63,4 +118,9 @@
 .sociallinks img{
     width: 30px;
     margin-right: 4px;
+}
+
+/* SECTION #3 */
+.bgdark{
+    background-color: var(--bodyDark2);
 }

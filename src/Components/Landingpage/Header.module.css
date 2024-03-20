@@ -1,120 +1,193 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-body{
-    font-family: "Open Sans", sans-serif;
+body {
+  font-family: "Open Sans", sans-serif;
 }
-:root{
-    --primaryBlue: #091059;
-    --primaryYellow: #FBB244;
-    --white: white;
-    --black: black;
-    --gray: #7F7F7F;
-    --transparent: rgba(255, 255, 255, 0); 
-}
-
-.new{
-    height: 60px;
-    margin-top: 2rem;
-    width: 100vw;
-}
-
-.links{
-    list-style: none;
-}
-.links li{
-    padding: 10px 15px;
-}
-.links li a{
-    text-decoration: none;
-    font-size: 14px;
-    color: var(--black);
-    color: var(--white);
-    font-weight: 500;
+:root {
+  --primaryBlue: #091059;
+  /* --primaryBlue2: #060b41; */
+  --lightBlue: rgba(9, 16, 89, 0.304);
+  --primaryYellow: #fbb244;
+  --bodyDark: #171720;
+  --bodyDark2: rgb(27, 27, 35);
+  --lightYellow: rgba(251, 178, 68, 0.2);
+  --white: white;
+  --black: black;
+  --gray: #6d6d6d;
+  --gray2: #cccccc;
+  --transparent: rgba(255, 255, 255, 0);
 }
 
-/* .links li a:hover{
-    border-bottom: 2px solid var( --primaryBlue);
-} */
 
-.buttons button{
-    background-color: var( --primaryBlue);
-    background-color: var(--primaryYellow);
-    color: var(--white);
-    /* color: var( --primaryBlue); */
-    border: none;
-    padding:8px 12px;
-    border-radius: 50px;
-    transition: 0.2s;
-    font-weight: 600;
-    font-size: 14px;
-    border: 1px solid var( --primaryBlue);
-    border: 1px solid var(--primaryYellow);
-    margin-left: 15px;
+
+/* Main header css */
+
+.sticky {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 222;
+  margin-top: 0 !important;
+}
+.new {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 2rem;
+  transition: 0.5s;
 }
 
-.buttons button:hover{
-    background-color: var(--transparent);
-    color: var( --primaryBlue);
-    color: var(--primaryYellow);
-
+.headerBgDark {
+  background-color: rgb(23, 23, 32, 0.8);
+  backdrop-filter: blur(10px);
+  transition: 0.5s;
 }
-.loginbtn{
-    width: 100px;
-}
-.signupbtn{
-    width: 100px;
-    margin-left: -10px;
+.headerBgLight {
+  background-color: rgb(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  transition: 0.5s;
 }
 
-.menuico{
-    display: none !important;
+/* Links styling */
+.links {
+  list-style: none;
+}
+.links li {
+  padding: 10px 15px;
+}
+.links li a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
 }
 
-.linkhover:hover{
-    color: var(--primaryYellow);
+/* Styles the links and other text in the header on the base of theme */
+.textlight {
+  color: var(--black);
 }
-.dropdown-menu{
-    min-width: 6rem;
-    background-color: rgba(0, 0, 0, 0.400);
-    /* backdrop-filter: blur(10px); */
-    border: none;
-    /* margin-top: 10px !important; */
-    /* left: 10px; */
-    /* inset: 0px; */
-    inset: 6px auto auto -10px !important;
-    /* top: 50px; */
-    transform: translate3D(15px, 28px, 0px);
-    transition: 0.2s;
-}
-.dropdown-item{
-    padding: 6px;
-    width: auto;
-    color: var(--white);
-    font-size: 14px;
-    margin-left: 8px;
-    margin-right: 8px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.dropdown-item:hover{
-    background-color: var(--primaryYellow);
-    color: white;
+.textlight:hover {
+  color: var(--primaryBlue);
 }
 
-.active{
-    background-color: var(--primaryYellow);
-    color: white;
+.textdark {
+  color: var(--white);
+}
+.textdark:hover {
+  color: var(--primaryYellow);
+}
+
+/* Sets the buttons theme according to the light mode or dark mode */
+.buttons button {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 50px;
+  transition: 0.2s;
+  font-weight: 600;
+  font-size: 14px;
+  margin-left: 15px;
+}
+.buttons button:hover {
+  background-color: var(--transparent);
+}
+.btndark {
+  background-color: var(--primaryYellow);
+  color: var(--white);
+  color: var(--primaryBlue);
+  border: 1px solid var(--primaryYellow) !important;
+}
+.btndark:hover {
+  color: var(--primaryYellow);
+  /* color: var(--transparent); */
+}
+.btnlight {
+  background-color: var(--primaryBlue);
+  color: var(--white);
+  border: 1px solid var(--primaryBlue) !important;
+}
+.btnlight:hover {
+  color: var(--primaryBlue);
+}
+
+/* Sets differnt width for login and signup buttons */
+.loginbtn {
+  width: 100px;
+}
+.signupbtn {
+  width: 100px;
+  margin-left: -10px;
+}
+
+/* Displays the hamburger menu */
+.menuico {
+  display: none !important;
+}
+
+/* Theme Dropdown css */
+.dropdown-menu {
+  min-width: 6rem;
+  border: none;
+  inset: 6px auto auto -10px !important;
+  /* transform: translate3D(15px, 28px, 0px); */
+  transform: translate3D(0px, 0px, 0px);
+  /* transition: 0.2s; */
+}
+.dropdown-item {
+  padding: 6px;
+  width: auto;
+  font-size: 14px;
+  margin-left: 8px;
+  margin-right: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  /* backdrop-filter: blur(10px); */
+}
+
+/* Handles the dropdown background color for dark and light mode */
+.bgdark {
+  background-color: rgb(23, 23, 32);
+  /* backdrop-filter: blur(10px); */
+}
+.bglight {
+  background-color: rgba(255, 255, 255);
+  /* backdrop-filter: blur(10px); */
+}
+
+/* Handles the non-active theme state text hover background color  */
+.hoverbgLight:hover {
+  color: rgb(0, 0, 0);
+  background-color: rgba(9, 16, 89, 0.144);
+}
+.hoverbgDark:hover {
+  color: white;
+  background-color: rgba(251, 178, 68, 0.3);
+  /* backdrop-filter: blur(10px); */
+}
+
+/* This css is used to set the background color of the active theme text and handle the background hover color */
+.darkactive {
+  background-color: var(--primaryYellow);
+  color: white;
+}
+.darkactive:hover {
+  background-color: var(--primaryYellow);
+  color: white;
+}
+.lightactive {
+  background-color: var(--primaryBlue);
+  color: white;
+}
+.lightactive:hover {
+  background-color: var(--primaryBlue);
+  color: white;
 }
 
 @media screen and (max-width: 992px) {
-    .links{
-        display: none !important;
-    }
-    .menuico{
-        display: block !important;
-    }
+  .links {
+    display: none !important;
   }
-
+  .menuico {
+    display: block !important;
+  }
+}

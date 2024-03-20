@@ -1,26 +1,30 @@
 import React from "react";
 import loginstyle from "./Login.module.css";
-import loginimg from "./images/login.jpg";
+// import loginimg from "./images/login.jpg";
 import logo from "../Landingpage/images/Black and White Monogram Business Logo.png";
 import { useEffect } from "react";
 import AOS from "aos";
-import { NavLink, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import "aos/dist/aos.css";
 
 import { useContext } from "react";
 import themeContext from "../Context/Theme/ThemeContext";
 
 function Login() {
-  const bg = useContext(themeContext)
+  const mode = useContext(themeContext)
     AOS.init();
   useEffect(() => {
-    document.body.style.background = '#091059'
-    // document.body.style.background = '#0b0d1f'
+    if(mode.theme === "dark"){
+      document.body.style.background = '#171720'
+    }
+    else{
+      document.body.style.background = '#060b41'
+    }
     return () => {
       document.body.style.background = '';
-      document.body.style.background = bg.theme
+      // document.body.style.background = bg.theme
     };
-  }, []);
+  }, [mode.theme]);
 
   return (
     <div>
@@ -73,7 +77,7 @@ function Login() {
           >
             <div className="col-lg-6 col-md-8 col-sm-8 col-8 pt-5">
               <div className="text-center">
-                <h2 className={`${loginstyle.formH} mb-5`}>
+                <h2 className={`${loginstyle.formH} ${mode.theme === "dark"? loginstyle.formHdark:""} mb-5`}>
                   Login to continue
                 </h2>
               </div>
@@ -116,7 +120,7 @@ function Login() {
                 </label>
               </div>
               <div className={``}>
-                <span className={`${loginstyle.labeltxt}`}>Forget password?<a className={`${loginstyle.linktxt}`} href="/">reset here</a></span> 
+                <span className={`${loginstyle.labeltxt}`}>Forget password?<a className={`${loginstyle.linktxt} ${mode.theme === "dark"? loginstyle.linktxtDark:""}`} href="/">reset here</a></span> 
               </div>
               <div class="form-check m-lg-3">
                 <input
@@ -132,7 +136,7 @@ function Login() {
                 </label>
               </div>
               <div className="mt-3">
-                <button className={`${loginstyle.loginbtn} w-100`}>
+                <button className={`${loginstyle.loginbtn} ${mode.theme === "dark"? loginstyle.btnDark:""} $ w-100`}>
                   Login
                 </button>
               </div>           
@@ -147,7 +151,7 @@ function Login() {
                 </button>
               </div>
               <div className={`text-center mt-2 pb-5`}>
-                <span className={`${loginstyle.labeltxt}`}>Don't have an account?<Link className={`${loginstyle.linktxt}`} to="/signup">Signup here</Link></span> 
+                <span className={`${loginstyle.labeltxt}`}>Don't have an account?<Link className={`${loginstyle.linktxt} ${mode.theme === "dark"? loginstyle.linktxtDark:""}`} to="/signup">Signup here</Link></span> 
               </div>
             </div>
           </form>

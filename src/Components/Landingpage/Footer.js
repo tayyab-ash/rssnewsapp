@@ -3,27 +3,30 @@ import footer from "./Footer.module.css"
 import facebook from "./images/facebook.png"
 import instagram from "./images/instagram.png"
 import twitter from "./images/twitter.png"
+import { useContext } from 'react'
+import themeContext from '../Context/Theme/ThemeContext'
 
 function Footer() {
+  const mode = useContext(themeContext)
   return (
     <div className={`${footer.footcontainer}`}>
       <div className={`container`}>
         <div className={`row mb-5`}>
           <div className={`col-md-6 col-lg-4`}>
             <div className={`${footer.widget}`}>
-              <h3>About ZenFeed</h3>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              <h3 className={`${mode.theme === "dark"? footer.fhDark:""}`}>About ZenFeed</h3>
+              <p className={`${mode.theme === "dark"? footer.fpDark:""}`}>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
             </div>
-            <div className={`${footer.sociallinks}`}>
-              <a href="/"><img src={facebook} alt="" /></a>
-              <a href="/"><img src={instagram} alt="" /></a>
-              <a href="/"><img src={twitter} alt="" /></a>
+            <div className={`${footer.sociallinks} ${mode.theme === "dark"? footer.img:""}`}>
+              <a href="/"><img  src={facebook} alt="facebook" /></a>
+              <a href="/"><img src={instagram} alt="instagram" /></a>
+              <a href="/"><img src={twitter} alt="twitter/X" /></a>
             </div>
           </div>
           <div className={`col-md-6 col-lg-2 pl-lg-5`}>
             <div className={`${footer.widget}`}>
-              <h3>Pages</h3>
-              <ul className={`${footer.links}`}>
+              <h3 className={`${mode.theme === "dark"? footer.fhDark:""}`}>Pages</h3>
+              <ul className={`${footer.links} ${mode.theme === "dark"? footer.linksDark:""}`}>
                 <li>
                   <a href="/">Home</a>
                 </li>
@@ -31,15 +34,15 @@ function Footer() {
                   <a href="/">About</a>
                 </li>
                 <li>
-                  <a href="/">Premium</a>
+                  <a href="/">Contact Us</a>
                 </li>
               </ul>
             </div>
           </div>
           <div className={`col-md-6 col-lg-2`}>
             <div className={`${footer.widget}`}>
-              <h3>More from us</h3>
-              <ul className={`${footer.links}`}>
+              <h3 className={`${mode.theme === "dark"? footer.fhDark:""}`}>More from us</h3>
+              <ul className={`${footer.links} ${mode.theme === "dark"? footer.linksDark:""}`}>
                 <li>
                   <a href="/">Other Services</a>
                 </li>
@@ -54,8 +57,8 @@ function Footer() {
           </div>
           <div className={`col-md-6 col-lg-4`}>
             <div className={`${footer.widget}`}>
-              <h3>Contact Us</h3>
-              <ul className={`${footer.links}`}>
+              <h3 className={`${mode.theme === "dark"? footer.fhDark:""}`}>Contact Us</h3>
+              <ul className={`${footer.links} ${mode.theme === "dark"? footer.linksDark:""}`}>
                 <li>
                   <a href="/">info@zenfeed.com</a>
                 </li>
@@ -70,7 +73,7 @@ function Footer() {
           </div>
         </div>
         <div className={`row`}>
-          <div className={`${footer.copyright} col-lg-12 text-center`}>
+          <div className={`${footer.copyright} ${mode.theme === "dark"? footer.copyrightDark:""} col-lg-12 text-center`}>
             <p>Copyright ©2024 All rights reserved | ZenFeed</p>
           </div>
         </div>

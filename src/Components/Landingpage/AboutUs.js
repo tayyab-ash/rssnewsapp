@@ -9,8 +9,11 @@ import person1 from "./images/profile.jpg";
 // import instagram from "./images/instagram.png";
 // import twitter from "./images/twitter.png";
 import {Link} from 'react-router-dom'
+import { useContext } from "react";
+import themeContext from "../Context/Theme/ThemeContext";
 
 function AboutUs() {
+  const mode = useContext(themeContext)
   AOS.init();
   return (
     <div>
@@ -23,30 +26,34 @@ function AboutUs() {
               data-aos="fade-up"
               data-aos-delay="100"
             >
-              <span className={`${aboutstyle.lighttext}`} data-aos="fade-up">
+              <span className={`${aboutstyle.lighttext} ${mode.theme === "dark"? aboutstyle.lighttextDark:aboutstyle.lighttextLight}`}>
                 About Us
               </span>
-              <h2 className={`${aboutstyle.maintext} mt-2`}>Why ZenFeed?</h2>
+              <h2 className={`${aboutstyle.headings} ${
+                  mode.theme === "dark"
+                    ? aboutstyle.headingsDark
+                    : aboutstyle.headingsLight
+                } mt-2`}>Why ZenFeed?</h2>
               <p
-                className={`${aboutstyle.desctext} mt-3`}
-                // data-aos="fade-up"
-                // data-aos-delay="200"
-              >
+                className={`${aboutstyle.desctext} ${
+                  mode.theme === "dark" ? aboutstyle.descDark : aboutstyle.descLight
+                } mt-3`}>
                 Separated they live in Bookmarksgrove right at the coast of the
                 Semantics, a large language ocean.
               </p>
-              <p className={`${aboutstyle.desctext} mt-3 mb-5`}>
+              <p className={`${aboutstyle.desctext} ${
+                  mode.theme === "dark" ? aboutstyle.descDark : aboutstyle.descLight
+                } mt-3 mb-5`}>
                 Far far away, behind the word mountains, far from the countries
                 Vokalia and Consonantia, there live the blind texts. Separated
                 they live in Bookmarksgrove right at the coast of the Semantics,
                 a large language ocean.
               </p>
-              <div
-              // data-aos="fade-up"
-              // data-aos-delay="300"
-              >
+              <div>
                 <Link to="/contactus"><button
-                  className={`${aboutstyle.contactbtn} ${aboutstyle.bttns}`}
+                  className={`${aboutstyle.contactbtn} ${aboutstyle.bttns} ${
+                    aboutstyle[mode.btnTheme]
+                  }`}
                   type="submit"
                 >
                   Contact us
@@ -69,11 +76,17 @@ function AboutUs() {
             className={`col-lg-8 mx-auto text-center mb-5`}
             data-aos="fade-up"
           >
-            <span className={`${aboutstyle.lighttext}`} data-aos="fade-up">
+            <span className={`${aboutstyle.lighttext} ${mode.theme === "dark"? aboutstyle.lighttextDark:aboutstyle.lighttextLight}`} data-aos="fade-up">
               Team
             </span>
-            <h2 className={`${aboutstyle.maintext} mt-2`}>Our Team</h2>
-            <p className={`${aboutstyle.desctext} mt-3`}>
+            <h2 className={`${aboutstyle.headings} ${
+                  mode.theme === "dark"
+                    ? aboutstyle.headingsDark
+                    : aboutstyle.headingsLight
+                } mt-2`}>Our Team</h2>
+            <p className={`${aboutstyle.desctext} ${
+                  mode.theme === "dark" ? aboutstyle.descDark : aboutstyle.descLight
+                } mt-3`}>
               Far far away, behind the word mountains, far from the countries
               Vokalia and Consonantia, there live the blind texts. Separated
               they live in Bookmarksgrove right at the coast of the Semantics, a
@@ -81,8 +94,9 @@ function AboutUs() {
             </p>
           </div>
           <div className="row justify-content-around ">
+            
             <div className={`col-md-10 col-lg-6 col-xl-5 `} data-aos="fade-up" data-aos-delay="100">
-              <div className={`card mb-4`}>
+              <div className={`card ${mode.theme === "dark"? aboutstyle.cardn:""} mb-4`}>
                 <div class="row align-items-center g-0">
                   <div class="col-md-4">
                     <img
@@ -98,7 +112,7 @@ function AboutUs() {
                       </h5>
                       <p class="card-text mb-2">Co-Founder & CEO</p>
                       <p class="card-text">
-                        <small class="text-body-secondary">
+                        <small class={`text-body-${mode.theme === "dark"? "primary": "secondary"}`}>
                           "Far far away, behind the word mountains, far from the
                           countries Vokalia and Consonantia, there live the
                           blind texts."
@@ -120,47 +134,8 @@ function AboutUs() {
                 </div>
               </div>
             </div>
-            <div className={`col-md-10 col-lg-6 col-xl-5`} data-aos="fade-up" data-aos-delay="100">
-              <div className={`card mb-4`}>
-                <div class="row align-items-center g-0">
-                  <div class="col-md-4">
-                    <img
-                      src={person1}
-                      class="img-fluid rounded-start"
-                      alt="..."
-                    />
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 className={`${aboutstyle.cardtitle} mb-0`}>
-                        James Watson
-                      </h5>
-                      <p class="card-text mb-2 ">Co-Founder & CEO</p>
-                      <p class="card-text">
-                        <small class="text-body-secondary">
-                          "Far far away, behind the word mountains, far from the
-                          countries Vokalia and Consonantia, there live the
-                          blind texts."
-                        </small>
-                      </p>
-                      {/* <div className={`${aboutstyle.sociallinks}`}>
-                      <a href="/">
-                        <img src={facebook} alt="" />
-                      </a>
-                      <a href="/">
-                        <img src={instagram} alt="" />
-                      </a>
-                      <a href="/">
-                        <img src={twitter} alt="" />
-                      </a>
-                    </div> */}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className={`col-md-10 col-lg-6 col-xl-5`} data-aos="fade-up" data-aos-delay="200">
-              <div className={`card mb-4`}>
+            <div className={`col-md-10 col-lg-6 col-xl-5 `} data-aos="fade-up" data-aos-delay="100">
+              <div className={`card ${mode.theme === "dark"? aboutstyle.cardn:""} mb-4`}>
                 <div class="row align-items-center g-0">
                   <div class="col-md-4">
                     <img
@@ -176,7 +151,7 @@ function AboutUs() {
                       </h5>
                       <p class="card-text mb-2">Co-Founder & CEO</p>
                       <p class="card-text">
-                        <small class="text-body-secondary">
+                        <small class={`text-body-${mode.theme === "dark"? "primary": "secondary"}`}>
                           "Far far away, behind the word mountains, far from the
                           countries Vokalia and Consonantia, there live the
                           blind texts."
@@ -198,8 +173,8 @@ function AboutUs() {
                 </div>
               </div>
             </div>
-            <div className={`col-md-10 col-lg-6 col-xl-5`} data-aos="fade-up" data-aos-delay="200">
-              <div className={`card mb-4`}>
+            <div className={`col-md-10 col-lg-6 col-xl-5 `} data-aos="fade-up" data-aos-delay="100">
+              <div className={`card ${mode.theme === "dark"? aboutstyle.cardn:""} mb-4`}>
                 <div class="row align-items-center g-0">
                   <div class="col-md-4">
                     <img
@@ -213,9 +188,9 @@ function AboutUs() {
                       <h5 className={`${aboutstyle.cardtitle} mb-0`}>
                         James Watson
                       </h5>
-                      <p class="card-text mb-2 ">Co-Founder & CEO</p>
+                      <p class="card-text mb-2">Co-Founder & CEO</p>
                       <p class="card-text">
-                        <small class="text-body-secondary">
+                        <small class={`text-body-${mode.theme === "dark"? "primary": "secondary"}`}>
                           "Far far away, behind the word mountains, far from the
                           countries Vokalia and Consonantia, there live the
                           blind texts."
@@ -237,23 +212,69 @@ function AboutUs() {
                 </div>
               </div>
             </div>
+            <div className={`col-md-10 col-lg-6 col-xl-5 `} data-aos="fade-up" data-aos-delay="100">
+              <div className={`card ${mode.theme === "dark"? aboutstyle.cardn:""} mb-4`}>
+                <div class="row align-items-center g-0">
+                  <div class="col-md-4">
+                    <img
+                      src={person1}
+                      class="img-fluid rounded-start"
+                      alt="..."
+                    />
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 className={`${aboutstyle.cardtitle} mb-0`}>
+                        James Watson
+                      </h5>
+                      <p class="card-text mb-2">Co-Founder & CEO</p>
+                      <p class="card-text">
+                        <small class={`text-body-${mode.theme === "dark"? "primary": "secondary"}`}>
+                          "Far far away, behind the word mountains, far from the
+                          countries Vokalia and Consonantia, there live the
+                          blind texts."
+                        </small>
+                      </p>
+                      {/* <div className={`${aboutstyle.sociallinks}`}>
+                      <a href="/">
+                        <img src={facebook} alt="" />
+                      </a>
+                      <a href="/">
+                        <img src={instagram} alt="" />
+                      </a>
+                      <a href="/">
+                        <img src={twitter} alt="" />
+                      </a>
+                    </div> */}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
 
       {/* SECTION #3 - TESTIMONALS */}
-      <div className={`${aboutstyle.section3} bg-light`}>
+      <div className={`${aboutstyle.section3} ${mode.theme === "light"? "bg-light":aboutstyle.bgdark } `}>
         <div className={`container`}>
           <div className={`row`}>
             <div
               className={`col-lg-8 mx-auto text-center mb-5`}
               data-aos="fade-up"
             >
-              <span className={`${aboutstyle.lighttext}`} data-aos="fade-up">
+              <span className={`${aboutstyle.lighttext} ${mode.theme === "dark"? aboutstyle.lighttextDark:aboutstyle.lighttextLight}`} data-aos="fade-up">
                 Testimonals
               </span>
-              <h2 className={`${aboutstyle.maintext} mt-2`}>Testimonals</h2>
-              <p className={`${aboutstyle.desctext} mt-3`}>
+              <h2 className={`${aboutstyle.headings} ${
+                  mode.theme === "dark"
+                    ? aboutstyle.headingsDark
+                    : aboutstyle.headingsLight
+                } mt-2`}>Testimonals</h2>
+              <p className={`${aboutstyle.desctext} ${
+                  mode.theme === "dark" ? aboutstyle.descDark : aboutstyle.descLight
+                } mt-3`}>
                 Far far away, behind the word mountains, far from the countries
                 Vokalia and Consonantia, there live the blind texts. Separated
                 they live in Bookmarksgrove right at the coast of the Semantics,

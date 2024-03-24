@@ -246,7 +246,7 @@ function Testimonals() {
         animationDuration={1000}
         autoPlay="true"
         infinite="true"
-        autoPlayInterval={2500}
+        autoPlayInterval={1500}
         disableButtonsControls="true"
       />
     </div>

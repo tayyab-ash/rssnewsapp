@@ -90,7 +90,7 @@ function Login() {
                 </label>
                 <input
                   type="email"
-                  class={`${loginstyle["form-control"]} form-control`}
+                  className={`${loginstyle["form-control"]} form-control`}
                 />
                 <label
                   className={`${`${loginstyle.wrong}`} form-label mb-0`}
@@ -108,7 +108,7 @@ function Login() {
                 </label>
                 <input
                   typeof="password"
-                  class={`${loginstyle["form-control"]} form-control`}
+                  className={`${loginstyle["form-control"]} form-control`}
                   type="text"
                 />
 
@@ -122,14 +122,14 @@ function Login() {
               <div className={``}>
                 <span className={`${loginstyle.labeltxt}`}>Forget password?<a className={`${loginstyle.linktxt} ${mode.theme === "dark"? loginstyle.linktxtDark:""}`} href="/">reset here</a></span> 
               </div>
-              <div class="form-check m-lg-3">
+              <div className="form-check m-lg-3">
                 <input
                   type="checkbox"
-                  class={`${loginstyle["form-check-input"]} form-check-input`}
+                  className={`${loginstyle["form-check-input"]} form-check-input`}
                   id="dropdownCheck"
                 />
                 <label
-                  class={`${`${loginstyle.remembermetxt}`} form-check-label`}
+                  className={`${`${loginstyle.remembermetxt}`} form-check-label`}
                   for="dropdownCheck"
                 >
                   Remember me

@@ -54,11 +54,11 @@ function ContactUs() {
                 </p>
               </div>
 
-              <form class="row g-3">
-                <div class="col-md-6">
+              <form className="row g-3">
+                <div className="col-md-6">
                   <label
-                    for="fname"
-                    class={` ${ctstyle.desctext} ${
+                    htmlFor="fname"
+                    className={` ${ctstyle.desctext} ${
                       mode.theme === "dark"
                         ? ctstyle.descDark
                         : ctstyle.descLight
@@ -68,14 +68,14 @@ function ContactUs() {
                   </label>
                   <input
                     type="text"
-                    class={`${mode.theme === "dark"? ctstyle.inputDark: ctstyle.inputLight}  form-control`}
+                    className={`${mode.theme === "dark"? ctstyle.inputDark: ctstyle.inputLight}  form-control`}
                     id="fname"
                   />
                 </div>
-                <div class="col-md-6">
+                <div className="col-md-6">
                   <label
-                    for="lname"
-                    class={` ${ctstyle.desctext} ${
+                    htmlFor="lname"
+                    className={` ${ctstyle.desctext} ${
                       mode.theme === "dark"
                         ? ctstyle.descDark
                         : ctstyle.descLight
@@ -85,14 +85,14 @@ function ContactUs() {
                   </label>
                   <input
                     type="password"
-                    class={`${mode.theme === "dark"? ctstyle.inputDark: ctstyle.inputLight}  form-control`}
+                    className={`${mode.theme === "dark"? ctstyle.inputDark: ctstyle.inputLight}  form-control`}
                     id="lname"
                   />
                 </div>
-                <div class="col-12">
+                <div className="col-12">
                   <label
-                    for="email"
-                    class={` ${ctstyle.desctext} ${
+                    htmlFor="email"
+                    className={` ${ctstyle.desctext} ${
                       mode.theme === "dark"
                         ? ctstyle.descDark
                         : ctstyle.descLight
@@ -102,14 +102,14 @@ function ContactUs() {
                   </label>
                   <input
                     type="email"
-                    class={`${mode.theme === "dark"? ctstyle.inputDark: ctstyle.inputLight}  form-control`}
+                    className={`${mode.theme === "dark"? ctstyle.inputDark: ctstyle.inputLight}  form-control`}
                     id="email"
                   />
                 </div>
-                <div class="col-12">
+                <div className="col-12">
                   <label
-                    for="inputAddress"
-                    class={` ${ctstyle.desctext} ${
+                    htmlFor="inputAddress"
+                    className={` ${ctstyle.desctext} ${
                       mode.theme === "dark"
                         ? ctstyle.descDark
                         : ctstyle.descLight

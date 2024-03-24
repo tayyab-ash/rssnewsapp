@@ -92,7 +92,7 @@ function Signup() {
                 </label>
                 <input
                   type="text"
-                  class={`${loginstyle["form-control"]} form-control`}
+                  className={`${loginstyle["form-control"]} form-control`}
                 />
                 {/* <label
                   className={`${`${loginstyle.wrong}`} form-label mb-0`}
@@ -112,7 +112,7 @@ function Signup() {
                 </label>
                 <input
                   typeof="text"
-                  class={`${loginstyle["form-control"]} form-control`}
+                  className={`${loginstyle["form-control"]} form-control`}
                   type="text"
                 />
 
@@ -135,7 +135,7 @@ function Signup() {
                 </label>
                 <input
                   type="password"
-                  class={`${loginstyle["form-control"]} form-control`}
+                  className={`${loginstyle["form-control"]} form-control`}
                 />
                 {/* <label
                   className={`${`${loginstyle.wrong}`} form-label mb-0`}
@@ -155,7 +155,7 @@ function Signup() {
                 </label>
                 <input
                   type="password"
-                  class={`${loginstyle["form-control"]} form-control`}
+                  className={`${loginstyle["form-control"]} form-control`}
                 />
                 {/* <label
                   className={`${`${loginstyle.wrong}`} form-label mb-0`}
@@ -175,7 +175,7 @@ function Signup() {
                 </label>
                 <input
                   type="email"
-                  class={`${loginstyle["form-control"]} form-control`}
+                  className={`${loginstyle["form-control"]} form-control`}
                 />
                 {/* <label
                   className={`${`${loginstyle.wrong}`} form-label mb-0`}
@@ -186,14 +186,14 @@ function Signup() {
               </div>
               
 
-              <div class="form-check m-lg-3">
+              <div className="form-check m-lg-3">
                 <input
                   type="checkbox"
-                  class={`${loginstyle["form-check-input"]} form-check-input`}
+                  className={`${loginstyle["form-check-input"]} form-check-input`}
                   id="dropdownCheck"
                 />
                 <label
-                  class={`${`${loginstyle.remembermetxt}`} form-check-label`}
+                  className={`${`${loginstyle.remembermetxt}`} form-check-label`}
                   for="dropdownCheck"
                 >
                   I have accepted the  <a className={`${loginstyle.linktxt} ${mode.theme === "dark"? loginstyle.linktxtDark:""}`} href="/">Terms & Conditions</a>

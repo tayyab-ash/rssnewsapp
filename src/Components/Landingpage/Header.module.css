@@ -21,6 +21,109 @@ body {
   --transparent: rgba(255, 255, 255, 0);
 }
 
+/* Mobile Navbar */
+.mobilenav{
+  position: fixed;
+  right: 0;
+  z-index: 2222;
+  width: 300px;
+}
+.navShow{
+  transform: translateX(0px);
+  transition: 0.3s;
+}
+.navHidden{
+   transform: translateX(300px);
+   transition: 0.3s;
+}
+.mobilenav2{
+  height: 100vh;
+  /* background-color: white; */
+  background-color: rgb(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  width: 100%;
+}
+
+.mobileNavDark{
+  background-color: rgb(27, 27, 35, 0.9) !important;
+  /* background-color: var(--bodyDark2) !important; */
+  backdrop-filter: blur(10px);
+}
+
+.mobileNavIcondiv{
+  display: flex ;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+
+.mobileNavIcon{
+  font-size: 20px;
+  padding: 10px;
+  color: black;
+  margin: 20px 10px 0 0;
+  /* background-color: #6d6d6d; */
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.mobileNavIcon:hover{
+  transform-origin: center center;
+  transform: rotate(90deg)
+  /* color: rgb(0, 0, 0, 0.7); */
+}
+
+.mobileNavIconDark{
+  color: white !important;
+}
+/* .mobileNavIconDark:hover{
+  color: rgb(255, 255, 255, 0.7) !important;
+} */
+
+.mobileNavItems{
+  margin-top: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.mobileNavItems ul {
+  list-style: none;
+  width: 100%;
+  padding: 0;
+}
+.mobileNavItems ul li{
+  width: 100%;
+  padding: 5px 20px;
+  
+  
+}
+.mobileNavItems ul li a{
+  text-decoration: none;
+  /* color: var(--white); */
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.2s
+  
+}
+
+/* .mobileNavItems a:hover{
+  color: var(--primaryYellow);
+} */
+
+.mobileNavTheme{
+  list-style: none;
+  margin-top: 5px;
+  
+}
+.mobileNavTheme li span{
+  /* color: white; */
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.mobileNavItems .mobileNavTheme li{
+  padding: 3px 15px;
+}
+
 
 
 /* Main header css */
@@ -55,12 +158,32 @@ body {
   list-style: none;
 }
 .links li {
-  padding: 10px 15px;
+  padding: 6px 15px;
 }
 .links li a {
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
+  padding: 4px 0px;
+  border-bottom: 2px solid transparent;
+  transition: 0.4s ease;
+}
+
+
+.links li a.activeDark{
+  color: var(--primaryYellow);
+  border-bottom: 2px solid var(--primaryYellow);
+}
+.links li a.activeLight{
+  color: var(--primaryBlue);
+  border-bottom: 2px solid var(--primaryBlue);
+}
+
+.activeMobNavDark{
+  color: var(--primaryYellow) !important;
+}
+.activeMobNavLight{
+  color: var(--primaryBlue) !important;
 }
 
 /* Styles the links and other text in the header on the base of theme */
@@ -77,6 +200,9 @@ body {
 .textdark:hover {
   color: var(--primaryYellow);
 }
+
+
+
 
 /* Sets the buttons theme according to the light mode or dark mode */
 .buttons button {
@@ -122,7 +248,25 @@ body {
 /* Displays the hamburger menu */
 .menuico {
   display: none !important;
+  color: black;
+  cursor: pointer;
+  font-size: 20px;
+  transition: 0.2s;
 }
+.menuico:hover{
+  transform: scaleX(1.4);
+  /* color: rgba(0, 0, 0, 0.7) */
+}
+
+.menuIconDark{
+  color: white !important;
+}
+.menuIconDark:hover{
+  transform: scaleX(1.4);
+  /* color: rgb(255, 255, 255, 0.7) !important; */
+}
+
+
 
 /* Theme Dropdown css */
 .dropdown-menu {
@@ -189,5 +333,12 @@ body {
   }
   .menuico {
     display: block !important;
+  }
+}
+@media screen and (min-width: 992px) {
+  .mobilenav{
+  transform: translateX(300px);
+  /* display: none; */
+   transition: 0.5s;
   }
 }

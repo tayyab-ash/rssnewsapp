@@ -19,10 +19,10 @@ function Testimonals() {
     >
       <div className={`${testimonal.testimonalnav}`}>
         <span className={`${testimonal.prev}`}>
-          <i class="fa-solid fa-chevron-left"></i>
+          <i className="fa-solid fa-chevron-left"></i>
         </span>
         <span className={`${testimonal.next}`}>
-          <i class="fa-solid fa-chevron-right"></i>
+          <i className="fa-solid fa-chevron-right"></i>
         </span>
       </div>
 

@@ -97,22 +97,22 @@ function AboutUs() {
             
             <div className={`col-md-10 col-lg-6 col-xl-5 `} data-aos="fade-up" data-aos-delay="100">
               <div className={`card ${mode.theme === "dark"? aboutstyle.cardn:""} mb-4`}>
-                <div class="row align-items-center g-0">
-                  <div class="col-md-4">
+                <div className="row align-items-center g-0">
+                  <div className="col-md-4">
                     <img
                       src={person1}
-                      class="img-fluid rounded-start"
+                      className="img-fluid rounded-start"
                       alt="..."
                     />
                   </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
+                  <div className="col-md-8">
+                    <div className="card-body">
                       <h5 className={`${aboutstyle.cardtitle} mb-0`}>
                         James Watson
                       </h5>
-                      <p class="card-text mb-2">Co-Founder & CEO</p>
-                      <p class="card-text">
-                        <small class={`text-body-${mode.theme === "dark"? "primary": "secondary"}`}>
+                      <p className="card-text mb-2">Co-Founder & CEO</p>
+                      <p className="card-text">
+                        <small className={`text-body-${mode.theme === "dark"? "primary": "secondary"}`}>
                           "Far far away, behind the word mountains, far from the
                           countries Vokalia and Consonantia, there live the
                           blind texts."
@@ -136,22 +136,22 @@ function AboutUs() {
             </div>
             <div className={`col-md-10 col-lg-6 col-xl-5 `} data-aos="fade-up" data-aos-delay="100">
               <div className={`card ${mode.theme === "dark"? aboutstyle.cardn:""} mb-4`}>
-                <div class="row align-items-center g-0">
-                  <div class="col-md-4">
+                <div className="row align-items-center g-0">
+                  <div className="col-md-4">
                     <img
                       src={person1}
-                      class="img-fluid rounded-start"
+                      className="img-fluid rounded-start"
                       alt="..."
                     />
                   </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
+                  <div className="col-md-8">
+                    <div className="card-body">
                       <h5 className={`${aboutstyle.cardtitle} mb-0`}>
                         James Watson
                       </h5>
-                      <p class="card-text mb-2">Co-Founder & CEO</p>
-                      <p class="card-text">
-                        <small class={`text-body-${mode.theme === "dark"? "primary": "secondary"}`}>
+                      <p className="card-text mb-2">Co-Founder & CEO</p>
+                      <p className="card-text">
+                        <small className={`text-body-${mode.theme === "dark"? "primary": "secondary"}`}>
                           "Far far away, behind the word mountains, far from the
                           countries Vokalia and Consonantia, there live the
                           blind texts."
@@ -175,22 +175,22 @@ function AboutUs() {
             </div>
             <div className={`col-md-10 col-lg-6 col-xl-5 `} data-aos="fade-up" data-aos-delay="100">
               <div className={`card ${mode.theme === "dark"? aboutstyle.cardn:""} mb-4`}>
-                <div class="row align-items-center g-0">
-                  <div class="col-md-4">
+                <div className="row align-items-center g-0">
+                  <div className="col-md-4">
                     <img
                       src={person1}
-                      class="img-fluid rounded-start"
+                      className="img-fluid rounded-start"
                       alt="..."
                     />
                   </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
+                  <div className="col-md-8">
+                    <div className="card-body">
                       <h5 className={`${aboutstyle.cardtitle} mb-0`}>
                         James Watson
                       </h5>
-                      <p class="card-text mb-2">Co-Founder & CEO</p>
-                      <p class="card-text">
-                        <small class={`text-body-${mode.theme === "dark"? "primary": "secondary"}`}>
+                      <p className="card-text mb-2">Co-Founder & CEO</p>
+                      <p className="card-text">
+                        <small className={`text-body-${mode.theme === "dark"? "primary": "secondary"}`}>
                           "Far far away, behind the word mountains, far from the
                           countries Vokalia and Consonantia, there live the
                           blind texts."
@@ -214,22 +214,22 @@ function AboutUs() {
             </div>
             <div className={`col-md-10 col-lg-6 col-xl-5 `} data-aos="fade-up" data-aos-delay="100">
               <div className={`card ${mode.theme === "dark"? aboutstyle.cardn:""} mb-4`}>
-                <div class="row align-items-center g-0">
-                  <div class="col-md-4">
+                <div className="row align-items-center g-0">
+                  <div className="col-md-4">
                     <img
                       src={person1}
-                      class="img-fluid rounded-start"
+                      className="img-fluid rounded-start"
                       alt="..."
                     />
                   </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
+                  <div className="col-md-8">
+                    <div className="card-body">
                       <h5 className={`${aboutstyle.cardtitle} mb-0`}>
                         James Watson
                       </h5>
-                      <p class="card-text mb-2">Co-Founder & CEO</p>
-                      <p class="card-text">
-                        <small class={`text-body-${mode.theme === "dark"? "primary": "secondary"}`}>
+                      <p className="card-text mb-2">Co-Founder & CEO</p>
+                      <p className="card-text">
+                        <small className={`text-body-${mode.theme === "dark"? "primary": "secondary"}`}>
                           "Far far away, behind the word mountains, far from the
                           countries Vokalia and Consonantia, there live the
                           blind texts."

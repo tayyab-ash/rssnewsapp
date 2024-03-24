@@ -2,9 +2,26 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Install the necessary libraries and packages first
+
+### `npm install`
+
+Installs all the necessary node_modules
+
+### `npm i react-router-dom`
+Installs the React Router Dom environment
+
+### `npm i aos`
+Installs the Animate on Scroll library
+
+### `npm i react-alice-carousel`
+Installs the React Alice Carousel library
+
+
 ## Available Scripts
 
 In the project directory, you can run:
+Install the necessary libraries and packages first
 
 ### `npm start`
 

@@ -80,7 +80,6 @@ function Header() {
             
           </div>
           <div className={`${hdrstyles.mobileNavItems}`}>
-          saasdasd
             <ul className={``}>
               <li>
                 <NavLink

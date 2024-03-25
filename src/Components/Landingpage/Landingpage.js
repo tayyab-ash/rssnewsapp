@@ -46,7 +46,7 @@ function Landingpage() {
                 data-aos={mode.animation}
                 data-aos-delay="100"
               >
-                Take control of your news feed HEHHEHE
+                Take control of your news feed
               </h2>
               <p
                 className={`${lpstyles.desctext} ${

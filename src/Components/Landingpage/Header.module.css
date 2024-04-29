@@ -247,7 +247,7 @@ body {
 
 /* Displays the hamburger menu */
 .menuico {
-  display: none !important;
+  display: none !important; 
   color: black;
   cursor: pointer;
   font-size: 20px;

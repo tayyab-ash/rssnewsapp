@@ -1,0 +1,148 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --primaryBlue: #091059;
+    /* --primaryBlue2: #060b41; */
+    --lightBlue: rgba(9, 16, 89, 0.304);
+    --primaryYellow: #FBB244;
+    --bodyDark: #171720;
+    --textDark: #171720;
+    --bodyDark2: rgb(27, 27, 35);
+    --bodyDark3: rgb(30, 30, 36);
+    --lightYellow: rgba(251, 178, 68, 0.4);
+    --white: white;
+    --black: black;
+    --gray: #6d6d6d;
+    --gray2: #cccccc;
+    --transparent: rgba(255, 255, 255, 0);
+}
+
+
+
+.sidebar{
+    width: 70px;
+    background-color: var(--bodyDark3);
+    height: 100vh;
+    color: white;
+    border-right: 1px solid rgb(44, 44, 48);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    z-index: 1;
+    
+}
+
+.sidebar img{
+    width:26px;
+    cursor: pointer;
+}
+
+
+.sidebar2{
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: -320px;
+    color: white;
+    width: 320px;
+    height: 100vh;
+    background-color: var(--bodyDark3);
+    transition: 0.3s;
+    overflow: auto;
+}
+
+.showSidebar{
+    left: 70px;
+}
+
+.innerSidebar{
+    padding: 80px 0px;
+}
+
+.innerSidebar img{
+    width: 20px;
+    margin-right: 10px;
+}
+
+.innerSidebar .list ul{
+    list-style: none;
+    padding: 0;
+}
+
+.innerSidebar .list ul li{
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 6px 30px;
+    cursor: pointer;
+}
+ 
+.innerSidebar .list ul li:hover{
+    background-color: rgb(37, 37, 41);
+}
+
+.feeds p{
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 4px 30px;
+    cursor: pointer;
+    color: var(--gray2);
+}
+
+.createFolder{
+    /* width: 100%; */
+    height: 200px;
+    margin: 0px 30px;
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-style: dashed;
+}
+
+.createFolder p{
+    text-align: center;
+    font-size: 12px;
+    padding: 0px 30px 10px 30px;
+    color: white;
+}
+
+.createFolder button{
+    padding: 6px 12px;
+    font-size: 14px;
+    outline: none;
+    border: none;
+    background-color: var(--primaryYellow);
+    color: var(--textDark);
+    border-radius: 5px;
+    border: 1px solid var(--primaryYellow);
+}
+
+
+
+
+
+
+
+.list2 ul {
+    list-style: none;
+    padding: 0;
+}
+
+.list2 ul li{
+    margin-top: 3rem;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 6px 30px;
+    cursor: pointer;
+}

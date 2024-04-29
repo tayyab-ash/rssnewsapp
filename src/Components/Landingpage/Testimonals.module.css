@@ -1,5 +1,4 @@
 @import "react-alice-carousel/lib/alice-carousel.css";
-/* @import "react-alice-carousel/lib/scss/alice-carousel.scss"; */
 *{
     margin: 0;
     padding: 0;
@@ -161,7 +160,3 @@
     color: rgb(255, 255, 255, 0.5) !important;
 }
 
-
-/* @media screen and (max-width: 992px) {
-    
-  } */

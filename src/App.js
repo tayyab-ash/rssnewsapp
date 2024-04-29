@@ -15,6 +15,7 @@ import {
 } from "react-router-dom";
 
 import ThemeState from "./Components/Context/Theme/ThemeState";
+import Homepage from "./Components/Home/Homepage";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
 
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/signup" element={<Signup />} />
+          <Route exact path="/home" element={<Homepage/>} />
           
         </Routes>
       </Router>

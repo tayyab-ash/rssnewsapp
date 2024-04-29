@@ -11,7 +11,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-
   /* background: url(/Untitled-4.png);
   background-repeat: no-repeat;
   background-size: contain; */
@@ -42,8 +41,8 @@ body {
   #1e267e
   #fbb2447a
   */
-  background-color: #0b0d1f;
-  background-color: #070816;
+  /* background-color: #0b0d1f;
+  background-color: #070816; */
   background-color: #171720;
   /* background-color: #1B1B1B; */
   /* background-color: rgb(24, 27, 30); */

@@ -11,12 +11,23 @@ function ThemeState(props) {
   const [headingTheme, setheadingTheme] = useState("headingsDark")
   const [animation, setanimation] = useState("fade-up")
 
+
+  const [NewsShrink, setNewsShrink] = useState("")
+
   // const light = styled.div`
   //   background: linear-gradient(210deg, white, rgba(255, 255, 255, 0) 35%),
   //     linear-gradient(180deg, #fbb2447a, rgb(0, 0, 0, 0%) 16%),
   //     linear-gradient(280deg, white, rgba(255, 255, 255, 0) 40%),
   //     linear-gradient(230deg, #4151ff, rgb(0, 0, 255, 0%) 30%);
   // `;
+
+  const handleExpand = () => {
+    if(NewsShrink === ""){
+      setNewsShrink('mainShrink');
+    }else{
+      setNewsShrink("")
+    }
+  }
 
   const themeDark = () => {
     document.body.classList.remove("light");
@@ -37,7 +48,7 @@ function ThemeState(props) {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, btnTheme, btn2Theme, headingTheme,animation, themeDark, themeLight }}>
+    <ThemeContext.Provider value={{ theme, btnTheme, btn2Theme, headingTheme,animation, themeDark, themeLight, handleExpand, NewsShrink }}>
       {props.children}
     </ThemeContext.Provider>
   );

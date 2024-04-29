@@ -1,6 +1,7 @@
 import React from 'react'
 import aboutsec from "./Landingpage.module.css"
-import about from "./images/Aboutus.png";
+import about from "./images/About us page-pana.png";
+import aboutLight from "./images/About us page-pana (1).png"
 import {Link} from 'react-router-dom'
 import { useContext } from 'react';
 import themeContext from "../Context/Theme/ThemeContext";
@@ -13,7 +14,7 @@ function Aboutsection() {
         <div className="row justify-content-between">
             <div className="col-lg-6">
               <div className={`img-wrap`} data-aos="fade-up">
-                <img src={about} alt="" className="img-fluid" />
+                <img src={mode.theme === "dark"? about:aboutLight} alt="" className="img-fluid" />
               </div>
             </div>
             <div
@@ -21,7 +22,8 @@ function Aboutsection() {
               data-aos="fade-up"
               data-aos-delay="100"
             >
-              <span className={`${aboutsec.lighttext } ${mode.theme === "dark"? aboutsec.lighttextDark:aboutsec.lighttextLight}`} data-aos="fade-up">
+              <span className={`${aboutsec.lighttext } ${mode.theme === "dark"? aboutsec.lighttextDark:aboutsec.lighttextLight}`} 
+              >
                 About Us
               </span>
               <h2 className={`${aboutsec.headings} ${

@@ -1,6 +1,7 @@
 import React from "react";
 import aboutstyle from "./AboutUs.module.css";
-import about from "./images/Aboutus.png";
+import about from "./images/About us page-pana.png";
+import aboutLight from "./images/About us page-pana (1).png"
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Testimonals from "./Testimonals";
@@ -62,7 +63,7 @@ function AboutUs() {
             </div>
             <div className="col-lg-6">
               <div className={`img-wrap`} data-aos="fade-up">
-                <img src={about} alt="" className="img-fluid" />
+                <img src={mode.theme === "dark"? about:aboutLight} alt="" className="img-fluid" />
               </div>
             </div>
           </div>

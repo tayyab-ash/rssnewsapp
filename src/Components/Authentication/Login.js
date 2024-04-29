@@ -2,12 +2,11 @@ import React from "react";
 import loginstyle from "./Login.module.css";
 // import loginimg from "./images/login.jpg";
 import logo from "../Landingpage/images/Black and White Monogram Business Logo.png";
-import { useEffect } from "react";
 import AOS from "aos";
 import { Link } from 'react-router-dom'
 import "aos/dist/aos.css";
 
-import { useContext } from "react";
+import { useEffect, useContext } from "react";
 import themeContext from "../Context/Theme/ThemeContext";
 
 function Login() {
@@ -136,9 +135,10 @@ function Login() {
                 </label>
               </div>
               <div className="mt-3">
+               <Link to="/home">
                 <button className={`${loginstyle.loginbtn} ${mode.theme === "dark"? loginstyle.btnDark:""} $ w-100`}>
                   Login
-                </button>
+                </button> </Link>
               </div>           
               <div className={`text-center mt-2`}>
                 <span className={`${loginstyle.labeltxt}`}>or</span> 

@@ -46,6 +46,7 @@ function Header() {
     const navico = document.getElementById('navIco');
     const mobnav = document.getElementById('mobNav');
     if (navico && !navico.contains(event.target) && !mobnav.contains(event.target) ) {
+    // if (!mobnav.contains(event.target) ) {
       setnavShow("navHidden");
     }
   };
@@ -69,14 +70,14 @@ function Header() {
         className={`${hdrstyles.mobilenav} ${hdrstyles[navShow]}`}
       >
         <div
-          className={`${hdrstyles.mobilenav2} ${
+          className={`${hdrstyles.mobilenav2} container ${
             mode.theme === "dark" ? hdrstyles.mobileNavDark : ""
           } `}
         >
           <div onClick={mobileNav} className={`${hdrstyles.mobileNavIcondiv}`}>
-            {/* <div className={`${hdrstyles.iconDiv}`}> */}
+      
             <i className={`${hdrstyles.mobileNavIcon} ${mode.theme === "dark"? hdrstyles.mobileNavIconDark:""} fa-solid fa-xmark ${hdrstyles[`fa-xmark`]}`}></i>
-            {/* </div> */}
+         
             
           </div>
           <div className={`${hdrstyles.mobileNavItems}`}>
@@ -210,7 +211,7 @@ function Header() {
             : hdrstyles.headerBgLight
           : ""
       }
-      g-0 d-flex justify-content-center `}
+      g-0 d-flex justify-content-center`}
       >
         <div
           className={`${hdrstyles.new} ${mTop} container d-flex justify-content-between align-items-center`}

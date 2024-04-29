@@ -132,7 +132,7 @@ function Landingpage() {
             </div>
           </div>
 
-          <div className={`row g-5 text-center`}>
+          <div className={`row text-center`}>
             <div className={`col-lg-4 `} data-aos="fade-up" data-aos-delay="0">
               <div className={`${lpstyles.feature} text-center`}>
                 <div className={`${lpstyles.imgsection} ${mode.theme === "dark"? lpstyles.imgsectionBgDark:""}`}>

@@ -1,43 +1,37 @@
-import React from 'react'
-import styles from "./MainFeedPage.module.css"
-import { useContext, useState } from "react";
+import React from "react";
+import styles from "./MainFeedPage.module.css";
+import { useContext } from "react";
 import themeContext from "../Context/Theme/ThemeContext";
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 //images
 // import personalize from "./images/Personalization-rafiki.png"
-import personalize from "./images/Personalization-rafiki (2).png"
-import NewsComponent from './NewsComponent';
+// import personalize from "./images/Personalization-rafiki (2).png"
 
+import NewsComponent from "./NewsComponent";
+import TodayNews from "./TodayNews";
+import DiscoverFeeds from "./Discover/DiscoverFeeds";
 
 function MainFeedPage() {
-    const cont = useContext(themeContext);
-
+  const shrink = useContext(themeContext);
   return (
-    <div>
-        <div className={`${styles.mainContainer} ${styles[cont.NewsShrink]}`}>
-            <div className={`${styles.header}`}>
+      <div>
+        <div className={`${styles.mainContainer} ${styles[shrink.NewsShrink]}`}>
+          <div className={`${styles.contentArea} container`}>
+            <div className={`${styles.newsPage}`}>
+              {/* <TodayNews/> */}
+              {/* <Router>
+                <Routes>
+                    <Route exact path="/home" element={<TodayNews/>}/>
+                    <Route exact path="/discover" element={<DiscoverFeeds/>}/>
+                </Routes>
+              </Router> */}
             </div>
-            <div className={`${styles.contentArea} container`}>
-                <div className={`${styles.contentAreaHeading}`}>
-                    <h2>Today</h2>
-                    <p>Your daily dose of Insights.</p>
-                </div>
-
-                <hr className='mt-4' />
-
-                {/* <div className={`${styles.news}`}>
-                    <img src={personalize} alt="" />
-                    <p>Follow you favourite feeds to get statrted. All of the feeds you follow will be here.</p>
-                    <button>Add Articles</button>
-                </div> */}
-
-                <div className={`${styles.newsPage}`}>
-                    <NewsComponent/>
-                </div>
-            </div>
+          </div>
         </div>
-    </div>
-  )
+      </div>
+  );
 }
 
-export default MainFeedPage
+export default MainFeedPage;

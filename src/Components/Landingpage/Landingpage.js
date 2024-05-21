@@ -46,7 +46,9 @@ function Landingpage() {
                 data-aos={mode.animation}
                 data-aos-delay="100"
               >
-                Take control of your news feed
+                {/* Take control of your news feed */}
+               Zenfeed Your Gateway to Mindfull Consumption
+               {/* Escape the Noise, Embrace the Zen of ZenFeed */}
               </h2>
               <p
                 className={`${lpstyles.desctext} ${
@@ -55,10 +57,7 @@ function Landingpage() {
                 data-aos={mode.animation}
                 data-aos-delay="200"
               >
-                Far far away, behind the word mountains, far from the countries
-                Vokalia and Consonantia, there live the blind texts. Separated
-                they live in Bookmarksgrove right at the coast of the Semantics,
-                a large language ocean.
+                Welcome to Zen Feed, your serene sanctuary in the digital world of news. We collect and organizes news articles and updates from multiple sources into a single interface. Making it easier for our user to access the content of their favorite topics on a single platform.
               </p>
               <div data-aos="fade-up" data-aos-delay="300" className="mb-5">
                 <Link to="/signup">
@@ -124,10 +123,7 @@ function Landingpage() {
                   mode.theme === "dark" ? lpstyles.descDark : lpstyles.descLight
                 }`}
               >
-                Far far away, behind the word mountains, far from the countries
-                Vokalia and Consonantia, there live the blind texts. Separated
-                they live in Bookmarksgrove right at the coast of the Semantics,
-                a large language ocean.
+                Here, we offer a tranquil escape from information overload, presenting a harmonious blend of features designed to elevate your news consumption experience
               </p>
             </div>
           </div>
@@ -163,8 +159,7 @@ function Landingpage() {
                       : lpstyles.descLight
                   }`}
                 >
-                  Far far away, behind the word mountains, far from the
-                  countries Vokalia and Consonantia, there live the blind texts.
+                  Access Zen Feed anytime, anywhere, across all your devices and stay ahead of the curve with real-time updates.
                 </p>
               </div>
             </div>
@@ -204,8 +199,7 @@ function Landingpage() {
                       : lpstyles.descLight
                   }`}
                 >
-                  Far far away, behind the word mountains, far from the
-                  countries Vokalia and Consonantia, there live the blind texts.
+                  Customize your news experience with personalized feeds. Navigate with ease through our clean design and user-friendly features.
                 </p>
               </div>
             </div>
@@ -245,8 +239,7 @@ function Landingpage() {
                       : lpstyles.descLight
                   }`}
                 >
-                  Far far away, behind the word mountains, far from the
-                  countries Vokalia and Consonantia, there live the blind texts.
+                  Tailor your content based on your interests, preferences, and favorite topics, ensuring that you receive updates that matter most to you.
                 </p>
               </div>
             </div>
@@ -282,8 +275,7 @@ function Landingpage() {
                   mode.theme === "dark" ? lpstyles.descDark : lpstyles.descLight
                 }`}
               >
-                Far far away, behind the word mountains, far from the countries
-                Vokalia and Consonantia, there live the blind texts.
+                Say goodbye to endless scrolling and multiple tabs. With Zen Feed, access all your favorite news sources in one centralized platform, saving you time and effort.
               </p>
             </div>
           </div>
@@ -330,10 +322,7 @@ function Landingpage() {
                   mode.theme === "dark" ? lpstyles.descDark : lpstyles.descLight
                 } mt-3`}
               >
-                Far far away, behind the word mountains, far from the countries
-                Vokalia and Consonantia, there live the blind texts. Separated
-                they live in Bookmarksgrove right at the coast of the Semantics,
-                a large language ocean.
+                Join a community of mindful news consumers on ZenFeed. Share insights, spark discussions, and connect with like-minded individuals who share your passion for informed and conscious news consumption.
               </p>
             </div>
             <Testimonals />

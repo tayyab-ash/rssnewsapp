@@ -28,8 +28,7 @@ function Testimonals() {
               mode.theme === "dark" ? testimonal.paraDark : ""
             } `}>
         <p>
-          “Far far away, behind the word mountains, far from the countries Vokalia
-          and Consonantia, there live the blind texts.”
+          “As someone who values staying informed without feeling overwhelmed, ZenFeed has become my go-to destination for news.”
         </p>
         <div className={`${testimonal.author} d-flex`}>
           <div className={`${testimonal.authorpic}`}>
@@ -51,8 +50,7 @@ function Testimonals() {
               mode.theme === "dark" ? testimonal.paraDark : ""
             } `}>
         <p>
-          “Far far away, behind the word mountains, far from the countries Vokalia
-          and Consonantia, there live the blind texts.”
+          “I no longer have to worry about missing out on breaking news or trending topics, as ZenFeed keeps me informed with notifications.”
         </p>
         <div className={`${testimonal.author} d-flex`}>
           <div className={`${testimonal.authorpic}`}>
@@ -74,8 +72,7 @@ function Testimonals() {
               mode.theme === "dark" ? testimonal.paraDark : ""
             } `}>
         <p>
-          “Far far away, behind the word mountains, far from the countries Vokalia
-          and Consonantia, there live the blind texts.”
+          “I highly recommend ZenFeed to anyone looking for a more tranquil and enriching news experience.”
         </p>
         <div className={`${testimonal.author} d-flex`}>
           <div className={`${testimonal.authorpic}`}>
@@ -97,8 +94,7 @@ function Testimonals() {
               mode.theme === "dark" ? testimonal.paraDark : ""
             } `}>
         <p>
-          “Far far away, behind the word mountains, far from the countries Vokalia
-          and Consonantia, there live the blind texts.”
+          “As someone who values staying informed without feeling overwhelmed, ZenFeed has become my go-to destination for news.”
         </p>
         <div className={`${testimonal.author} d-flex`}>
           <div className={`${testimonal.authorpic}`}>
@@ -120,8 +116,7 @@ function Testimonals() {
               mode.theme === "dark" ? testimonal.paraDark : ""
             } `}>
         <p>
-          “Far far away, behind the word mountains, far from the countries Vokalia
-          and Consonantia, there live the blind texts.”
+          “I no longer have to worry about missing out on breaking news or trending topics, as ZenFeed keeps me informed with notifications.”
         </p>
         <div className={`${testimonal.author} d-flex`}>
           <div className={`${testimonal.authorpic}`}>
@@ -143,8 +138,7 @@ function Testimonals() {
               mode.theme === "dark" ? testimonal.paraDark : ""
             } `}>
         <p>
-          “Far far away, behind the word mountains, far from the countries Vokalia
-          and Consonantia, there live the blind texts.”
+          “I highly recommend ZenFeed to anyone looking for a more tranquil and enriching news experience.”
         </p>
         <div className={`${testimonal.author} d-flex`}>
           <div className={`${testimonal.authorpic}`}>
@@ -166,8 +160,7 @@ function Testimonals() {
               mode.theme === "dark" ? testimonal.paraDark : ""
             } `}>
         <p>
-          “Far far away, behind the word mountains, far from the countries Vokalia
-          and Consonantia, there live the blind texts.”
+          “As someone who values staying informed without feeling overwhelmed, ZenFeed has become my go-to destination for news.”
         </p>
         <div className={`${testimonal.author} d-flex`}>
           <div className={`${testimonal.authorpic}`}>
@@ -189,8 +182,7 @@ function Testimonals() {
               mode.theme === "dark" ? testimonal.paraDark : ""
             } `}>
         <p>
-          “Far far away, behind the word mountains, far from the countries Vokalia
-          and Consonantia, there live the blind texts.”
+          “I no longer have to worry about missing out on breaking news or trending topics, as ZenFeed keeps me informed with notifications.”
         </p>
         <div className={`${testimonal.author} d-flex`}>
           <div className={`${testimonal.authorpic}`}>
@@ -212,8 +204,7 @@ function Testimonals() {
               mode.theme === "dark" ? testimonal.paraDark : ""
             } `}>
         <p>
-          “Far far away, behind the word mountains, far from the countries Vokalia
-          and Consonantia, there live the blind texts.”
+          “I highly recommend ZenFeed to anyone looking for a more tranquil and enriching news experience.”
         </p>
         <div className={`${testimonal.author} d-flex`}>
           <div className={`${testimonal.authorpic}`}>

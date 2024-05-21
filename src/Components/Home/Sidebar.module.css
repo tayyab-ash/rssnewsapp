@@ -13,6 +13,7 @@
     --textDark: #171720;
     --bodyDark2: rgb(27, 27, 35);
     --bodyDark3: rgb(30, 30, 36);
+    --bodyDark4: rgb(26, 26, 34);
     --lightYellow: rgba(251, 178, 68, 0.4);
     --white: white;
     --black: black;
@@ -52,7 +53,7 @@
     color: white;
     width: 320px;
     height: 100vh;
-    background-color: var(--bodyDark3);
+    background-color: var(--bodyDark4);
     transition: 0.3s;
     overflow: auto;
 }
@@ -94,6 +95,7 @@
     padding: 4px 30px;
     cursor: pointer;
     color: var(--gray2);
+    margin-bottom: 8px;
 }
 
 .createFolder{
@@ -107,6 +109,10 @@
     align-items: center;
     justify-content: center;
     border-style: dashed;
+}
+
+.CRFhidden{
+    display: none;
 }
 
 .createFolder p{
@@ -145,4 +151,141 @@
     font-weight: 700;
     padding: 6px 30px;
     cursor: pointer;
+}
+
+.feedList{
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    /* padding: 6px 30px; */
+    cursor: pointer;
+}
+
+/* .feedList .allNews{
+    padding: 0px 30px;
+}
+.feedList .allNews:hover{
+    background-color: #6d6d6d;
+} */
+
+.feedList .folderName ul{
+    list-style: none;
+    /* padding: 6px 0 6px 0; */
+}
+
+.feedList .folderName ul{
+    padding: 0;
+}
+.feedList .folderName ul li{
+    padding: 6px 30px;
+}
+.feedList .folderName ul li:hover{
+    background-color: rgb(37, 37, 41);
+}
+
+
+.folderName .websitesList li{
+    padding: 6px 60px !important;
+}
+
+.websitesHidden{
+    display: none;
+}
+
+.newFolder p{
+    padding: 6px 30px;
+    font-weight: 500;
+}
+.newFolder p:hover{
+    background-color: rgb(37, 37, 41);
+}
+
+
+
+.createFolderSidebar{
+    position: fixed;
+    right: -600px;
+    top: 0;
+    /* width: 600px; */
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    background-color: var(--bodyDark2);
+    height: 100vh;
+    transition: 0.2s ease-out;
+    z-index: 4;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.createFolderSidebarInner{
+    padding: 0px 60px;
+    margin-top: 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.closeButton{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 16px;
+    align-self: flex-end;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.closeButton:hover{
+    transform: rotate(90deg) scale(1.2);
+    /* transform: ; */
+}
+
+.createFolderSidebarInner  h2{
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.createFolderSidebarInner .inputArea label{
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-family: "Open Sans", sans-serif;
+    color: var(--gray2);
+}
+
+.createFolderSidebarInner .inputArea input{
+    width: 100%;
+    /* margin-top: 1rem; */
+    outline: none;
+    border: 1px solid var(--gray);
+    background-color: var(--bodyDark3);
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    transition: 0.3s;
+}
+
+.createFolderSidebarInner .inputArea input:focus{
+    border: 1px solid var(--primaryYellow);
+}
+
+.createFolderSidebarInner button{
+    margin-top: 1rem;
+    width: 100%;
+    padding: 6px 12px;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    background-color: var(--primaryYellow);
+    color: var(--textDark);
+    border-radius: 5px;
+    border: 1px solid var(--primaryYellow);
+}
+
+.showCreateFolderSidebar{
+    right: 0px;
 }

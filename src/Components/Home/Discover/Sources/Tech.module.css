@@ -1,6 +1,6 @@
 *{
-    margin: 0;
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
 }
 
@@ -13,45 +13,12 @@
     --textDark: #171720;
     --bodyDark2: rgb(27, 27, 35);
     --bodyDark3: rgb(30, 30, 36);
+    --bodyDark4: rgb(26, 26, 34);
     --lightYellow: rgba(251, 178, 68, 0.4);
     --white: white;
     --black: black;
     --gray: #6d6d6d;
     --gray2: #cccccc;
     --transparent: rgba(255, 255, 255, 0);
-}
-
-
-.mainContainer{
-    color: white;
-    margin-left: 70px;
-    /* position: absolute; */
-    transition: 0.3s;
-    overflow: auto;
-    height: 100vh;
-    
-}
-
-.mainShrink{
-    margin-left: 390px !important;
-    transition: 0.3s;
-    overflow: auto;
-}
-
-.contentArea{
-    display: flex;
-    flex-direction: column;
-    max-width: 888px;
-    overflow: auto;
-}
-
-
-
-
-
-
-.new{
-    top: 0;
-    left: 0;
 }
 

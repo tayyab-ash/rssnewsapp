@@ -15,7 +15,7 @@ function Footer() {
           <div className={`col-md-6 col-lg-4`}>
             <div className={`${footer.widget}`}>
               <h3 className={`${mode.theme === "dark"? footer.fhDark:""}`}>About ZenFeed</h3>
-              <p className={`${mode.theme === "dark"? footer.fpDark:""}`}>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              <p className={`${mode.theme === "dark"? footer.fpDark:""}`}>We prioritize credibility and accuracy, ensuring that you receive trustworthy information from reputable sources.</p>
             </div>
             <div className={`${footer.sociallinks} ${mode.theme === "dark"? footer.img:""}`}>
               <a href="/"><img  src={facebook} alt="facebook" /></a>

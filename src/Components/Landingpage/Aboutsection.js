@@ -40,18 +40,14 @@ function Aboutsection() {
                 // data-aos="fade-up"
                 // data-aos-delay="200"
               >
-                Separated they live in Bookmarksgrove right at the coast of the
-                Semantics, a large language ocean.
+                ZenFeed offers a tranquil oasis amidst the chaos of the digital news landscape. With curated content and a peaceful user experience, we provide a calm and focused environment for informed news consumption. 
               </p>
               <p className={`${aboutsec.desctext} ${
                   mode.theme === "dark"
                     ? aboutsec.descDark
                     : aboutsec.descLight
                 } mt-3 mb-5`}>
-                Far far away, behind the word mountains, far from the countries
-                Vokalia and Consonantia, there live the blind texts. Separated
-                they live in Bookmarksgrove right at the coast of the Semantics,
-                a large language ocean.
+                From customized feeds to topic preferences, we empower you to shape your news consumption according to your interests. Experience the ultimate convenience of news consumption with ZenFeed – your go-to RSS news aggregator for a seamless, personalized, and hassle-free news experience anytime, anywhere.
               </p>
               <div
               // data-aos="fade-up"

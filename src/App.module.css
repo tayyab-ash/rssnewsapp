@@ -22,15 +22,16 @@
 }
 
 
+
 .mainContainer{
     color: white;
     margin-left: 70px;
-    /* position: absolute; */
     transition: 0.3s;
     overflow: auto;
     height: 100vh;
     
 }
+
 
 .mainShrink{
     margin-left: 390px !important;
@@ -44,14 +45,3 @@
     max-width: 888px;
     overflow: auto;
 }
-
-
-
-
-
-
-.new{
-    top: 0;
-    left: 0;
-}
-

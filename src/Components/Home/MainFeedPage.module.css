@@ -24,7 +24,6 @@
 .mainContainer{
     color: white;
     margin-left: 70px;
-    
     /* trigger margin left  */
     /* margin-left: 390px; */
     transition: 0.3s;
@@ -39,19 +38,18 @@
     overflow: auto;
 }
 
-.mainContainer .header{
+/* .mainContainer .header{
     height: 50px;
     background-color: var(--bodyDark3);
     padding: 0 10%;
     border-bottom: 1px solid #2c2c30;
-}
+} */
 
 .contentArea{
     display: flex;
     flex-direction: column;
     max-width: 888px;
     overflow: auto;
-    
 }
 
 .contentAreaHeading h2{

@@ -4,6 +4,8 @@ import themeContext from "../Context/Theme/ThemeContext";
 import Sidebar from "./Sidebar";
 import MainFeedPage from "./MainFeedPage";
 import styles from "./Homepage.module.css";
+import Header from "./Header2";
+import TodayNews from "./TodayNews";
 
 function Homepage() {
   const mode = useContext(themeContext);
@@ -21,12 +23,13 @@ function Homepage() {
 
   return (
     <div>
-        <div>
-          <Sidebar />
-        </div>
-        <div>
-          <MainFeedPage />
-        </div>
+      <div>
+        <Sidebar />
+      </div>
+      <div>
+        <Header />
+      </div>
+
     </div>
   );
 }

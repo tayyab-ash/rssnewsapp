@@ -5,7 +5,7 @@ function Tech() {
   return (
     <div>
         <div className={``}>
-
+          lkjasfljkasjdlkf
         </div>
     </div>
   )

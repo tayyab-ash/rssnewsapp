@@ -9,7 +9,7 @@ import techimg2 from "./assets/WhatsApp Image 2024-05-13 at 11.18.24.jpeg";
 function DiscoverFeeds() {
   return (
     <div>
-      <div className={`${styles.discoverPg}`}>
+      {/* <div className={`${styles.discoverPg}`}>
         <div className={`${styles.contentAreaHeading}`}>
           <h2>Discover</h2>
           <h4>Follow your favourite websites</h4>
@@ -17,7 +17,7 @@ function DiscoverFeeds() {
         <div className={`${styles.feedSearch}`}>
           <input type="text" />
           <button>Search</button>
-        </div>
+        </div> */}
         <div className={`${styles.catagories} row`}>
           <div className={`${styles.card} col-lg-4 col-md-6`}>
             <Link to="sources/tech" className={`${styles.imageContainer}`}>
@@ -55,7 +55,7 @@ function DiscoverFeeds() {
             </Link>
           </div>
         </div>
-      </div>
+      {/* </div> */}
     </div>
   );
 }

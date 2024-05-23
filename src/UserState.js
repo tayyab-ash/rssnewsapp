@@ -2,10 +2,13 @@ import React from 'react'
 import { useState } from 'react'
 import UserContext from './UserContext'
 
-function UserState(props) {
+function UserState({children}) {
+  
+  
+
   return (
     <UserContext.Provider value={{}}>
-        {props.children}
+        {children}
     </UserContext.Provider>
   )
 }

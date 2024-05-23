@@ -27,6 +27,7 @@ function Sidebar() {
   const [hidden, sethidden] = useState("");
   const [CRFboxState, setCRFboxState] = useState('')
   const [FolderList, setFolderList] = useState(ExtendSidebar)
+  const [CRFlist, setCRFlist] = useState('CRFhidden')
   //CRF is Create Folder
 
 
@@ -62,15 +63,13 @@ function Sidebar() {
 
     useEffect(() => {
         const storedFolders = JSON.parse(localStorage.getItem('folders')) || [];
-        setFolders(storedFolders);
-        
         const storedSidebarState = JSON.parse(localStorage.getItem('Sidebar'));
         setExtendSidebar(storedSidebarState !== null ? storedSidebarState : false);
-
+        setFolders(storedFolders);
         
-
         if(JSON.parse(localStorage.getItem('folders'))){
           setCRFboxState('CRFhidden')
+          setCRFlist('')
         }
         else{
           setCRFboxState('')
@@ -93,9 +92,11 @@ function Sidebar() {
 
         if(JSON.parse(localStorage.getItem('folders'))){
           setCRFboxState('CRFhidden')
+          setCRFlist('')
         }
         else{
           setCRFboxState('')
+          
         }
     };
 
@@ -192,7 +193,7 @@ function Sidebar() {
 
             
 
-            <div className={`${styles.feedList}`}>
+            <div className={`${styles.feedList} ${styles[CRFlist]}`}>
               <div className={`${styles.folderName}`}>
                 <ul>
                   <li className={`d-flex`}>

@@ -3,7 +3,7 @@ import styles from "./Sidebar.module.css";
 import { Link } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import themeContext from "../Context/Theme/ThemeContext";
-// import userContext from "../../UserContext";
+import userContext from "../../UserContext";
 
 //Images
 import home from "./images/home.png";
@@ -18,34 +18,39 @@ import log from "./images/log.png";
 import list from "./images/list.png";
 import drpdown from "./images/down-arrow.png";
 
-
 function Sidebar() {
   // const {handleExpand} = props;
   const shrink = useContext(themeContext);
-  const [ExtendSidebar, setExtendSidebar] = useState(null);
-  const [extendCreateFolder, setextendCreateFolder] = useState(null)
+  // const [ExtendSidebar, setExtendSidebar] = useState(null);
+  const [extendCreateFolder, setextendCreateFolder] = useState(null);
   const [hidden, sethidden] = useState("");
-  const [CRFboxState, setCRFboxState] = useState('')
-  const [FolderList, setFolderList] = useState(ExtendSidebar)
-  const [CRFlist, setCRFlist] = useState('CRFhidden')
+  // const [CRFboxState, setCRFboxState] = useState('')
+  // const [CRFlist, setCRFlist] = useState('CRFhidden')
   //CRF is Create Folder
-
 
   // let handleSidebarExtend = () => {
   //   localStorage.setItem('Sidebar' ,ExtendSidebar)
   // }
 
-  
-  
+  const {
+    ExtendSidebar,
+    setExtendSidebar,
+    CRFboxState,
+    CRFlist,
+    title,
+    folders,
+    handleCreateFolder,
+    handleInputChange,
+    handleDeleteWebsite
+  } = useContext(userContext);
 
-  let handleCreateFolderSidebar=()=>{
-    if(extendCreateFolder===null){
-      setextendCreateFolder('showCreateFolderSidebar')
+  let handleCreateFolderSidebar = () => {
+    if (extendCreateFolder === null) {
+      setextendCreateFolder("showCreateFolderSidebar");
+    } else {
+      setextendCreateFolder(null);
     }
-    else{
-      setextendCreateFolder(null)
-    }
-  }
+  };
 
   let webListHidden = () => {
     if (hidden === "") {
@@ -57,74 +62,73 @@ function Sidebar() {
 
 
 
+  // const [title, setTitle] = useState('');
+  //   const [folders, setFolders] = useState([]);
 
-  const [title, setTitle] = useState('');
-    const [folders, setFolders] = useState([]);
+  //   useEffect(() => {
+  //       const storedFolders = JSON.parse(localStorage.getItem('folders')) || [];
+  //       const storedSidebarState = JSON.parse(localStorage.getItem('Sidebar'));
+  //       setExtendSidebar(storedSidebarState !== null ? storedSidebarState : false);
+  //       setFolders(storedFolders);
 
-    useEffect(() => {
-        const storedFolders = JSON.parse(localStorage.getItem('folders')) || [];
-        const storedSidebarState = JSON.parse(localStorage.getItem('Sidebar'));
-        setExtendSidebar(storedSidebarState !== null ? storedSidebarState : false);
-        setFolders(storedFolders);
-        
-        if(JSON.parse(localStorage.getItem('folders'))){
-          setCRFboxState('CRFhidden')
-          setCRFlist('')
-        }
-        else{
-          setCRFboxState('')
-        }
-    }, []);
+  //       if(JSON.parse(localStorage.getItem('folders'))){
+  //         setCRFboxState('CRFhidden')
+  //         setCRFlist('')
+  //       }
+  //       else{
+  //         setCRFboxState('')
+  //       }
+  //   }, []);
 
-   
+  //   const handleInputChange = (e) => {
+  //       setTitle(e.target.value);
+  //   };
 
-    const handleInputChange = (e) => {
-        setTitle(e.target.value);
-    };
+  //   const handleCreateFolder = () => {
+  //       if (title.trim()) {
+  //           const newFolders = [...folders, title];
+  //           setFolders(newFolders);
+  //           localStorage.setItem('folders', JSON.stringify(newFolders));
+  //           setTitle('');
+  //       }
 
-    const handleCreateFolder = () => {
-        if (title.trim()) {
-            const newFolders = [...folders, title];
-            setFolders(newFolders);
-            localStorage.setItem('folders', JSON.stringify(newFolders));
-            setTitle('');
-        }
+  //       if(JSON.parse(localStorage.getItem('folders'))){
+  //         setCRFboxState('CRFhidden')
+  //         setCRFlist('')
+  //       }
+  //       else{
+  //         setCRFboxState('')
 
-        if(JSON.parse(localStorage.getItem('folders'))){
-          setCRFboxState('CRFhidden')
-          setCRFlist('')
-        }
-        else{
-          setCRFboxState('')
-          
-        }
-    };
-
+  //       }
+  //   };
 
   return (
     <div>
       <div className={`${styles.mainSidebar}`}>
-
-      <div className={`${styles.createFolderSidebar} ${styles[extendCreateFolder]}`}>
-
-      <div onClick={handleCreateFolderSidebar} className={`${styles.closeButton}`}>
-          <i class="fa-solid fa-xmark"></i>
+        <div
+          className={`${styles.createFolderSidebar} ${styles[extendCreateFolder]}`}
+        >
+          <div
+            onClick={handleCreateFolderSidebar}
+            className={`${styles.closeButton}`}
+          >
+            <i className="fa-solid fa-xmark"></i>
           </div>
-        <div className={`${styles.createFolderSidebarInner}`}>
+          <div className={`${styles.createFolderSidebarInner}`}>
             <h2>Create new folder</h2>
             <div className={`${styles.inputArea}`}>
-            <label htmlFor="">Title</label>
-            <input 
-            id="folderTitle"
-            type="text" 
-            placeholder="Topic, type, etc"
-            value={title}
-            onChange={handleInputChange}
-            />
+              <label htmlFor="">Title</label>
+              <input
+                id="folderTitle"
+                type="text"
+                placeholder="Topic, type, etc"
+                value={title}
+                onChange={handleInputChange}
+              />
             </div>
             <button onClick={handleCreateFolder}>Create</button>
+          </div>
         </div>
-      </div>
 
         <div className={styles.sidebar}>
           <div className="mt-5 d-flex flex-column">
@@ -140,15 +144,20 @@ function Sidebar() {
                 src={sidebar}
                 onClick={() => {
                   setExtendSidebar(!ExtendSidebar);
-                  localStorage.setItem('Sidebar', JSON.stringify(!ExtendSidebar));
-                  shrink.handleExpand(); 
+                  localStorage.setItem(
+                    "Sidebar",
+                    JSON.stringify(!ExtendSidebar)
+                  );
+                  shrink.handleExpand();
                 }}
                 alt="sidebar"
               />
             </div>
           </div>
           <div>
-           <Link to="/home/discover"><img src={rss} alt="feed" /></Link> 
+            <Link to="/home/discover">
+              <img src={rss} alt="feed" />
+            </Link>
           </div>
           <div className="mb-5">
             <img src={user} alt="user" />
@@ -163,20 +172,19 @@ function Sidebar() {
           <div className={`${styles.innerSidebar}`}>
             <div className={`${styles.list}`}>
               <ul>
+                <Link to="/home">
+                  <li>
+                    <img src={Today} alt="" /> Today
+                  </li>
+                </Link>
+
                 <li>
-                  {" "}
-                  <img src={Today} alt="" /> Today
-                </li>
-                <li>
-                  {" "}
                   <img src={Readlater} alt="" /> Read Later
                 </li>
                 <li>
-                  {" "}
                   <img src={Pins} alt="" /> Pins
                 </li>
                 <li>
-                  {" "}
                   <img src={recents} alt="" /> Recently Read
                 </li>
               </ul>
@@ -185,13 +193,11 @@ function Sidebar() {
             <div className={`${styles.feeds}`}>
               <p>Feeds</p>
             </div>
-            
+
             <div className={`${styles.createFolder} ${styles[CRFboxState]}`}>
               <p>Create a folder to start reading your favourite content.</p>
               <button onClick={handleCreateFolderSidebar}>Create Folder</button>
             </div>
-
-            
 
             <div className={`${styles.feedList} ${styles[CRFlist]}`}>
               <div className={`${styles.folderName}`}>
@@ -202,10 +208,31 @@ function Sidebar() {
                   </li>
                   <div>
                     {folders.map((folder, index) => (
-                            <li key={index}>
-                              <img src={drpdown} onClick={webListHidden} alt="" />
-                              {folder}
-                              </li>
+                      <Link key={index} to={`/home/${folder}`} id="folderItem">
+                        <li>
+                          <img
+                            src={drpdown}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                              webListHidden();
+                            }}
+                            alt=""
+                          />
+                          {folder}
+                          <img
+                            className={`${styles.deleteImg}`}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                              handleDeleteWebsite(folder);
+                              // console.log(handleDeleteWebsite(index))
+                            }}
+                            src={Pins}
+                            alt=""
+                          />
+                        </li>
+                      </Link>
                     ))}
                     <ul className={`${styles.websitesList} ${styles[hidden]}`}>
                       <li>webiste1</li>
@@ -214,7 +241,9 @@ function Sidebar() {
                       <li>website4</li>
                     </ul>
                     <div className={`${styles.newFolder}`}>
-                      <p onClick={handleCreateFolderSidebar}>Create New Folder</p>
+                      <p onClick={handleCreateFolderSidebar}>
+                        Create New Folder
+                      </p>
                     </div>
                   </div>
                 </ul>

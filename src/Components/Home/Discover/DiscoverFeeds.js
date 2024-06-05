@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 //images
 import techimg from "./assets/960x0.webp";
 import techimg2 from "./assets/WhatsApp Image 2024-05-13 at 11.18.24.jpeg";
+import politics from "./assets/Politics.png"
+import health from "./assets/Health.webp"
+import sports from "./assets/Sports.jpg"
 
 function DiscoverFeeds() {
   return (
@@ -13,7 +16,7 @@ function DiscoverFeeds() {
         <div className={`${styles.contentAreaHeading}`}>
           <h2>Discover</h2>
           <h4>Follow your favourite websites</h4>
-        </div>
+        </div>  
         <div className={`${styles.feedSearch}`}>
           <input type="text" />
           <button>Search</button>
@@ -36,10 +39,10 @@ function DiscoverFeeds() {
               {" "}
               <div>
                 <div className={`img-wrap`}>
-                  <img src={techimg2} alt="" className="img-fluid" />
+                  <img src={sports} alt="" className="img-fluid" />
                 </div>
               </div>
-              <span className={`${styles.centeredText}`}>TECH</span>
+              <span className={`${styles.centeredText}`}>SPORTS</span>
             </Link>
           </div>
 
@@ -48,10 +51,22 @@ function DiscoverFeeds() {
               {" "}
               <div>
                 <div className="img-wrap">
-                  <img src={techimg2} alt="" className="img-fluid" />
+                  <img src={politics} alt="" className="img-fluid" />
                 </div>
               </div>
-              <span className={`${styles.centeredText}`}>TECH</span>
+              <span className={`${styles.centeredText}`}>POLITICS</span>
+            </Link>
+          </div>
+
+          <div className={`${styles.card} col-lg-4 col-md-6`}>
+            <Link to="sources/tech" className={`${styles.imageContainer}`}>
+              {" "}
+              <div>
+                <div className="img-wrap">
+                  <img src={health} alt="" className="img-fluid" />
+                </div>
+              </div>
+              <span className={`${styles.centeredText}`}>HEALTH</span>
             </Link>
           </div>
         </div>

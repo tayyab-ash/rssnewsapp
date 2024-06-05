@@ -1,6 +1,6 @@
-// import "./App.css";
+
 import styles from "./App.module.css";
-import React, { useEffect } from "react";
+import React from "react";
 import Login from "./Components/Authentication/Login";
 import Signup from "./Components/Authentication/Signup";
 import AboutUs from "./Components/Landingpage/AboutUs";
@@ -9,25 +9,27 @@ import Footer from "./Components/Landingpage/Footer";
 import Header from "./Components/Landingpage/Header";
 import Landingpage from "./Components/Landingpage/Landingpage";
 
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-// import { Link } from "react-router-dom";
-import ThemeState from "./Components/Context/Theme/ThemeState";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useContext } from "react";
+import { useState, useEffect } from "react";
 import themeContext from "./Components/Context/Theme/ThemeContext";
-// import userContext from "./UserContext";
+import userContext from "./UserContext";
+import UserState from "./UserState";
 
 import Homepage from "./Components/Home/Homepage";
 import DiscoverFeeds from "./Components/Home/Discover/DiscoverFeeds";
-import MainFeedPage from "./Components/Home/MainFeedPage";
 import TodayNews from "./Components/Home/TodayNews";
-import Sidebar from "./Components/Home/Sidebar";
-import Header2 from "./Components/Home/Header2";
 import Tech from "./Components/Home/Discover/Sources/Tech";
 
-import techimg2 from "./Components/Home/Discover/assets/WhatsApp Image 2024-05-13 at 11.18.24.jpeg"
+import folderComponent from "./Components/FolderComponent";
+import New from "./Components/New";
+
 
 function App() {
   const shrink = useContext(themeContext);
+  const {folders} =useContext(userContext);
+
+  
 
   return (
     <>
@@ -43,6 +45,7 @@ function App() {
                     <Route exact path="/" element={<Landingpage />} />
                     <Route exact path="/aboutus" element={<AboutUs />} />
                     <Route exact path="/contactus" element={<ContactUs />} />
+                    <Route exat path="/hehe" element={<New/>}/>
                   </Routes>
                 </div>
                 <Footer />
@@ -66,6 +69,9 @@ function App() {
                         <div>
                           <Routes>
                             <Route exact path="/" element={<TodayNews />} />
+                            {folders.map((folders, index) => (
+                            <Route key={index} path={`/folders/:id`} component={folderComponent} />
+                              ))}
                             <Route
                               path="/discover/*"
                               element={
@@ -95,8 +101,6 @@ function App() {
                                 </React.Fragment>
                               }
                             />
-
-                            {/* <Route exact path="/discover/sources/tech" element={<Tech/>}/> */}
                           </Routes>
                         </div>
                       </div>
@@ -114,4 +118,10 @@ function App() {
   );
 }
 
-export default App;
+// export default App;
+// eslint-disable-next-line
+export default () => (
+  <UserState>
+    <App />
+  </UserState>
+);

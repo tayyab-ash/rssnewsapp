@@ -3,27 +3,65 @@ import loginstyle from "./Login.module.css";
 // import loginimg from "./images/login.jpg";
 import logo from "../Landingpage/images/Black and White Monogram Business Logo.png";
 import AOS from "aos";
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from "react-router-dom";
 import "aos/dist/aos.css";
 
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import themeContext from "../Context/Theme/ThemeContext";
 
 function Login() {
-  const mode = useContext(themeContext)
-    AOS.init();
+  const [credentials, setcredentials] = useState({ email: "", password: "" });
+  const [checkCredential, setcheckCredential] = useState('')
+
+  const navigate = useNavigate();
+
+  const mode = useContext(themeContext);
+  AOS.init();
   useEffect(() => {
-    if(mode.theme === "dark"){
-      document.body.style.background = '#171720'
-    }
-    else{
-      document.body.style.background = '#060b41'
+    if (mode.theme === "dark") {
+      document.body.style.background = "#171720";
+    } else {
+      document.body.style.background = "#060b41";
     }
     return () => {
-      document.body.style.background = '';
+      document.body.style.background = "";
       // document.body.style.background = bg.theme
     };
   }, [mode.theme]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:3000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: credentials.email,
+          password: credentials.password,
+        }),
+      });
+      const json = await response.json();
+      console.log(json);
+      if (json.success) {
+        localStorage.setItem("token", json.authtoken);
+        navigate("/home");
+        
+      } else {
+        setcheckCredential('wrongCred')     
+      //   setTimeout(() => {
+      //     setcheckCredential('');
+      // }, 2000); 
+      }
+    } catch (error) {
+      console.error("There was an error with the fetch operation:", error);
+    }
+  };
+
+  const onChange = (e) => {
+    setcredentials({ ...credentials, [e.target.name]: e.target.value });
+  };
 
   return (
     <div>
@@ -67,59 +105,81 @@ function Login() {
             </div>
           </div>
 
-
           <form
             className={`${loginstyle.loginform} row justify-content-center col-lg-6 pt-5 pb-5 g-0`}
             action=""
             data-aos="fade-left"
             data-aos-delay="200"
+            onSubmit={handleSubmit}
           >
             <div className="col-lg-6 col-md-8 col-sm-8 col-8 pt-5">
               <div className="text-center">
-                <h2 className={`${loginstyle.formH} ${mode.theme === "dark"? loginstyle.formHdark:""} mb-5`}>
+                <h2
+                  className={`${loginstyle.formH} ${
+                    mode.theme === "dark" ? loginstyle.formHdark : ""
+                  } mb-5`}
+                >
                   Login to continue
                 </h2>
               </div>
               <div className="mb-3">
                 <label
                   className={`${`${loginstyle.labeltxt}`} form-label mb-0`}
-                  htmlFor=""
+                  htmlFor="email"
                 >
                   Username or Email
                 </label>
                 <input
-                  type="email"
                   className={`${loginstyle["form-control"]} form-control`}
+                  id="email"
+                  type="email"
+                  name="email"
+                  value={credentials.email}
+                  onChange={onChange}
                 />
-                <label
+                {/* <label
                   className={`${`${loginstyle.wrong}`} form-label mb-0`}
                   htmlFor=""
                 >
-                  *The username or email you entered does not belong to any account.
-                </label>
+                  *Incorrect username or email.
+                </label> */}
               </div>
               <div className="">
                 <label
                   className={`${`${loginstyle.labeltxt}`} form-label mb-0`}
-                  htmlFor=""
+                  htmlFor="password"
                 >
                   Password
                 </label>
                 <input
-                  typeof="password"
+                  // typeof="password"
                   className={`${loginstyle["form-control"]} form-control`}
-                  type="text"
+                  id="password"
+                  type="password"
+                  name="password"
+                  value={credentials.password}
+                  onChange={onChange}
                 />
 
                 <label
-                  className={`${`${loginstyle.wrong}`} form-label mb-0`}
+                  className={`${`${loginstyle.wrong}`} ${loginstyle[checkCredential]} form-label mb-1`}
                   htmlFor=""
                 >
-                  *Incorrect password
+                  *Incorrect email or password
                 </label>
               </div>
               <div className={``}>
-                <span className={`${loginstyle.labeltxt}`}>Forget password?<a className={`${loginstyle.linktxt} ${mode.theme === "dark"? loginstyle.linktxtDark:""}`} href="/">reset here</a></span> 
+                <span className={`${loginstyle.labeltxt}`}>
+                  Forget password?
+                  <a
+                    className={`${loginstyle.linktxt} ${
+                      mode.theme === "dark" ? loginstyle.linktxtDark : ""
+                    }`}
+                    href="/"
+                  >
+                    reset here
+                  </a>
+                </span>
               </div>
               <div className="form-check m-lg-3">
                 <input
@@ -129,33 +189,46 @@ function Login() {
                 />
                 <label
                   className={`${`${loginstyle.remembermetxt}`} form-check-label`}
-                  for="dropdownCheck"
+                  htmlFor="dropdownCheck"
                 >
                   Remember me
                 </label>
               </div>
               <div className="mt-3">
-               <Link to="/home">
-                <button className={`${loginstyle.loginbtn} ${mode.theme === "dark"? loginstyle.btnDark:""} $ w-100`}>
+                {/* <Link to=""> */}
+                <button
+                  className={`${loginstyle.loginbtn} ${
+                    mode.theme === "dark" ? loginstyle.btnDark : ""
+                  } $ w-100`}
+                  type="submit"
+                >
                   Login
-                </button> </Link>
-              </div>           
+                </button>
+                {/* </Link> */}
+              </div>
               <div className={`text-center mt-2`}>
-                <span className={`${loginstyle.labeltxt}`}>or</span> 
+                <span className={`${loginstyle.labeltxt}`}>or</span>
               </div>
               <div className={`${loginstyle.gbutton} mt-2`}>
                 <button className={`${loginstyle.googlebtn} w-100`}>
-                    {/* <img src={google} width={'20px'} alt="" /> */}
-                    Continue with Google
-                    {/* <span></span> */}
+                  Continue with Google
                 </button>
               </div>
               <div className={`text-center mt-2 pb-5`}>
-                <span className={`${loginstyle.labeltxt}`}>Don't have an account?<Link className={`${loginstyle.linktxt} ${mode.theme === "dark"? loginstyle.linktxtDark:""}`} to="/signup">Signup here</Link></span> 
+                <span className={`${loginstyle.labeltxt}`}>
+                  Don't have an account?
+                  <Link
+                    className={`${loginstyle.linktxt} ${
+                      mode.theme === "dark" ? loginstyle.linktxtDark : ""
+                    }`}
+                    to="/signup"
+                  >
+                    Signup here
+                  </Link>
+                </span>
               </div>
             </div>
           </form>
-
         </div>
       </div>
     </div>

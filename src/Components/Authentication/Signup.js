@@ -3,10 +3,10 @@ import loginstyle from "./Login.module.css";
 // import loginimg from "./images/login.jpg";
 import logo from "../Landingpage/images/Black and White Monogram Business Logo.png";
 import { useEffect } from "react";
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import themeContext from "../Context/Theme/ThemeContext";
 
 function Signup() {
@@ -24,6 +24,42 @@ function Signup() {
         // document.body.style.background = bg.theme
       };
     }, [mode.theme]);
+
+
+    const [credentials, setcredentials] = useState({fname: "", lname: "", email: "", password: "", cpassword: "" });
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      const {fname, lname, email, password} = credentials
+      try {
+        const response = await fetch("http://localhost:3000/api/auth/createuser", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({fname, lname, email, password}),
+        });
+        const json = await response.json();
+        console.log(json);
+        // if (json.success) {
+          localStorage.setItem("token", json.authtoken);
+          navigate("/home");
+          
+        // } else {
+          // setcheckCredential('wrongCred')     
+        //   setTimeout(() => {
+        //     setcheckCredential('');
+        // }, 2000); 
+        // }
+      } catch (error) {
+        console.error("There was an error with the fetch operation:", error);
+      }
+    };
+
+    const onChange = (e) => {
+      setcredentials({ ...credentials, [e.target.name]: e.target.value });
+    };
 
   return (
     <div>
@@ -73,6 +109,7 @@ function Signup() {
             action=""
             data-aos="fade-left"
             data-aos-delay="200"
+            onSubmit={handleSubmit}
           >
             <div className="col-lg-7 col-md-8 col-sm-8 col-8 pt-5">
               <div className="text-center">
@@ -86,13 +123,16 @@ function Signup() {
               <div className="col-lg-6 mb-3">
                 <label
                   className={`${`${loginstyle.labeltxt}`} form-label mb-0`}
-                  htmlFor=""
+                  htmlFor="fname"
                 >
                   First Name
                 </label>
                 <input
+                  id="fname"
                   type="text"
+                  name="fname"
                   className={`${loginstyle["form-control"]} form-control`}
+                  onChange={onChange}
                 />
                 {/* <label
                   className={`${`${loginstyle.wrong}`} form-label mb-0`}
@@ -106,14 +146,17 @@ function Signup() {
               <div className="col-lg-6 mb-3">
                 <label
                   className={`${`${loginstyle.labeltxt}`} form-label mb-0`}
-                  htmlFor=""
+                  htmlFor="lname"
                 >
                   Last Name
                 </label>
                 <input
+                id="lname"
+                name="lname"
                   typeof="text"
                   className={`${loginstyle["form-control"]} form-control`}
                   type="text"
+                  onChange={onChange}
                 />
 
                 {/* <label
@@ -129,13 +172,18 @@ function Signup() {
               <div className=" mb-3">
                 <label
                   className={`${`${loginstyle.labeltxt}`} form-label mb-0`}
-                  htmlFor=""
+                  htmlFor="password"
                 >
                   Password
                 </label>
                 <input
+                id="password"
+                name="password"
                   type="password"
                   className={`${loginstyle["form-control"]} form-control`}
+                  onChange={onChange}
+                  required
+                  minLength={5}
                 />
                 {/* <label
                   className={`${`${loginstyle.wrong}`} form-label mb-0`}
@@ -149,13 +197,16 @@ function Signup() {
               <div className=" mb-3">
                 <label
                   className={`${`${loginstyle.labeltxt}`} form-label mb-0`}
-                  htmlFor=""
+                  htmlFor="cpassword"
                 >
                   Confirm Password
                 </label>
                 <input
+                id="cpassword"
+                name="cpassword"
                   type="password"
                   className={`${loginstyle["form-control"]} form-control`}
+                  onChange={onChange}
                 />
                 {/* <label
                   className={`${`${loginstyle.wrong}`} form-label mb-0`}
@@ -169,13 +220,16 @@ function Signup() {
               <div className=" mb-5">
                 <label
                   className={`${`${loginstyle.labeltxt}`} form-label mb-0`}
-                  htmlFor=""
+                  htmlFor="email"
                 >
                   Email
                 </label>
                 <input
+                id="email"
+                name="email"
                   type="email"
                   className={`${loginstyle["form-control"]} form-control`}
+                  onChange={onChange}
                 />
                 {/* <label
                   className={`${`${loginstyle.wrong}`} form-label mb-0`}
@@ -194,7 +248,7 @@ function Signup() {
                 />
                 <label
                   className={`${`${loginstyle.remembermetxt}`} form-check-label`}
-                  for="dropdownCheck"
+                  htmlFor="dropdownCheck"
                 >
                   I have accepted the  <a className={`${loginstyle.linktxt} ${mode.theme === "dark"? loginstyle.linktxtDark:""}`} href="/">Terms & Conditions</a>
                 </label>

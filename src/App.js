@@ -19,15 +19,15 @@ import UserState from "./UserState";
 import Homepage from "./Components/Home/Homepage";
 import DiscoverFeeds from "./Components/Home/Discover/DiscoverFeeds";
 import TodayNews from "./Components/Home/TodayNews";
-import Tech from "./Components/Home/Discover/Sources/Tech";
 
 import folderComponent from "./Components/FolderComponent";
 import New from "./Components/New";
+import Siteslist from "./Components/Home/Discover/Sources/Siteslist";
 
 
 function App() {
   const shrink = useContext(themeContext);
-  const {folders} =useContext(userContext);
+  const {folders, categories, sites} =useContext(userContext);
 
   
 
@@ -90,8 +90,11 @@ function App() {
                                       </div>
                                       <Routes>
                                         <Route exact path="/" element={<DiscoverFeeds/>}/>
-                                        <Route exact path="/sources/tech" element={<Tech/>}/>
-                                      
+                                        {categories.map((element)=>{
+                                          return(
+                                          <Route key={element.key} path={`/sources/${element.key}`} element={<Siteslist/>}/>
+                                          )})} 
+                                        
                                       </Routes>
                                       
                                     </div>

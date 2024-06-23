@@ -24,6 +24,7 @@ function Sidebar() {
   // const [ExtendSidebar, setExtendSidebar] = useState(null);
   const [extendCreateFolder, setextendCreateFolder] = useState(null);
   const [hidden, sethidden] = useState("");
+  const [folder, setfolder] = useState([])
   // const [CRFboxState, setCRFboxState] = useState('')
   // const [CRFlist, setCRFlist] = useState('CRFhidden')
   //CRF is Create Folder
@@ -59,6 +60,21 @@ function Sidebar() {
       sethidden("");
     }
   };
+
+  const fetchFolders = async () => {
+      const response = await fetch(
+        "http://localhost:3000/api/folders/getfolders"
+      );
+      const data = await response.json();
+      // console.log(data);
+      const mainData = data["0"];
+      console.log(data["0"]);
+      setfolder(mainData.folder);
+    };
+  
+    useEffect(() => {
+      fetchFolders();
+    }, []);
 
 
 
@@ -210,6 +226,7 @@ function Sidebar() {
                     {folders.map((folder, index) => (
                       <Link key={index} to={`/home/${folder}`} id="folderItem">
                         <li>
+                          <div>
                           <img
                             src={drpdown}
                             onClick={(e) => {
@@ -219,18 +236,17 @@ function Sidebar() {
                             }}
                             alt=""
                           />
+
                           {folder}
-                          <img
-                            className={`${styles.deleteImg}`}
-                            onClick={(e) => {
+                          </div>
+
+                          <i onClick={(e) => {
                               e.preventDefault();
                               e.stopPropagation();
                               handleDeleteWebsite(folder);
                               // console.log(handleDeleteWebsite(index))
-                            }}
-                            src={Pins}
-                            alt=""
-                          />
+                            }} class="fa-solid fa-trash"></i>
+                          
                         </li>
                       </Link>
                     ))}

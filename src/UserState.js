@@ -12,6 +12,19 @@ function UserState({ children }) {
   const [articles, setarticles] = useState([]);
   const [totalResults, settotalResults] = useState(0);
 
+
+  const [catLink, setcatLink] = useState('')
+  const [currentKey, setCurrentKey] = useState(() => {
+    // Retrieve the key from localStorage, or default to null
+    return localStorage.getItem('currentKey') || null;
+  });
+
+  // const [showPopup, setShowPopup] = useState(false);
+
+  //   const togglePopup = () => {
+  //     setShowPopup(!showPopup);
+  //   };
+
   const updateNews = async () => {
     // props.setProgress(10);
     const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=29c1ef34957a49169e64d815dd84541b`;
@@ -20,8 +33,10 @@ function UserState({ children }) {
     // props.setProgress(40);
     let parseData = await data.json();
     console.log(parseData);
+
     // props.setProgress(70);
     setarticles(parseData.articles);
+    // console.log(articles)
     settotalResults(parseData.totalResults);
     // setloading(false)
     // props.setProgress(100);
@@ -38,29 +53,58 @@ function UserState({ children }) {
       // setloading(false)
       // setpage(page+1)
   }
+
+  // const [sites, setsites] = useState([]);
+
+  // const fetchSites = async () => {
+  //   const response = await fetch("http://localhost:3000/api/sites/fetchsites");
+  //   const data = await response.json();
+  //   const mainData = data["0"];
+  //   console.log(data["0"]);
+  //   setsites(mainData.sites);
+  // };
+
+  // useEffect(() => {
+  //   fetchSites();
+  // }, []);
+
+  const [categories, setcategories] = useState([]);
+
+  const fetchCatagories = async () => {
+    const response = await fetch(
+      "http://localhost:3000/api/catagories/fetchcategory"
+    );
+    const data = await response.json();
+    // console.log(data);
+    const mainData = data["0"];
+    console.log(data["0"]);
+    setcategories(mainData.categories);
+    // console.log(categories.key)
+  };
+
   useEffect(() => {
-    // document.title = `${capitalizeTitle(props.category)} - NewsAPP`
-    updateNews(); // eslint-disable-next-line
+    fetchCatagories();
   }, []);
 
 
 
 
 
+
+
   useEffect(() => {
+    // updateNews();
     const storedFolders = JSON.parse(localStorage.getItem("folders")) || [];
     const storedSidebarState = JSON.parse(localStorage.getItem("Sidebar"));
     setExtendSidebar(storedSidebarState !== null ? storedSidebarState : false);
     setFolders(storedFolders);
-
-    if (JSON.parse(localStorage.getItem("folders")) && ![]) {
+    
+    if (storedFolders.length > 0) {
       setCRFboxState("CRFhidden");
       setCRFlist("");
     } else {
       setCRFboxState("");
     }
-
-
   }, []);
 
   const handleInputChange = (e) => {
@@ -107,6 +151,19 @@ function UserState({ children }) {
         totalResults,
         updateNewsScroll,
         updateNews,
+
+        catLink,
+        setcatLink,
+        // sites,
+        // fetchSites,
+        // togglePopup,
+        // showPopup,
+
+        currentKey, 
+        setCurrentKey,
+
+        categories,
+
         handleCreateFolder,
         handleInputChange,
         handleDeleteWebsite

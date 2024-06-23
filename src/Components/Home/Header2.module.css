@@ -26,9 +26,10 @@
 .header{
     height: 50px;
     background-color: var(--bodyDark3);
+    background-color: #171720;
     padding: 0 10%;
     border-bottom: 1px solid #2c2c30;
     position: fixed;
     width: 100%;
-    z-index: 0;
+    z-index: 1;
 }

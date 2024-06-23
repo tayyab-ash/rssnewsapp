@@ -1,76 +1,59 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useEffect, useState } from "react";
 import styles from "./DiscoverFeeds.module.css";
 import { Link } from "react-router-dom";
-
-//images
-import techimg from "./assets/960x0.webp";
-import techimg2 from "./assets/WhatsApp Image 2024-05-13 at 11.18.24.jpeg";
-import politics from "./assets/Politics.png"
-import health from "./assets/Health.webp"
-import sports from "./assets/Sports.jpg"
+import userContext from "../../../UserContext";
 
 function DiscoverFeeds() {
+  // const [categories, setcategories] = useState([]);
+
+  // const fetchCatagories = async () => {
+  //   const response = await fetch(
+  //     "http://localhost:3000/api/catagories/fetchcategory"
+  //   );
+  //   const data = await response.json();
+  //   // console.log(data);
+  //   const mainData = data["0"];
+  //   console.log(data["0"]);
+  //   setcategories(mainData.categories);
+  // };
+
+  // useEffect(() => {
+  //   fetchCatagories();
+  // }, []);
+
+  const {categories, currentKey, setCurrentKey} = useContext(userContext);
+  // const [currentKey, setcurrentKey] = useState(null)
+
   return (
     <div>
-      {/* <div className={`${styles.discoverPg}`}>
-        <div className={`${styles.contentAreaHeading}`}>
-          <h2>Discover</h2>
-          <h4>Follow your favourite websites</h4>
-        </div>  
-        <div className={`${styles.feedSearch}`}>
-          <input type="text" />
-          <button>Search</button>
-        </div> */}
-        <div className={`${styles.catagories} row`}>
-          <div className={`${styles.card} col-lg-4 col-md-6`}>
-            <Link to="sources/tech" className={`${styles.imageContainer}`}>
-              {" "}
-              <div>
-                <div className={`img-wrap`}>
-                  <img src={techimg2} alt="" className="img-fluid" />
-                </div>
-              </div>
-              <span className={`${styles.centeredText}`}>TECH</span>
-            </Link>
-          </div>
-
-          <div className={`${styles.card} col-lg-4 col-md-6`}>
-            <Link to="sources/tech" className={`${styles.imageContainer}`}>
-              {" "}
-              <div>
-                <div className={`img-wrap`}>
-                  <img src={sports} alt="" className="img-fluid" />
-                </div>
-              </div>
-              <span className={`${styles.centeredText}`}>SPORTS</span>
-            </Link>
-          </div>
-
-          <div className={`${styles.card} col-lg-4 col-md-6`}>
-            <Link to="sources/tech" className={`${styles.imageContainer}`}>
-              {" "}
-              <div>
-                <div className="img-wrap">
-                  <img src={politics} alt="" className="img-fluid" />
-                </div>
-              </div>
-              <span className={`${styles.centeredText}`}>POLITICS</span>
-            </Link>
-          </div>
-
-          <div className={`${styles.card} col-lg-4 col-md-6`}>
-            <Link to="sources/tech" className={`${styles.imageContainer}`}>
-              {" "}
-              <div>
-                <div className="img-wrap">
-                  <img src={health} alt="" className="img-fluid" />
-                </div>
-              </div>
-              <span className={`${styles.centeredText}`}>HEALTH</span>
-            </Link>
-          </div>
+      <div className={`${styles.catagories} row`}>
+        <div className={`${styles.headingText}`}>
+        <h4>International</h4>
+        <hr />
         </div>
-      {/* </div> */}
+        {categories && categories.length > 0 ? (
+          categories.map((element) => {
+            return (
+              <div
+                className={`${styles.card} col-lg-3`}
+                key={element._id}
+              >
+                <Link onClick={()=>setCurrentKey(element.key)} to={`sources/${element.key}`} className={`${styles.imageContainer}`}>
+                  <div className="img-wrap">
+                    <img src={element.catImgUrl} alt="" className="img-fluid" />
+                  </div>
+                  <span className={`${styles.centeredText}`}>
+                    {element.catName}{" "}
+                  </span>
+                </Link>
+              </div>
+            );
+          })
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
     </div>
   );
 }

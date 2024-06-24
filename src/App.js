@@ -23,6 +23,7 @@ import TodayNews from "./Components/Home/TodayNews";
 import folderComponent from "./Components/FolderComponent";
 import New from "./Components/New";
 import Siteslist from "./Components/Home/Discover/Sources/Siteslist";
+import MainFeedPage from "./Components/Home/MainFeedPage";
 
 
 function App() {
@@ -69,6 +70,8 @@ function App() {
                         <div>
                           <Routes>
                             <Route exact path="/" element={<TodayNews />} />
+                            <Route exact path="/home/Tech" element={<MainFeedPage/>}/>
+                            {/* <Routes exact path="/readlater"  /> */}
                             {folders.map((folders, index) => (
                             <Route key={index} path={`/folders/:id`} component={folderComponent} />
                               ))}

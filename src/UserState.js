@@ -6,11 +6,14 @@ function UserState({ children }) {
   const [CRFboxState, setCRFboxState] = useState("");
   const [CRFlist, setCRFlist] = useState("CRFhidden");
   const [title, setTitle] = useState("");
-  const [folders, setFolders] = useState([]);
+  const [dfolders, setdFolders] = useState([]);
   const [ExtendSidebar, setExtendSidebar] = useState(null);
 
   const [articles, setarticles] = useState([]);
   const [totalResults, settotalResults] = useState(0);
+
+
+  const [folders, setfolders] = useState([]);
 
 
   const [catLink, setcatLink] = useState('')
@@ -19,15 +22,13 @@ function UserState({ children }) {
     return localStorage.getItem('currentKey') || null;
   });
 
-  // const [showPopup, setShowPopup] = useState(false);
 
-  //   const togglePopup = () => {
-  //     setShowPopup(!showPopup);
-  //   };
+
+ 
 
   const updateNews = async () => {
     // props.setProgress(10);
-    const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=29c1ef34957a49169e64d815dd84541b`;
+    const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=9df1537409244622aae4a9c4316f3986`;
     // setloading(true);
     let data = await fetch(url);
     // props.setProgress(40);
@@ -43,7 +44,7 @@ function UserState({ children }) {
   };
 
   const updateNewsScroll = async() => {
-    const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=29c1ef34957a49169e64d815dd84541b`;
+    const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=9df1537409244622aae4a9c4316f3986`;
       // setloading(true)
       let data = await fetch(url);
       let parseData = await data.json();
@@ -54,19 +55,6 @@ function UserState({ children }) {
       // setpage(page+1)
   }
 
-  // const [sites, setsites] = useState([]);
-
-  // const fetchSites = async () => {
-  //   const response = await fetch("http://localhost:3000/api/sites/fetchsites");
-  //   const data = await response.json();
-  //   const mainData = data["0"];
-  //   console.log(data["0"]);
-  //   setsites(mainData.sites);
-  // };
-
-  // useEffect(() => {
-  //   fetchSites();
-  // }, []);
 
   const [categories, setcategories] = useState([]);
 
@@ -75,37 +63,42 @@ function UserState({ children }) {
       "http://localhost:3000/api/catagories/fetchcategory"
     );
     const data = await response.json();
-    // console.log(data);
     const mainData = data["0"];
-    console.log(data["0"]);
     setcategories(mainData.categories);
-    // console.log(categories.key)
   };
+
+
+  const fetchFolders = async () => {
+    const response = await fetch(
+      "http://localhost:3000/api/folders/getfolders"
+    );
+    const data = await response.json();
+    const mainData = data["0"];
+    setfolders(mainData.folders);
+  };
+
 
   useEffect(() => {
     fetchCatagories();
-  }, []);
-
-
-
-
-
-
-
-  useEffect(() => {
+    fetchFolders();
     // updateNews();
-    const storedFolders = JSON.parse(localStorage.getItem("folders")) || [];
+    const storedFolders = JSON.parse(localStorage.getItem("dfolders")) || [];
     const storedSidebarState = JSON.parse(localStorage.getItem("Sidebar"));
     setExtendSidebar(storedSidebarState !== null ? storedSidebarState : false);
-    setFolders(storedFolders);
+    setdFolders(storedFolders);
     
-    if (storedFolders.length > 0) {
+    if (folders) {
       setCRFboxState("CRFhidden");
       setCRFlist("");
     } else {
       setCRFboxState("");
     }
-  }, []);
+  }, [folders]);
+
+  useEffect(() => {
+    updateNews();
+  }, [])
+  
 
   const handleInputChange = (e) => {
     setTitle(e.target.value);
@@ -113,13 +106,13 @@ function UserState({ children }) {
 
   const handleCreateFolder = () => {
     if (title.trim()) {
-      const newFolders = [...folders, title];
-      setFolders(newFolders);
-      localStorage.setItem("folders", JSON.stringify(newFolders));
+      const newFolders = [...dfolders, title];
+      setdFolders(newFolders);
+      localStorage.setItem("dfolders", JSON.stringify(newFolders));
       setTitle("");
     }
 
-    if (JSON.parse(localStorage.getItem("folders"))) {
+    if (folders) {
       setCRFboxState("CRFhidden");
       setCRFlist("");
     } else {
@@ -130,11 +123,11 @@ function UserState({ children }) {
 
   const handleDeleteWebsite = (itemToRemove) => {
     console.log('Removing item:', itemToRemove);
-   let folders = JSON.parse(localStorage.getItem("folders"));
-    if (folders) {
-      folders = folders.filter(item => item !== itemToRemove);
-      console.log(folders)
-      localStorage.setItem("folders", JSON.stringify(folders));
+   let dfolders = JSON.parse(localStorage.getItem("dfolders"));
+    if (dfolders) {
+      dfolders = dfolders.filter(item => item !== itemToRemove);
+      console.log(dfolders)
+      localStorage.setItem("dfolders", JSON.stringify(dfolders));
     }
   }
  
@@ -142,28 +135,22 @@ function UserState({ children }) {
     <UserContext.Provider
       value={{
         ExtendSidebar,
-        setExtendSidebar,
         CRFboxState,
         CRFlist,
         title,
-        folders,
+        dfolders,
         articles,
         totalResults,
-        updateNewsScroll,
-        updateNews,
-
+        folders,
         catLink,
-        setcatLink,
-        // sites,
-        // fetchSites,
-        // togglePopup,
-        // showPopup,
-
         currentKey, 
-        setCurrentKey,
-
         categories,
-
+        setExtendSidebar,
+        updateNews,
+        updateNewsScroll,
+        fetchFolders,
+        setcatLink,
+        setCurrentKey,
         handleCreateFolder,
         handleInputChange,
         handleDeleteWebsite

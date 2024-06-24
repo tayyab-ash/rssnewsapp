@@ -200,13 +200,17 @@
     background-color: rgb(37, 37, 41);
 }
 
+.feedList .folderName ul li .sitesList{
+    color: yellow !important;
+}
+
 .folderName .deleteImg{
     margin-left: 30px;
 }
 
-
 .folderName .websitesList li{
     padding: 6px 60px !important;
+    justify-content: flex-start !important;
 }
 
 .websitesHidden{

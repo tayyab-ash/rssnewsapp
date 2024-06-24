@@ -19,20 +19,12 @@ import list from "./images/list.png";
 import drpdown from "./images/down-arrow.png";
 
 function Sidebar() {
-  // const {handleExpand} = props;
   const shrink = useContext(themeContext);
-  // const [ExtendSidebar, setExtendSidebar] = useState(null);
   const [extendCreateFolder, setextendCreateFolder] = useState(null);
-  const [hidden, sethidden] = useState("");
-  const [folder, setfolder] = useState([])
-  // const [CRFboxState, setCRFboxState] = useState('')
-  // const [CRFlist, setCRFlist] = useState('CRFhidden')
-  //CRF is Create Folder
-
-  // let handleSidebarExtend = () => {
-  //   localStorage.setItem('Sidebar' ,ExtendSidebar)
-  // }
-
+  const [hiddenState, setHiddenState] = useState(() => {
+    const storedState = localStorage.getItem('hiddenState');
+    return storedState ? JSON.parse(storedState) : {};
+  });
   const {
     ExtendSidebar,
     setExtendSidebar,
@@ -40,9 +32,10 @@ function Sidebar() {
     CRFlist,
     title,
     folders,
+    fetchFolders,
     handleCreateFolder,
     handleInputChange,
-    handleDeleteWebsite
+    handleDeleteWebsite,
   } = useContext(userContext);
 
   let handleCreateFolderSidebar = () => {
@@ -53,70 +46,20 @@ function Sidebar() {
     }
   };
 
-  let webListHidden = () => {
-    if (hidden === "") {
-      sethidden("websitesHidden");
-    } else {
-      sethidden("");
-    }
+  const webListHidden = (folderId) => {
+    setHiddenState((prevState) => {
+      const newState = { ...prevState, [folderId]: !prevState[folderId] };
+      // console.log('New hidden state:', newState); // Debugging
+      return newState;
+    });
   };
 
-  const fetchFolders = async () => {
-      const response = await fetch(
-        "http://localhost:3000/api/folders/getfolders"
-      );
-      const data = await response.json();
-      // console.log(data);
-      const mainData = data["0"];
-      console.log(data["0"]);
-      setfolder(mainData.folder);
-    };
   
-    useEffect(() => {
-      fetchFolders();
-    }, []);
 
+  useEffect(() => {
+    localStorage.setItem('hiddenState', JSON.stringify(hiddenState));
+  }, [hiddenState]);
 
-
-  // const [title, setTitle] = useState('');
-  //   const [folders, setFolders] = useState([]);
-
-  //   useEffect(() => {
-  //       const storedFolders = JSON.parse(localStorage.getItem('folders')) || [];
-  //       const storedSidebarState = JSON.parse(localStorage.getItem('Sidebar'));
-  //       setExtendSidebar(storedSidebarState !== null ? storedSidebarState : false);
-  //       setFolders(storedFolders);
-
-  //       if(JSON.parse(localStorage.getItem('folders'))){
-  //         setCRFboxState('CRFhidden')
-  //         setCRFlist('')
-  //       }
-  //       else{
-  //         setCRFboxState('')
-  //       }
-  //   }, []);
-
-  //   const handleInputChange = (e) => {
-  //       setTitle(e.target.value);
-  //   };
-
-  //   const handleCreateFolder = () => {
-  //       if (title.trim()) {
-  //           const newFolders = [...folders, title];
-  //           setFolders(newFolders);
-  //           localStorage.setItem('folders', JSON.stringify(newFolders));
-  //           setTitle('');
-  //       }
-
-  //       if(JSON.parse(localStorage.getItem('folders'))){
-  //         setCRFboxState('CRFhidden')
-  //         setCRFlist('')
-  //       }
-  //       else{
-  //         setCRFboxState('')
-
-  //       }
-  //   };
 
   return (
     <div>
@@ -193,10 +136,12 @@ function Sidebar() {
                     <img src={Today} alt="" /> Today
                   </li>
                 </Link>
-
+                <Link to="/readlater">
                 <li>
                   <img src={Readlater} alt="" /> Read Later
                 </li>
+                </Link>
+                
                 <li>
                   <img src={Pins} alt="" /> Pins
                 </li>
@@ -223,39 +168,53 @@ function Sidebar() {
                     All
                   </li>
                   <div>
-                    {folders.map((folder, index) => (
-                      <Link key={index} to={`/home/${folder}`} id="folderItem">
-                        <li>
-                          <div>
-                          <img
-                            src={drpdown}
-                            onClick={(e) => {
-                              e.preventDefault();
-                              e.stopPropagation();
-                              webListHidden();
-                            }}
-                            alt=""
-                          />
+                    {folders.map((element) => {
+                      return (
+                        <div key={element._id}>
+                          <Link to={`/home/${element.name}`} id="folderItem">
+                            <li>
+                              <div>
+                                <img
+                                // key={element._id}
+                                  src={drpdown}
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    webListHidden(element._id);
+                                  }}
+                                  alt=""
+                                />
+                                {element.name}
+                              </div>
+                              <i
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  e.stopPropagation();
+                                  handleDeleteWebsite(folders);
+                                }}
+                                className="fa-solid fa-trash"
+                              ></i>
+                            </li>
+                          </Link>
+                          {/* <Link>
 
-                          {folder}
-                          </div>
+                          </Link> */}
+                          <ul
+                            className={`${styles.websitesList} ${hiddenState[element._id] ? styles.websitesHidden : ''}`}
+                          >
+                            {element.items.map((item) => {
+                              return (
+                              <li key={item._id} >
+                                <img src={item.iconLink} alt="" width={20} />
+                                {item.title}
+                                </li>
+                            );
+                            })}
+                          </ul>
+                        </div>
+                      );
+                    })}
 
-                          <i onClick={(e) => {
-                              e.preventDefault();
-                              e.stopPropagation();
-                              handleDeleteWebsite(folder);
-                              // console.log(handleDeleteWebsite(index))
-                            }} class="fa-solid fa-trash"></i>
-                          
-                        </li>
-                      </Link>
-                    ))}
-                    <ul className={`${styles.websitesList} ${styles[hidden]}`}>
-                      <li>webiste1</li>
-                      <li>website2</li>
-                      <li>website3</li>
-                      <li>website4</li>
-                    </ul>
                     <div className={`${styles.newFolder}`}>
                       <p onClick={handleCreateFolderSidebar}>
                         Create New Folder

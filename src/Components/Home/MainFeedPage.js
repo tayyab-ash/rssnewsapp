@@ -20,6 +20,7 @@ function MainFeedPage() {
         <div className={`${styles.mainContainer} ${styles[shrink.NewsShrink]}`}>
           <div className={`${styles.contentArea} container`}>
             <div className={`${styles.newsPage}`}>
+              <p>sjahfhkjashdkjfhkj</p>
               {/* <TodayNews/> */}
               {/* <Router>
                 <Routes>

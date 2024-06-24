@@ -80,7 +80,7 @@
 .contentArea .news p{
     text-align: center;
     font-size: 14px;
-    color: var(--gray2);
+    color: white;
     font-weight: 500;
 }
 .contentArea .news button{

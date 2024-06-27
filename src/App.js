@@ -24,6 +24,8 @@ import folderComponent from "./Components/FolderComponent";
 import New from "./Components/New";
 import Siteslist from "./Components/Home/Discover/Sources/Siteslist";
 import MainFeedPage from "./Components/Home/MainFeedPage";
+import ReadLater from "./Components/Home/ReadLater";
+import UserAccount from "./Components/Home/UserAccountPage/UserAccount";
 
 
 function App() {
@@ -70,8 +72,21 @@ function App() {
                         <div>
                           <Routes>
                             <Route exact path="/" element={<TodayNews />} />
-                            <Route exact path="/home/Tech" element={<MainFeedPage/>}/>
-                            {/* <Routes exact path="/readlater"  /> */}
+                            {/* <Route exact path="/user" element={<UserAccount/>} /> */}
+                            {/* <Route exact path="/TechCrunch" element={<MainFeedPage />}/> */}
+                            {
+                              folders.map((element)=>{
+                                return(
+                                  element.items.map((item)=>{
+                                    return(
+                                      <Route key={item.key} exact path={`/${item.title}`} element={<MainFeedPage />}/>
+                                    )
+                                  })
+                                )
+                              })
+                            }
+                            
+                            {/* <Route exact path="/readlater" element={<ReadLater/>} /> */}
                             {folders.map((folders, index) => (
                             <Route key={index} path={`/folders/:id`} component={folderComponent} />
                               ))}

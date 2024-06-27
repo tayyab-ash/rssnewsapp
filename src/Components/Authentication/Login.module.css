@@ -9,8 +9,10 @@
     /* --primaryBlue2: #060b41; */ 
     --lightBlue: rgba(9, 16, 89, 0.304);
     --primaryYellow: #FBB244;
-    --bodyDark: #171720;
-    --bodyDark2: rgb(27, 27, 35);
+    /* --bodyDark: #171720; */
+    --bodyDark: #141416;
+    /* --bodyDark2: rgb(27, 27, 35); */
+    --bodyDark2: #1b1b1d;
     --lightYellow: rgba(251, 178, 68, 0.2);
     --white: white;
     --black: black;
@@ -157,7 +159,7 @@
     font-family: "Open Sans", sans-serif;
     font-size: 14px;
     font-weight: 400;
-    color: #602525;
+    /* color: #602525; */
 }
 
 .form-control:focus{

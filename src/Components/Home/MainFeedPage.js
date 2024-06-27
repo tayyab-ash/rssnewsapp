@@ -1,37 +1,54 @@
-import React from "react";
-import styles from "./MainFeedPage.module.css";
-import { useContext } from "react";
-import themeContext from "../Context/Theme/ThemeContext";
-
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-//images
-// import personalize from "./images/Personalization-rafiki.png"
-// import personalize from "./images/Personalization-rafiki (2).png"
-
+import React, { useContext, useEffect, useState } from "react";
+import styles from "./TodayNews.module.css";
+import img from "./images/img.jpg";
 import NewsComponent from "./NewsComponent";
-import TodayNews from "./TodayNews";
-import DiscoverFeeds from "./Discover/DiscoverFeeds";
+import userContext from "../../UserContext";
 
 function MainFeedPage() {
-  const shrink = useContext(themeContext);
+  const { articles, folders, feedPageTitle, setfeedPageTitle, rssFeed } = useContext(userContext);
+  
+  
   return (
+    <div>
       <div>
-        <div className={`${styles.mainContainer} ${styles[shrink.NewsShrink]}`}>
-          <div className={`${styles.contentArea} container`}>
-            <div className={`${styles.newsPage}`}>
-              <p>sjahfhkjashdkjfhkj</p>
-              {/* <TodayNews/> */}
-              {/* <Router>
-                <Routes>
-                    <Route exact path="/home" element={<TodayNews/>}/>
-                    <Route exact path="/discover" element={<DiscoverFeeds/>}/>
-                </Routes>
-              </Router> */}
-            </div>
-          </div>
+        <div className={`${styles.contentAreaHeading}`}>
+          {/* {folders.map((element) => {
+            return element.items.map((item) => {
+              return <h2>{item.title}</h2>;
+            });
+          })} */}
+          <h2>{feedPageTitle[0]}</h2>
+          <p>{feedPageTitle[1]}</p>
+        </div>
+        <hr className="mt-4 z-n1 position-relative" />
+
+        {/* <div className={`${styles.news}`}>
+                  <img src={personalize} alt="" />
+                  <p>Follow you favourite feeds to get statrted. All of the feeds you follow will be here.</p>
+                  <button>Add Articles</button>
+              </div> */}
+        <div>
+          {rssFeed.map((element) => {
+            return (
+              <NewsComponent
+                // key={
+                //   element.url === "https://removed.com"
+                //     ? Math.random()
+                //     : element.url
+                // }
+                title={element.title}
+                description={element.description}
+                imageUrl={element.cover_image}
+                newsUrl={element.link}
+                // author={!element.author ? "Unknown" : element.author}
+                // date={element.publishedAt}
+                // source={element.source.name}
+              />
+            );
+          })}
         </div>
       </div>
+    </div>
   );
 }
 

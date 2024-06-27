@@ -20,11 +20,6 @@ import drpdown from "./images/down-arrow.png";
 
 function Sidebar() {
   const shrink = useContext(themeContext);
-  const [extendCreateFolder, setextendCreateFolder] = useState(null);
-  const [hiddenState, setHiddenState] = useState(() => {
-    const storedState = localStorage.getItem('hiddenState');
-    return storedState ? JSON.parse(storedState) : {};
-  });
   const {
     ExtendSidebar,
     setExtendSidebar,
@@ -32,12 +27,23 @@ function Sidebar() {
     CRFlist,
     title,
     folders,
-    fetchFolders,
+    setCurrentFeed,
     handleCreateFolder,
     handleInputChange,
     handleDeleteWebsite,
+    setfeedPageTitle,
   } = useContext(userContext);
 
+
+  // State mannaging the create folder sidebar
+  const [extendCreateFolder, setextendCreateFolder] = useState(null);
+  // This state manages the expanding of Folder and their corresponding websites list.
+  const [hiddenState, setHiddenState] = useState(() => {
+    const storedState = localStorage.getItem("hiddenState");
+    return storedState ? JSON.parse(storedState) : {};
+  });
+
+  // Function to handle the CreateFolderSidebar.
   let handleCreateFolderSidebar = () => {
     if (extendCreateFolder === null) {
       setextendCreateFolder("showCreateFolderSidebar");
@@ -46,24 +52,24 @@ function Sidebar() {
     }
   };
 
+  // Function that hides or shows the list of websites in the folders.
   const webListHidden = (folderId) => {
     setHiddenState((prevState) => {
       const newState = { ...prevState, [folderId]: !prevState[folderId] };
-      // console.log('New hidden state:', newState); // Debugging
       return newState;
     });
   };
 
-  
-
+  // Function to store the state of Folder list hidden/show in the localStorage so that refreshing the page doesnt effect it.
   useEffect(() => {
-    localStorage.setItem('hiddenState', JSON.stringify(hiddenState));
+    localStorage.setItem("hiddenState", JSON.stringify(hiddenState));
   }, [hiddenState]);
-
 
   return (
     <div>
+      
       <div className={`${styles.mainSidebar}`}>
+        
         <div
           className={`${styles.createFolderSidebar} ${styles[extendCreateFolder]}`}
         >
@@ -118,8 +124,14 @@ function Sidebar() {
               <img src={rss} alt="feed" />
             </Link>
           </div>
-          <div className="mb-5">
-            <img src={user} alt="user" />
+          <div className="mb-5">  
+            <div>
+              {/* hshsh */}
+            </div>
+            {/* <Link to='/home/user'> */}
+              <img src={user} alt="user" />
+            {/* </Link> */}
+            
           </div>
         </div>
 
@@ -136,12 +148,12 @@ function Sidebar() {
                     <img src={Today} alt="" /> Today
                   </li>
                 </Link>
-                <Link to="/readlater">
-                <li>
-                  <img src={Readlater} alt="" /> Read Later
-                </li>
+                <Link to="/home/readlater">
+                  <li>
+                    <img src={Readlater} alt="" /> Read Later
+                  </li>
                 </Link>
-                
+
                 <li>
                   <img src={Pins} alt="" /> Pins
                 </li>
@@ -171,44 +183,61 @@ function Sidebar() {
                     {folders.map((element) => {
                       return (
                         <div key={element._id}>
-                          <Link to={`/home/${element.name}`} id="folderItem">
-                            <li>
-                              <div>
-                                <img
+                          {/* <Link to={`/home/${element.name}`} id="folderItem"> */}
+                          <li>
+                            <div>
+                              <img
                                 // key={element._id}
-                                  src={drpdown}
-                                  onClick={(e) => {
-                                    e.preventDefault();
-                                    e.stopPropagation();
-                                    webListHidden(element._id);
-                                  }}
-                                  alt=""
-                                />
-                                {element.name}
-                              </div>
-                              <i
+                                src={drpdown}
                                 onClick={(e) => {
                                   e.preventDefault();
                                   e.stopPropagation();
-                                  handleDeleteWebsite(folders);
+                                  webListHidden(element._id);
                                 }}
-                                className="fa-solid fa-trash"
-                              ></i>
-                            </li>
-                          </Link>
-                          {/* <Link>
+                                alt=""
+                              />
+                              {element.name}
+                            </div>
+                            <i
+                              onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                handleDeleteWebsite(folders);
+                              }}
+                              className="fa-solid fa-trash"
+                            ></i>
+                          </li>
+                          {/* </Link> */}
 
-                          </Link> */}
                           <ul
-                            className={`${styles.websitesList} ${hiddenState[element._id] ? styles.websitesHidden : ''}`}
+                            className={`${styles.websitesList} ${
+                              hiddenState[element._id]
+                                ? styles.websitesHidden
+                                : ""
+                            }`}
                           >
                             {element.items.map((item) => {
                               return (
-                              <li key={item._id} >
-                                <img src={item.iconLink} alt="" width={20} />
-                                {item.title}
-                                </li>
-                            );
+                                <Link to={`/home/${item.title}`}>
+                                  <li
+                                    onClick={() => {
+                                      setfeedPageTitle([
+                                        item.title,
+                                        item.siteDesc,
+                                      ]);
+                                      setCurrentFeed(item.title);
+                                    }}
+                                    key={item._id}
+                                  >
+                                    <img
+                                      src={item.iconLink}
+                                      alt=""
+                                      width={20}
+                                    />
+                                    {item.title}
+                                  </li>
+                                </Link>
+                              );
                             })}
                           </ul>
                         </div>

@@ -3,28 +3,31 @@ import { useState, useEffect } from "react";
 import UserContext from "./UserContext";
 
 function UserState({ children }) {
+  // Manages the state of Create folder dialog box hiddenn/show
   const [CRFboxState, setCRFboxState] = useState("");
+  // Manages the state of list of Folders hidden/show
   const [CRFlist, setCRFlist] = useState("CRFhidden");
+  
   const [title, setTitle] = useState("");
   const [dfolders, setdFolders] = useState([]);
   const [ExtendSidebar, setExtendSidebar] = useState(null);
-
   const [articles, setarticles] = useState([]);
   const [totalResults, settotalResults] = useState(0);
-
-
   const [folders, setfolders] = useState([]);
+  const [catLink, setcatLink] = useState("");
 
-
-  const [catLink, setcatLink] = useState('')
   const [currentKey, setCurrentKey] = useState(() => {
-    // Retrieve the key from localStorage, or default to null
-    return localStorage.getItem('currentKey') || null;
+    return localStorage.getItem("currentKey") || null;
   });
 
+  const [feedPageTitle, setfeedPageTitle] = useState(() => {
+    const storedState = localStorage.getItem("feedPageTitle");
+    return storedState ? JSON.parse(storedState) : {};
+  });
 
-
- 
+  useEffect(() => {
+    localStorage.setItem("feedPageTitle", JSON.stringify(feedPageTitle));
+  }, [feedPageTitle]);
 
   const updateNews = async () => {
     // props.setProgress(10);
@@ -34,7 +37,6 @@ function UserState({ children }) {
     // props.setProgress(40);
     let parseData = await data.json();
     console.log(parseData);
-
     // props.setProgress(70);
     setarticles(parseData.articles);
     // console.log(articles)
@@ -43,18 +45,17 @@ function UserState({ children }) {
     // props.setProgress(100);
   };
 
-  const updateNewsScroll = async() => {
+  const updateNewsScroll = async () => {
     const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=9df1537409244622aae4a9c4316f3986`;
-      // setloading(true)
-      let data = await fetch(url);
-      let parseData = await data.json();
-      console.log(parseData);
-      setarticles(articles.concat(parseData.articles))
-      settotalResults(parseData.totalResults)
-      // setloading(false)
-      // setpage(page+1)
-  }
-
+    // setloading(true)
+    let data = await fetch(url);
+    let parseData = await data.json();
+    console.log(parseData);
+    setarticles(articles.concat(parseData.articles));
+    settotalResults(parseData.totalResults);
+    // setloading(false)
+    // setpage(page+1)
+  };
 
   const [categories, setcategories] = useState([]);
 
@@ -67,7 +68,6 @@ function UserState({ children }) {
     setcategories(mainData.categories);
   };
 
-
   const fetchFolders = async () => {
     const response = await fetch(
       "http://localhost:3000/api/folders/getfolders"
@@ -75,18 +75,40 @@ function UserState({ children }) {
     const data = await response.json();
     const mainData = data["0"];
     setfolders(mainData.folders);
+    // console.log("this is folders",folders)
   };
 
+  const [currentFeed, setCurrentFeed] = useState(() => {
+    return localStorage.getItem("currentFeed") || null;
+  });
+  const [rssFeed, setRssFeed] = useState([]);
+
+  const fetchRss = async () => {
+    const response = await fetch("http://localhost:3000/api/feed/fetchrss");
+    const data = await response.json();
+    const filteredRss = data.filter(
+      (element) => element.source_name === currentFeed
+    );
+    setRssFeed(filteredRss);
+  };
 
   useEffect(() => {
-    fetchCatagories();
+    console.log(currentFeed);
+    if (currentFeed !== null) {
+      localStorage.setItem("currentFeed", currentFeed);
+    }
+    // eslint-disable-next-line
+    fetchRss();
+    // eslint-disable-next-line
+  }, [currentFeed]);
+
+  useEffect(() => {}, [feedPageTitle]);
+
+  useEffect(() => {
     fetchFolders();
-    // updateNews();
-    const storedFolders = JSON.parse(localStorage.getItem("dfolders")) || [];
+    fetchCatagories();
     const storedSidebarState = JSON.parse(localStorage.getItem("Sidebar"));
     setExtendSidebar(storedSidebarState !== null ? storedSidebarState : false);
-    setdFolders(storedFolders);
-    
     if (folders) {
       setCRFboxState("CRFhidden");
       setCRFlist("");
@@ -97,8 +119,7 @@ function UserState({ children }) {
 
   useEffect(() => {
     updateNews();
-  }, [])
-  
+  }, []);
 
   const handleInputChange = (e) => {
     setTitle(e.target.value);
@@ -120,17 +141,6 @@ function UserState({ children }) {
     }
   };
 
-
-  const handleDeleteWebsite = (itemToRemove) => {
-    console.log('Removing item:', itemToRemove);
-   let dfolders = JSON.parse(localStorage.getItem("dfolders"));
-    if (dfolders) {
-      dfolders = dfolders.filter(item => item !== itemToRemove);
-      console.log(dfolders)
-      localStorage.setItem("dfolders", JSON.stringify(dfolders));
-    }
-  }
- 
   return (
     <UserContext.Provider
       value={{
@@ -143,8 +153,13 @@ function UserState({ children }) {
         totalResults,
         folders,
         catLink,
-        currentKey, 
+        currentKey,
         categories,
+        feedPageTitle,
+        rssFeed,
+        currentFeed,
+        setCurrentFeed,
+        setfeedPageTitle,
         setExtendSidebar,
         updateNews,
         updateNewsScroll,
@@ -153,7 +168,7 @@ function UserState({ children }) {
         setCurrentKey,
         handleCreateFolder,
         handleInputChange,
-        handleDeleteWebsite
+        // handleDeleteWebsite
       }}
     >
       {children}

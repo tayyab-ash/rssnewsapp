@@ -5,20 +5,23 @@
 }
 
 :root{
-    --primaryBlue: #091059;
-    /* --primaryBlue2: #060b41; */
-    --lightBlue: rgba(9, 16, 89, 0.304);
-    --primaryYellow: #FBB244;
-    --bodyDark: #171720;
-    --textDark: #171720;
-    --bodyDark2: rgb(27, 27, 35);
-    --bodyDark3: rgb(30, 30, 36);
-    --lightYellow: rgba(251, 178, 68, 0.4);
-    --white: white;
-    --black: black;
-    --gray: #6d6d6d;
-    --gray2: #cccccc;
-    --transparent: rgba(255, 255, 255, 0);
+  --primaryBlue: #091059;
+  /* --primaryBlue2: #060b41; */
+  --lightBlue: rgba(9, 16, 89, 0.304);
+  --primaryYellow: #FBB244;
+  /* --bodyDark: #171720; */
+  /* --bodyDark2: rgb(27, 27, 35); */
+  --bodyDark: #141416;
+  --bodyDark2: #1b1b1d;
+  --bodyDark3: rgb(30, 30, 36);
+  --bodyDark4: rgb(26, 26, 34);
+  --lightYellow: rgba(251, 178, 68, 0.4);
+  --textDark: #171720;
+  --white: white;
+  --black: black;
+  --gray: #6d6d6d;
+  --gray2: #cccccc;
+  --transparent: rgba(255, 255, 255, 0);
 }
 
 

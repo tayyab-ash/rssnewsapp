@@ -10,8 +10,10 @@
 :root{
     --primaryBlue: #091059;
     --lightBlue: rgba(9, 16, 89, 0.304);
-    --bodyDark: #070816;
-    --bodyDark2: rgb(10, 11, 25);
+    /* --bodyDark: #070816;
+    --bodyDark2: rgb(10, 11, 25); */
+    --bodyDark: #141416;
+  --bodyDark2: #1b1b1d;
     --primaryYellow: #FBB244;
     --lightYellow: rgba(251, 178, 68, 0.2);
     --white: white;

@@ -11,7 +11,8 @@ function Homepage() {
   const mode = useContext(themeContext);
   useEffect(() => {
     if (mode.theme === "dark") {
-      document.body.style.background = "#171720";
+      // document.body.style.background = "#171720";
+      document.body.style.background = "#141416";
     } else {
       document.body.style.background = "white";
     }

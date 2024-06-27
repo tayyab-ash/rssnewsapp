@@ -5,13 +5,14 @@ import userContext from "../../../../UserContext";
 import axios from "axios";
 
 function Siteslist() {
-  const [sites, setsites] = useState([]);
   const { currentKey, folders } = useContext(userContext);
+
+  const [sites, setsites] = useState([]);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
-
   const [siteData, setSiteData] = useState([]);
-  const [folderKey, setFolderKey] = useState(null)
+  const [folderKey, setFolderKey] = useState(null);
 
+  // Function that fetches the sites list from Database and filter them according to on which catagory user Clicks ... i.e if user clicks on the Tech catagory it will fetch the sites and filter out only the sites with the 'tech' key attribute.
   const fetchSites = async () => {
     try {
       const response = await fetch(
@@ -19,7 +20,6 @@ function Siteslist() {
       );
       const data = await response.json();
       const mainData = data["0"];
-      setsites(mainData.sites);
       const filteredSites = mainData.sites.filter(
         (element) => element.key === currentKey
       );
@@ -30,24 +30,26 @@ function Siteslist() {
     }
   };
 
+  // Current Key stores the key of the catagories.
+  // this function refreshes the current key on each render.
   useEffect(() => {
-    console.log(currentKey);
+    console.log(currentKey, "this is current key");
     if (currentKey !== null) {
       localStorage.setItem("currentKey", currentKey);
     }
     fetchSites();
-    // console.log(folderKey)
     // eslint-disable-next-line
   }, [currentKey]);
 
-  
-
+  // State that stores the Folder Name.
   const [folderName, setFolderName] = useState("");
 
+  // Handles the input coming from the Follow feed input
   const handleInputChange = (e) => {
     setFolderName(e.target.value);
   };
 
+  //Function to create a New Folder from feed list.
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -68,14 +70,13 @@ function Siteslist() {
     }
   };
 
+  // Function to add new Feed Site item in the Folders created by user
   const handleAddItem = async () => {
-    // await folderKey
     try {
-      // const folderId = '6677edace72093527ab053b6'; // Example folder ID as string
-      const response = await fetch('http://localhost:3000/api/items/additem', {
-        method: 'POST',
+      const response = await fetch("http://localhost:3000/api/items/additem", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           items: [
@@ -86,7 +87,7 @@ function Siteslist() {
               siteDesc: siteData[3],
               iconLink: siteData[4],
               rssLink: siteData[5],
-              folder: folderKey // Send folder ID as string
+              folder: folderKey,
             },
           ],
         }),
@@ -94,32 +95,29 @@ function Siteslist() {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-  
       const responseData = await response.json();
-      console.log('Item Added:', responseData);
-      setFolderName('');
+      console.log("Item Added:", responseData);
+      setFolderName("");
     } catch (error) {
-      console.error('Error adding Item:', error);
+      console.error("Error adding Item:", error);
     }
   };
 
+  // Wait for some time when folder is added
+  // Was added to check if delaying the addition of item solves the problem
   const handleClick = () => {
-    setTimeout(() => {
-      handleAddItem();
-    }, 1000);
+    handleAddItem();
+    // setTimeout(() => {
+    // }, 1000);
   };
 
+  //Refreshes the folder list as soon as state changes, somehow not working
   useEffect(() => {
-    // localStorage.setItem('folderKey', JSON.stringify(folderKey));
     console.log(siteData);
-    // handleClick()
     console.log(folderKey);
   }, [siteData, folderKey]);
-  
-  
 
-  
-
+  //Toggles the popup window when creating a new folder from the feeds
   const togglePopup = () => {
     setIsPopupVisible(!isPopupVisible);
   };
@@ -136,13 +134,16 @@ function Siteslist() {
                     <li
                       onClick={() => {
                         setFolderKey([element._id]);
-                        console.log(folderKey)
+                        console.log(folderKey);
                         handleClick();
                       }}
                       key={element._id}
                     >
                       <span>{element.name}</span>
-                      <i className="fa-solid fa-plus"></i>
+                      <i
+                        onClick={() => setFolderKey([element._id])}
+                        className="fa-solid fa-plus"
+                      ></i>
                     </li>
                   );
                 })}
@@ -190,15 +191,15 @@ function Siteslist() {
                     <div className={`${styles.followBtn}`}>
                       <button
                         onClick={() => {
-                          
                           setSiteData([
-                            element.key, 
-                            element.title, 
-                            element.siteLink, 
-                            element.siteDesc, 
-                            element.iconLink, 
-                            element.rssLink]);
-                          console.log(siteData)
+                            element.key,
+                            element.title,
+                            element.siteLink,
+                            element.siteDesc,
+                            element.iconLink,
+                            element.rssLink,
+                          ]);
+                          console.log(siteData);
                           togglePopup();
                         }}
                       >

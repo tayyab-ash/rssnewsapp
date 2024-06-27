@@ -11,8 +11,10 @@ body {
   /* --primaryBlue2: #060b41; */
   --lightBlue: rgba(9, 16, 89, 0.304);
   --primaryYellow: #fbb244;
-  --bodyDark: #171720;
-  --bodyDark2: rgb(27, 27, 35);
+  /* --bodyDark: #171720; */
+  --bodyDark: #141416;
+  /* --bodyDark2: rgb(27, 27, 35); */
+  --bodyDark2: #1b1b1d;
   --lightYellow: rgba(251, 178, 68, 0.2);
   --white: white;
   --black: black;
@@ -143,7 +145,8 @@ body {
 }
 
 .headerBgDark {
-  background-color: rgb(23, 23, 32, 0.8);
+  /* background-color: rgb(23, 23, 32, 0.8); */
+  background-color: rgb(20, 20, 22, 0.8);
   backdrop-filter: blur(10px);
   transition: 0.5s;
 }

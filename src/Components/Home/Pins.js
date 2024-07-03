@@ -1,12 +1,13 @@
 import React from 'react'
 import styles from "./TodayNews.module.css"
-function ReadLater() {
+
+function Pins() {
   return (
     <div>
       <div>
         <div className={`${styles.contentAreaHeading}`}>
-          <h2>Read Later</h2>
-          <p>Articles Awaiting Your Attention.</p>
+          <h2>Your Pins</h2>
+          <p>Your Favorites at Your Fingertips.</p>
         </div>
         <hr className="mt-4 z-n1 position-relative" />
 
@@ -40,4 +41,4 @@ function ReadLater() {
   )
 }
 
-export default ReadLater
+export default Pins

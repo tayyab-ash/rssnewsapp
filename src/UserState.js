@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import UserContext from "./UserContext";
+import axios from "axios";
+
 
 function UserState({ children }) {
   // Manages the state of Create folder dialog box hiddenn/show
@@ -141,9 +143,79 @@ function UserState({ children }) {
     }
   };
 
+
+
+  const [userData, setUserData] = useState([])
+  const fetchUser = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/api/auth/fetchuser", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.getItem('token')
+        },
+      });
+      console.log(localStorage.getItem("token"))
+      const responseData = await response.json();
+      // console.log(responseData)
+      setUserData(responseData)
+    } catch (error) {
+      console.error("Error adding Item:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchUser()
+  }, [])
+  
+
+
+  //to manage the visibility of Logout Dialog Box
+  const [isVisible, setIsVisible] = useState(false); // State to manage visibility
+
+  const handleClose = () => {
+    setIsVisible(false);
+  }
+
+
+
+  // State that stores the Folder Name.
+  const [folderName, setFolderName] = useState("");
+
+  // Handles the input coming from the Follow feed input
+  const handleInputChange2 = (e) => {
+    setFolderName(e.target.value);
+  };
+
+  //Function to create a New Folder from feed list.
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.put(
+        "http://localhost:3000/api/folders/addfolders/6677edace72093527ab053b5",
+        {
+          folders: [
+            {
+              name: folderName,
+            },
+          ],
+        }
+      );
+      console.log("Folder created:", response.data);
+      setFolderName("");
+    } catch (error) {
+      console.error("Error creating folder:", error);
+    }
+  };
+
   return (
     <UserContext.Provider
       value={{
+        folderName,
+        setFolderName,
+        handleSubmit,
+        handleInputChange2,
+
         ExtendSidebar,
         CRFboxState,
         CRFlist,
@@ -158,6 +230,10 @@ function UserState({ children }) {
         feedPageTitle,
         rssFeed,
         currentFeed,
+        isVisible,
+        userData,
+        setIsVisible,
+        handleClose,
         setCurrentFeed,
         setfeedPageTitle,
         setExtendSidebar,

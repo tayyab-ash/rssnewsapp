@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .stroked-text {
+        background-color: rgb(120, 95, 95);
+        width: 400px;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #myoutlinedtext{
+        color: black;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="stroked-text">
+      <span id="myoutlinedtext">Example Text</span>
+    </div>
+    <script>
+          const color = "#FFF" /* white outline */
+  const r = 1 /* width of outline in pixels */
+  const n = Math.ceil(2*Math.PI*r) /* number of shadows */
+  var str = ''
+  for(var i = 0;i<n;i++) /* append shadows in n evenly distributed directions */
+  {
+    const theta = 2*Math.PI*i/n
+    str += (r*Math.cos(theta))+"px "+(r*Math.sin(theta))+"px 0 "+color+(i==n-1?"":",")
+  }
+  document.querySelector("#myoutlinedtext").style.textShadow = str
+    </script>
+  </body>
+</html>

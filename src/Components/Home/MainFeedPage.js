@@ -4,6 +4,7 @@ import img from "./images/img.jpg";
 import NewsComponent from "./NewsComponent";
 import userContext from "../../UserContext";
 
+
 function MainFeedPage() {
   const { articles, folders, feedPageTitle, setfeedPageTitle, rssFeed } = useContext(userContext);
   
@@ -40,6 +41,7 @@ function MainFeedPage() {
                 description={element.description}
                 imageUrl={element.cover_image}
                 newsUrl={element.link}
+                pubDate={element.publish_date}
                 // author={!element.author ? "Unknown" : element.author}
                 // date={element.publishedAt}
                 // source={element.source.name}

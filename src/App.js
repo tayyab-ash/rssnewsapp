@@ -26,6 +26,8 @@ import Siteslist from "./Components/Home/Discover/Sources/Siteslist";
 import MainFeedPage from "./Components/Home/MainFeedPage";
 import ReadLater from "./Components/Home/ReadLater";
 import UserAccount from "./Components/Home/UserAccountPage/UserAccount";
+import Pins from "./Components/Home/Pins";
+import ConfirmLogout from "./Components/Home/UserAccountPage/ConfirmLogout";
 
 
 function App() {
@@ -61,6 +63,7 @@ function App() {
             element={
               <React.Fragment>
                 <Homepage />
+                <ConfirmLogout/>
                 <div>
                   <div
                     className={`${styles.mainContainer} ${
@@ -72,7 +75,7 @@ function App() {
                         <div>
                           <Routes>
                             <Route exact path="/" element={<TodayNews />} />
-                            {/* <Route exact path="/user" element={<UserAccount/>} /> */}
+                            <Route exact path="/user" element={<UserAccount/>} />
                             {/* <Route exact path="/TechCrunch" element={<MainFeedPage />}/> */}
                             {
                               folders.map((element)=>{
@@ -86,7 +89,8 @@ function App() {
                               })
                             }
                             
-                            {/* <Route exact path="/readlater" element={<ReadLater/>} /> */}
+                            <Route exact path="/readlater" element={<ReadLater/>} />
+                            <Route exact path="/pins" element={<Pins/>} />
                             {folders.map((folders, index) => (
                             <Route key={index} path={`/folders/:id`} component={folderComponent} />
                               ))}

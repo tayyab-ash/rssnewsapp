@@ -26,4 +26,76 @@
     --textggray: rgb(190, 190, 190);
 }
 
+.userContainer{
+    margin: 4rem 0 4rem 0;
+    padding: 4rem 0 4rem 0;
+}
+
+
+
+.imgContainer{
+    width: 180px;
+    height: 180px;
+    background-color: var(--bodyDark2);
+    /* background-color: red; */
+    border-radius: 100%;
+}
+.imgButtons button{
+    border: none;
+    outline: none;
+    margin-right: 1rem;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 4px;
+    /* background-color: var(--bodyDark2); */
+    background-color: var(--transparent);
+    border: 1px solid var(--border);
+    color: rgb(194, 194, 194);
+}
+
+.form-control{
+    padding: 10px 12px ;
+    transition: 0.5s;
+    border-radius: 4px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    background-color: var(--transparent);
+    border: 1px solid var(--border);
+    color: white;
+    font-weight: 600;
+}
+.form-control:focus{
+    background-color: var(--transparent);
+    border: 1px solid var(--primaryYellow);
+    outline: none;
+    box-shadow: none;
+    color: white;
+}
+
+.userDetail form label{
+    font-size: 14px;
+    font-weight: 700;
+}
+.userDetail button{
+    margin-top: 2rem;
+    outline: none;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 6px 12px;
+    border: 1px solid var(--primaryYellow);
+    background-color: var(--primaryYellow);
+    font-weight: 600;
+}
+
+
+.logoutBtn{
+    float: right;
+}
+.logoutBtn button{
+    background-color: var(--transparent);
+    border: 1px solid rgb(170, 0, 0);
+    color: rgb(170, 0, 0);
+}
 

@@ -28,7 +28,7 @@
 
 
 .sidebar{
-    width: 70px;
+    width: 66px;
     background-color: #141416;
     background-color: var(--bodyDark);
     height: 100vh;
@@ -44,18 +44,30 @@
 }
 
 .sidebar img{
-    width:26px;
+    width: 24px;
     cursor: pointer;
 }
+.sidebar .imgContainer{
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sidebar .imgContainer:hover{
+    background-color: #212123;
+}
+
 
 
 .sidebar2{
     position: absolute;
     z-index: 2;
     top: 0;
-    left: -320px;
+    left: -300px;
     color: white;
-    width: 320px;
+    width: 300px;
     height: 100vh;
     background-color: var(--bodyDark2);
     transition: 0.3s;
@@ -63,7 +75,7 @@
 }
 
 .showSidebar{
-    left: 70px;
+    left: 66px;
 }
 
 .innerSidebar{
@@ -86,6 +98,15 @@
     font-weight: 700;
     padding: 6px 30px;
     cursor: pointer;
+    border-left: 2px solid #fbb24400;
+
+}
+
+.activeItem{
+    border-left: 2px solid #FBB244;
+    background-color: rgb(37, 37, 41);
+    color: var(--primaryYellow);
+    /* box-sizing: border-box; */
 }
  
 .innerSidebar .list ul a {
@@ -167,7 +188,7 @@
 .feedList{
     font-family: "Open Sans", sans-serif;
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 600;
     /* padding: 6px 30px; */
     cursor: pointer;
 }
@@ -194,6 +215,12 @@
     align-items: center;
     justify-content: space-between;
 }
+.feedList .folderName ul li i{
+    opacity: 50%;
+}
+.feedList .folderName ul li i:hover{
+    opacity: 100%;
+}
 .feedList .folderName ul a {
     /* padding: 6px 30px; */
     /* color: white; */
@@ -213,7 +240,16 @@
 
 .folderName .websitesList li{
     padding: 6px 60px !important;
+    /* display: flex !important; */
     justify-content: flex-start !important;
+    display: flex;
+}
+.folderName .websitesList li i{
+    margin-left: auto;
+    opacity: 50%;
+}
+.folderName .websitesList li i:hover{
+    opacity: 100%;
 }
 
 .websitesHidden{
@@ -318,3 +354,4 @@
 .showCreateFolderSidebar{
     right: 0px;
 }
+

@@ -5,7 +5,10 @@ import userContext from "../../../../UserContext";
 import axios from "axios";
 
 function Siteslist() {
-  const { currentKey, folders } = useContext(userContext);
+  const { currentKey, folders, folderName,
+    setFolderName,
+    handleSubmit,
+    handleInputChange2 } = useContext(userContext);
 
   const [sites, setsites] = useState([]);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
@@ -41,34 +44,34 @@ function Siteslist() {
     // eslint-disable-next-line
   }, [currentKey]);
 
-  // State that stores the Folder Name.
-  const [folderName, setFolderName] = useState("");
+  // // State that stores the Folder Name.
+  // const [folderName, setFolderName] = useState("");
 
-  // Handles the input coming from the Follow feed input
-  const handleInputChange = (e) => {
-    setFolderName(e.target.value);
-  };
+  // // Handles the input coming from the Follow feed input
+  // const handleInputChange = (e) => {
+  //   setFolderName(e.target.value);
+  // };
 
-  //Function to create a New Folder from feed list.
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.put(
-        "http://localhost:3000/api/folders/addfolders/6677edace72093527ab053b5",
-        {
-          folders: [
-            {
-              name: folderName,
-            },
-          ],
-        }
-      );
-      console.log("Folder created:", response.data);
-      setFolderName("");
-    } catch (error) {
-      console.error("Error creating folder:", error);
-    }
-  };
+  // //Function to create a New Folder from feed list.
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await axios.put(
+  //       "http://localhost:3000/api/folders/addfolders/6677edace72093527ab053b5",
+  //       {
+  //         folders: [
+  //           {
+  //             name: folderName,
+  //           },
+  //         ],
+  //       }
+  //     );
+  //     console.log("Folder created:", response.data);
+  //     setFolderName("");
+  //   } catch (error) {
+  //     console.error("Error creating folder:", error);
+  //   }
+  // };
 
   // Function to add new Feed Site item in the Folders created by user
   const handleAddItem = async () => {
@@ -107,15 +110,13 @@ function Siteslist() {
   // Was added to check if delaying the addition of item solves the problem
   const handleClick = () => {
     handleAddItem();
-    // setTimeout(() => {
-    // }, 1000);
   };
 
   //Refreshes the folder list as soon as state changes, somehow not working
   useEffect(() => {
-    console.log(siteData);
-    console.log(folderKey);
-  }, [siteData, folderKey]);
+  }, [siteData]);
+  useEffect(() => {
+  }, [folderKey]);
 
   //Toggles the popup window when creating a new folder from the feeds
   const togglePopup = () => {
@@ -156,7 +157,7 @@ function Siteslist() {
                 name="name"
                 type="text"
                 value={folderName}
-                onChange={handleInputChange}
+                onChange={handleInputChange2}
                 placeholder="Topic, type, etc"
               />
               <button onClick={handleSubmit} className={`${styles.createBtn}`}>

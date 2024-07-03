@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Sidebar.module.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import themeContext from "../Context/Theme/ThemeContext";
 import userContext from "../../UserContext";
@@ -8,11 +8,15 @@ import userContext from "../../UserContext";
 //Images
 import home from "./images/home.png";
 import rss from "./images/rss.png";
+import rss2 from "./images/rss 2.png";
 import user from "./images/user.png";
 import sidebar from "./images/sidebar.png";
 import Today from "./images/Today.png";
+import Today2 from "./images/Today2.png";
 import Readlater from "./images/Read later.png";
+import Readlater2 from "./images/Read later2.png";
 import Pins from "./images/Pins.png";
+import Pins2 from "./images/Pins2.png";
 import recents from "./images/recent.png";
 import log from "./images/log.png";
 import list from "./images/list.png";
@@ -20,6 +24,8 @@ import drpdown from "./images/down-arrow.png";
 
 function Sidebar() {
   const shrink = useContext(themeContext);
+  const [activeItem, setactiveItem] = useState('/home')
+  const location = useLocation()
   const {
     ExtendSidebar,
     setExtendSidebar,
@@ -32,8 +38,11 @@ function Sidebar() {
     handleInputChange,
     handleDeleteWebsite,
     setfeedPageTitle,
+    folderName,
+    setFolderName,
+    handleSubmit,
+    handleInputChange2
   } = useContext(userContext);
-
 
   // State mannaging the create folder sidebar
   const [extendCreateFolder, setextendCreateFolder] = useState(null);
@@ -60,16 +69,19 @@ function Sidebar() {
     });
   };
 
+  
+  
   // Function to store the state of Folder list hidden/show in the localStorage so that refreshing the page doesnt effect it.
   useEffect(() => {
     localStorage.setItem("hiddenState", JSON.stringify(hiddenState));
   }, [hiddenState]);
 
+  useEffect(()=>{
+  },[activeItem])
+
   return (
     <div>
-      
       <div className={`${styles.mainSidebar}`}>
-        
         <div
           className={`${styles.createFolderSidebar} ${styles[extendCreateFolder]}`}
         >
@@ -87,25 +99,23 @@ function Sidebar() {
                 id="folderTitle"
                 type="text"
                 placeholder="Topic, type, etc"
-                value={title}
-                onChange={handleInputChange}
+                value={folderName}
+                onChange={handleInputChange2}
               />
             </div>
-            <button onClick={handleCreateFolder}>Create</button>
+            <button onClick={handleSubmit}>Create</button>
           </div>
         </div>
 
         <div className={styles.sidebar}>
           <div className="mt-5 d-flex flex-column">
-            <div>
+            <div className={`${styles.imgContainer}`}>
               <Link to="/home">
                 <img src={home} alt="home" />
               </Link>
             </div>
-
-            <div>
+            <div className={`${styles.imgContainer} mt-4`}>
               <img
-                className="mt-4"
                 src={sidebar}
                 onClick={() => {
                   setExtendSidebar(!ExtendSidebar);
@@ -119,18 +129,15 @@ function Sidebar() {
               />
             </div>
           </div>
-          <div>
+          <div className={`${styles.imgContainer}`}>
             <Link to="/home/discover">
-              <img src={rss} alt="feed" />
+              <img onClick={()=> setactiveItem('/home/discover')}  src={location.pathname === '/home/discover' ? rss2:rss} alt="feed" />
             </Link>
           </div>
-          <div className="mb-5">  
-            <div>
-              {/* hshsh */}
-            </div>
-            {/* <Link to='/home/user'> */}
-              <img src={user} alt="user" />
-            {/* </Link> */}
+          <div className={`${styles.imgContainer} mb-5`}>
+            <Link to='/home/user'>
+            <img src={user} alt="user" />
+            </Link>
             
           </div>
         </div>
@@ -143,23 +150,29 @@ function Sidebar() {
           <div className={`${styles.innerSidebar}`}>
             <div className={`${styles.list}`}>
               <ul>
-                <Link to="/home">
-                  <li>
-                    <img src={Today} alt="" /> Today
-                  </li>
-                </Link>
-                <Link to="/home/readlater">
-                  <li>
-                    <img src={Readlater} alt="" /> Read Later
+                <Link to="/home"
+                
+                >
+                  <li className={`${location.pathname === '/home'? styles.activeItem:""}`}
+                onClick={()=>setactiveItem('/home')}>
+                    <img src={activeItem === '/home'? Today2: Today} alt="" /> Today
                   </li>
                 </Link>
 
-                <li>
-                  <img src={Pins} alt="" /> Pins
+                <Link to="/home/readlater">
+                  <li className={`${location.pathname === '/home/readlater'? styles.activeItem:""}`}
+                onClick={()=>setactiveItem('/home/readlater')}>
+                    <img src={activeItem === '/home/readlater'? Readlater2: Readlater} alt="" /> Read Later
+                  </li>
+                </Link>
+
+                <Link to="/home/pins">
+                <li className={`${location.pathname === '/home/pins'? styles.activeItem:""}`}
+                onClick={()=>setactiveItem('/home/pins')}>
+                  <img src={activeItem === '/home/pins'? Pins2: Pins} alt="" /> Pins
                 </li>
-                <li>
-                  <img src={recents} alt="" /> Recently Read
-                </li>
+                </Link>
+                
               </ul>
             </div>
 
@@ -198,14 +211,16 @@ function Sidebar() {
                               />
                               {element.name}
                             </div>
+                            
                             <i
                               onClick={(e) => {
                                 e.preventDefault();
                                 e.stopPropagation();
-                                handleDeleteWebsite(folders);
+                                // handleDeleteWebsite(folders);
                               }}
                               className="fa-solid fa-trash"
-                            ></i>
+                            >
+                            </i>
                           </li>
                           {/* </Link> */}
 
@@ -235,6 +250,14 @@ function Sidebar() {
                                       width={20}
                                     />
                                     {item.title}
+                                    <i
+                                      onClick={(e) => {
+                                        e.preventDefault();
+                                        e.stopPropagation();
+                                        // handleDeleteWebsite(folders);
+                                      }}
+                                      className="fa-solid fa-trash "
+                                    ></i>
                                   </li>
                                 </Link>
                               );
@@ -244,7 +267,7 @@ function Sidebar() {
                       );
                     })}
 
-                    <div className={`${styles.newFolder}`}>
+                    <div className={`${styles.newFolder} mt-2`}>
                       <p onClick={handleCreateFolderSidebar}>
                         Create New Folder
                       </p>

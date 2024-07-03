@@ -43,6 +43,7 @@ function Signup() {
         const json = await response.json();
         console.log(json);
           localStorage.setItem("token", json.authtoken);
+        
           navigate("/home");
       } catch (error) {
         console.error("There was an error with the fetch operation:", error);

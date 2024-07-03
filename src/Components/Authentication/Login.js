@@ -30,6 +30,7 @@ function Login() {
     };
   }, [mode.theme]);
 
+  let token;
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -44,9 +45,10 @@ function Login() {
         }),
       });
       const json = await response.json();
+      // const token = json.authtoken
       console.log(json);
       if (json.success) {
-        localStorage.setItem("token", json.authtoken);
+      token =  localStorage.setItem("token", json.authToken);
         navigate("/home");
         
       } else {
@@ -59,6 +61,10 @@ function Login() {
       console.error("There was an error with the fetch operation:", error);
     }
   };
+  useEffect(() => {
+    
+  }, [token])
+  
 
   const onChange = (e) => {
     setcredentials({ ...credentials, [e.target.name]: e.target.value });

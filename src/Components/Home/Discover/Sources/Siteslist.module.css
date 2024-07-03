@@ -91,7 +91,7 @@
 }
 
 .followBtn button:hover{
-    background-color: var(--bodyDark4);
+    background-color: var(--bodyDark2);
 }
 
 .popupContainer {
@@ -112,6 +112,7 @@
   
   .popup {
     background-color: #171720;
+    background-color: var(--bodyDark);
     padding: 40px 60px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -130,7 +131,7 @@
     padding: 0;
     margin: 0;
     overflow: auto;
-    height: 120px;
+    max-height: 120px;
     /* margin-left: 10px; */
     /* padding: 0px 10px; */
   }
@@ -147,7 +148,7 @@
     cursor: pointer;
   }
   .popup ul li:hover{
-    background-color: #24242e;
+    background-color: var(--bodyDark2);
   }
 
 .popup span{
@@ -194,5 +195,5 @@
 }
 
   .createBtn:hover, .closeBtn:hover{
-    background-color: var(--bodyDark4);
+    background-color: var(--bodyDark2);
   }

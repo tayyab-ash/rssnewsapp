@@ -54,7 +54,7 @@ function NewsComponent(props) {
             </div>
             <p>{formattedDate}</p>
 
-            <p>{description && truncateText(description)}.</p>
+            <p>{description ? truncateText(description): "The Description for this news is not available, forward to the original source for full information."}</p>
           </div>
         </div>
       </div>

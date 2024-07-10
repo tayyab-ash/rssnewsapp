@@ -96,10 +96,7 @@ function Login() {
               </div>
               <div className={`${loginstyle.desctext} pt-5 mb-5`}>
                 <p>
-                  Far far away, behind the word mountains, far from the
-                  countries Vokalia and Consonantia, there live the blind texts.
-                  Separated they live in Bookmarksgrove right at the coast of
-                  the Semantics, a large language ocean.
+                Welcome to Zen Feed, your serene sanctuary in the digital world of news. We collect and organizes news articles and updates from multiple sources into a single interface. Making it easier for our user to access the content of their favorite topics on a single platform.
                 </p>
               </div>
             </div>
